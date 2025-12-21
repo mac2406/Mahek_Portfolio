@@ -155,43 +155,251 @@
 }
 
 /* Random Paper Scraps */
-.paper-scrap {
+/* =========================================
+   ABOUT COLLAGE CONSOLIDATION - EXACT MATCH REFINE
+   ========================================= */
+
+/* Main Container: Two Columns */
+.about-collage-container {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    /* Ratio similar to reference */
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 80px 20px;
+    align-items: flex-start;
+}
+
+/* Left Column: Bio Text Only */
+.about-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    position: relative;
+    z-index: 5;
+    padding-top: 20px;
+    order: 0;
+}
+
+/* Right Column: The Gray Board & Bottom Strips */
+.about-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    order: 1;
+}
+
+/* --- THE GRAY BOARD (Experience/Education Container) --- */
+.gray-board-container {
+    background-color: #d1d1d1;
+    /* Visible gray */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+    border-radius: 30px;
+    padding: 60px 40px 50px 50px;
+    box-shadow:
+        inset 0 0 50px rgba(0, 0, 0, 0.1),
+        /* Inner shadow for depth */
+        15px 15px 40px rgba(0, 0, 0, 0.2);
+    /* Drop shadow */
+    position: relative;
+    /* Rotation to match the board angle in reference */
+    transform: rotate(1.5deg);
+    margin-right: 20px;
+}
+
+/* Texture overlay for realism */
+.gray-board-container::before {
+    content: '';
     position: absolute;
-    background: #fff;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-}
-
-.scrap-random-1 {
-    width: 60px;
-    height: 40px;
-    top: 100px;
-    left: 5%;
-    transform: rotate(-10deg);
-    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 90%);
-}
-
-.scrap-random-2 {
-    width: 50px;
-    height: 50px;
-    bottom: 50px;
-    right: 5%;
-    background: var(--text-primary);
-    transform: rotate(20deg);
-    clip-path: polygon(0 0, 100% 20%, 80% 100%, 0 80%);
-    opacity: 0.1;
-}
-
-/* Hand Drawn Arrow */
-.hand-drawn-arrow {
-    position: absolute;
-    bottom: -40px;
-    left: -40px;
-    width: 60px;
-    height: 60px;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10,90 Q50,0 90,10 M90,10 L80,30 M90,10 L60,10' fill='none' stroke='%23E63946' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: rotate(-10deg);
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.05) 100%);
+    border-radius: 30px;
     pointer-events: none;
+}
+
+/* --- LABELS (Tape style) --- */
+.sticker-label {
+    display: inline-block;
+    padding: 8px 16px;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    z-index: 10;
+}
+
+.sticker-label-red {
+    background: #FF2E2E;
+    /* Bright Red */
+    color: #fff;
+    transform: rotate(-3deg);
+    top: -45px;
+    left: 0px;
+}
+
+.sticker-label-black {
+    background: #000;
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 1.3rem;
+    position: absolute;
+}
+
+/* Positioning labels on the board */
+.gray-board-container .sticker-label-black {
+    top: -35px;
+    /* Move it higher up */
+    left: 20px;
+    transform: rotate(-2deg);
+    z-index: 20;
+    /* Ensure on top of card */
+}
+
+/* Wrapper for sections inside the board */
+.collage-section-wrapper {
+    position: relative;
+    margin-bottom: 40px;
+    /* More space between sections */
+    padding-top: 20px;
+    /* Give space for the label */
+}
+
+/* --- WHITE PAPER SCRAPS --- */
+.scrap-card {
+    background: #fff;
+    padding: 30px 25px 25px 25px;
+    /* More top padding just in case */
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.15);
+    position: relative;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #222;
+    /* Uneven edges effect via clip-path (subtle) */
+    clip-path: polygon(0% 1%, 100% 0%, 99% 99%, 1% 100%);
+}
+
+.card-bio {
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Scraps on the Gray Board */
+.gray-board-container .scrap-card {
+    margin-bottom: 25px;
+    transform: rotate(-0.5deg);
+    background: #fdfdfd;
+}
+
+.gray-board-container .scrap-card:nth-child(even) {
+    transform: rotate(0.5deg);
+}
+
+/* --- TYPOGRAPHY DETAILS --- */
+/* The "Pink Highlight" Marker style */
+.highlight-pink {
+    background-color: #ffcfcf;
+    /* Pastel pink */
+    padding: 0 4px;
+    box-decoration-break: clone;
+    font-weight: 500;
+}
+
+.collage-role {
+    display: block;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.collage-date {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #555;
+    margin-left: 8px;
+}
+
+.typewriter-text {
+    font-family: 'Cutive Mono', monospace;
+    font-size: 1.05rem;
+}
+
+/* --- BOTTOM STRIPS (Skills/Expertise) --- */
+.skills-expertise-container {
+    padding-left: 40px;
+    /* Indent from left */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.strip-wrapper {
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.15));
+}
+
+.strip-label {
+    background: #000;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    /* Boxy */
+    font-size: 1.2rem;
+    z-index: 2;
+    transform: rotate(-1deg);
+}
+
+.strip-content {
+    background: #fff;
+    padding: 12px 25px;
+    font-family: 'Cutive Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    flex-grow: 1;
+    /* Stretch */
+    transform: rotate(0.5deg);
+    margin-left: -5px;
+    /* Visual connection */
+    clip-path: polygon(0 0, 100% 2%, 99% 98%, 0 100%);
+    /* Paper strip look */
+}
+
+/* Sticker Kiss */
+.sticker-kiss {
+    position: absolute;
+    bottom: -10px;
+    right: -20px;
+    width: 100px;
+    height: 80px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10,30 Q30,10 50,25 Q70,10 90,30 Q70,50 50,35 Q30,50 10,30 Z' fill='%23D00000' opacity='0.85'/%3E%3C/svg%3E");
+    transform: rotate(-20deg);
+    z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about-collage-container {
+        grid-template-columns: 1fr;
+        padding: 60px 20px;
+    }
+
+    .gray-board-container {
+        margin-right: 0;
+        padding: 50px 20px 40px 20px;
+    }
+
+    .skills-expertise-container {
+        padding-left: 0;
+    }
 }
