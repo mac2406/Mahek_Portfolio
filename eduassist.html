@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAssist - Project Details</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cutive+Mono&family=Caveat:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/collage-enhancements.css">
+
+    <style>
+        /* Specific Styles for Project Page */
+        .project-page-header {
+            padding: 120px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .screenshot-frame {
+            background: #fff;
+            padding: 15px 15px 40px 15px;
+            /* Polaroid bottom padding */
+            box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.1);
+            transform: rotate(var(--rotation));
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .screenshot-frame:hover {
+            transform: scale(1.02) rotate(0deg);
+            z-index: 10;
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 200px;
+            /* Placeholder height */
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-family: var(--font-body);
+            border: 2px dashed #ccc;
+        }
+
+        .screenshot-caption {
+            font-family: var(--font-hand);
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .back-tape {
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            font-family: var(--font-heading);
+            transform: rotate(-3deg);
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back Button -->
+    <a href="index.html#work" class="back-link">
+        <div class="back-tape">← BACK TO PROJECTS</div>
+    </a>
+
+    <main class="container">
+
+        <!-- Project Header -->
+        <header class="project-page-header">
+            <div class="sticker-label sticker-label-red"
+                style="position: relative; top: auto; left: auto; transform: rotate(-2deg); display: inline-block; margin-bottom: 20px;">
+                AI PROJECT</div>
+            <h1 class="hero-title-mixed">
+                <span class="font-serif">Edu</span><span class="font-hand">Assist</span>
+            </h1>
+            <div class="scrap-card" style="max-width: 600px; margin: 30px auto; transform: rotate(1deg);">
+                <p class="typewriter-text">
+                    An intelligent assistant designed to streamline campus inquiries.
+                    <span class="highlight-pink">EduAssist</span> helps students find information about courses,
+                    schedules, and events instantly.
+                </p>
+                <div class="tape-strip" style="top: -10px; width: 100px; left: 40%;"></div>
+            </div>
+        </header>
+
+        <!-- Screenshot Gallery (The "Photo Album") -->
+        <section class="project-gallery">
+            <h2 class="section-title-hand" style="text-align: center; margin-bottom: 40px;">- Project Snapshots -</h2>
+
+            <div class="gallery-grid">
+
+                <!-- Screenshot 1 -->
+                <div class="screenshot-frame" style="--rotation: -2deg;">
+                    <div class="tape-strip" style="top: -15px; left: 30%;"></div>
+                    <!-- REPLACE src with your image -->
+                    <div class="screenshot-placeholder">
+                        <span>Capture 01: Chat Interface</span>
+                    </div>
+                    <!-- <img src="images/eduassist-1.png" alt="Chat UI" style="width: 100%;"> -->
+                    <div class="screenshot-caption">The main chat interface</div>
+                </div>
+
+                <!-- Screenshot 2 -->
+                <div class="screenshot-frame" style="--rotation: 1deg;">
+                    <div class="tape-strip" style="top: -15px; right: 30%;"></div>
+                    <div class="screenshot-placeholder">
+                        <span>Capture 02: Response Example</span>
+                    </div>
+                    <!-- <img src="images/eduassist-2.png" alt="Response" style="width: 100%;"> -->
+                    <div class="screenshot-caption">Instant AI responses</div>
+                </div>
+
+                <!-- Screenshot 3 -->
+                <div class="screenshot-frame" style="--rotation: -1.5deg;">
+                    <div class="tape-strip" style="bottom: -15px; right: 10%; transform: rotate(180deg);"></div>
+                    <div class="screenshot-placeholder">
+                        <span>Capture 03: Feature List</span>
+                    </div>
+                    <!-- <img src="images/eduassist-3.png" alt="Features" style="width: 100%;"> -->
+                    <div class="screenshot-caption">Key features overview</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Technical Details (Paper Scrap style) -->
+        <section class="project-details" style="margin: 60px 0 100px;">
+            <div class="gray-board-container" style="transform: rotate(0deg); max-width: 800px; margin: 0 auto;">
+                <div class="sticker-label sticker-label-black" style="top: -25px; left: 20px;">Tech Stack</div>
+
+                <div class="scrap-card" style="transform: rotate(-0.5deg);">
+                    <ul class="dermal-list" style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><strong>Backend:</strong> Python, Flask</li>
+                        <li style="margin-bottom: 10px;"><strong>AI Model:</strong> NLP / Machine Learning</li>
+                        <li style="margin-bottom: 10px;"><strong>Frontend:</strong> HTML/CSS/JS (for the web interface)
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sticker-kiss" style="bottom: 20px; right: 20px;"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
