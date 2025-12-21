@@ -1,56 +1,45 @@
-# Mahek Gopani - Design Portfolio
+# Mahek Gopani Portfolio
 
-A modern, responsive portfolio website showcasing UI/UX design work, skills, and professional experience. This project demonstrates a focus on clean aesthetics, user-centric design, and interactive elements.
+A sleek, modern portfolio website showcasing my work as a UI/UX Designer and Front-End Developer. This project highlights my skills in design thinking, user-centric interfaces, and responsive web development.
 
-## 🚀 Overview
+## 🚀 Technologies Used
 
-This portfolio is built to highlight design philosophy and technical capabilities. It features a custom design system, smooth animations, and a fully responsive layout that works seamlessly across all devices.
-
-## 🛠️ Technologies Used
-
-- **HTML5**: Semantic structure and accessibility.
-- **CSS3**: Custom properties (variables), Flexbox/Grid layouts, and animations.
-- **JavaScript (Vanilla)**: Interactive components, custom cursor logic, and magnetic button effects.
-- **Google Fonts**: Inter, Poppins, and Outfit for typography.
-
-## 📥 Installation & Usage
-
-You can view the portfolio locally by cloning the repository and opening the `index.html` file in your browser.
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/portfolio.git
-    ```
-
-2.  **Navigate to the project directory:**
-    ```bash
-    cd portfolio
-    ```
-
-3.  **Open `index.html`:**
-    Simply double-click `index.html` or open it with your preferred web browser.
-
-    *Alternatively, for a better development experience, you can use a local server like Live Server in VS Code.*
-
-## 📂 Project Structure
-
-```
-├── css/
-│   └── styles.css      # Main stylesheet
-├── js/
-│   └── main.js         # Interactive logic
-├── index.html          # Main entry point
-├── profile.png         # Profile image asset
-└── Mahek Gopani (CV).pdf # Downloadable Resume
-```
+-   **HTML5**: Semantic structure and content.
+-   **CSS3**: Advanced styling, Flexbox/Grid layouts, custom variables (`--bg-color`, `--accent-color`), and polished animations.
+-   **JavaScript (ES6+)**: Interactive elements like typewriting effects, scroll reveal, magnetic buttons, and 3D tilt cards.
+-   **Google Fonts**: 'Poppins' for headings and 'Inter' for body text.
 
 ## ✨ Features
 
-- **Dynamic Hero Section**: Typing effect and animated background elements.
-- **Interactive UI**: Custom cursor and magnetic buttons that respond to cursor movement.
-- **Project Showcase**: Grid layout for highlighting selected works.
-- **Responsive Design**: Optimized for mobile, tablet, and desktop views.
+-   **Dynamic Theme**: Warm "Sunset Coral" color palette with premium gradients.
+-   **Interactive UI**: Custom cursor, magnetic buttons, and organic blob background animations.
+-   **Project Showcase**: 3D tilt cards for project thumbnails with hover effects.
+-   **Smooth Navigation**: Scroll progress bar and section reveal animations.
+-   **Responsive Design**: Fully optimized for desktops, tablets, and mobile devices.
 
----
+## 🛠️ How to Run Locally
 
-© Mahek Gopani. All rights reserved.
+You can run this project using any simple HTTP server.
+
+### Using Python (Pre-installed on macOS/Linux)
+
+1.  Open your terminal.
+2.  Navigate to the project directory:
+    ```bash
+    cd "Mahek Gopani Portfolio"
+    ```
+3.  Start the server:
+    ```bash
+    python3 -m http.server 8000
+    ```
+4.  Open your browser and visit: `http://localhost:8000`
+
+### Using VS Code Live Server
+
+1.  Open the folder in **VS Code**.
+2.  Install the **Live Server** extension.
+3.  Right-click `index.html` and select **"Open with Live Server"**.
+
+## 📬 Contact
+
+Feel free to reach out via [LinkedIn](https://www.linkedin.com/in/mahek-gopani-b34643249/) or [Email](mailto:mahekgopani2406@gmail.com).
