@@ -46,6 +46,15 @@
             z-index: 10;
         }
 
+        /* Enforce uniform photo size for the 'album' look */
+        .screenshot-frame img {
+            width: 100%;
+            height: auto;
+            /* Allow natural height */
+            display: block;
+            border: 1px solid #eee;
+        }
+
         .screenshot-placeholder {
             width: 100%;
             height: 200px;
@@ -87,6 +96,9 @@
 </head>
 
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
 
     <!-- Back Button -->
     <a href="index.html#work" class="back-link">
@@ -123,30 +135,24 @@
                 <div class="screenshot-frame" style="--rotation: -2deg;">
                     <div class="tape-strip" style="top: -15px; left: 30%;"></div>
                     <!-- REPLACE src with your image -->
-                    <div class="screenshot-placeholder">
-                        <span>Capture 01: Chat Interface</span>
-                    </div>
-                    <!-- <img src="images/eduassist-1.png" alt="Chat UI" style="width: 100%;"> -->
+                    <img src="assets/EduAssist/interface.png" alt="Chat Interface"
+                        style="width: 100%; height: auto; display: block;">
                     <div class="screenshot-caption">The main chat interface</div>
                 </div>
 
                 <!-- Screenshot 2 -->
                 <div class="screenshot-frame" style="--rotation: 1deg;">
                     <div class="tape-strip" style="top: -15px; right: 30%;"></div>
-                    <div class="screenshot-placeholder">
-                        <span>Capture 02: Response Example</span>
-                    </div>
-                    <!-- <img src="images/eduassist-2.png" alt="Response" style="width: 100%;"> -->
+                    <img src="assets/EduAssist/AI Response.png" alt="AI Response"
+                        style="width: 100%; height: auto; display: block;">
                     <div class="screenshot-caption">Instant AI responses</div>
                 </div>
 
                 <!-- Screenshot 3 -->
                 <div class="screenshot-frame" style="--rotation: -1.5deg;">
                     <div class="tape-strip" style="bottom: -15px; right: 10%; transform: rotate(180deg);"></div>
-                    <div class="screenshot-placeholder">
-                        <span>Capture 03: Feature List</span>
-                    </div>
-                    <!-- <img src="images/eduassist-3.png" alt="Features" style="width: 100%;"> -->
+                    <img src="assets/EduAssist/Website.png" alt="Website Overview"
+                        style="width: 100%; height: auto; display: block;">
                     <div class="screenshot-caption">Key features overview</div>
                 </div>
 

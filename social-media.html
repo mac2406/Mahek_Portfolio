@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Designs - Mahek Gopani</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cutive+Mono&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/collage-enhancements.css">
+
+    <style>
+        /* UNIQUE STYLES FOR THIS PAGE (To match the reference slide) */
+
+        body {
+            background-color: #F4F1EA;
+            /* Warm paper tone */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            overflow-x: hidden;
+        }
+
+        .slide-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            /* Split roughly 45/55 */
+            min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* --- LEFT COLUMN: Editorial Text --- */
+        .content-col {
+            padding: 80px 60px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* The Big Red "Sticker" Header */
+        .red-block-header {
+            background-color: #E63946;
+            /* Vibrant Red */
+            color: white;
+            padding: 15px 30px;
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            transform: rotate(-2deg);
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            max-width: 80%;
+        }
+
+        /* The "Brand Name" with Circle */
+        .brand-name-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 60px;
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 15px;
+            border: 1px solid #ddd;
+            display: inline-block;
+        }
+
+        /* SVG Circle Overlay */
+        .hand-circle {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 120%;
+            height: 140%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* The "Overview" Section */
+        .overview-box {
+            background: white;
+            padding: 10px 20px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-block;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transform: rotate(-1deg);
+        }
+
+        .description-text {
+            font-family: 'Lora', serif;
+            /* Or similar readable serif */
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #222;
+            max-width: 90%;
+            text-align: justify;
+        }
+
+        .highlight-pink-box {
+            background-color: #FAD2D2;
+            padding: 2px 5px;
+        }
+
+        /* --- RIGHT COLUMN: Image Grid --- */
+        .gallery-col {
+            background: #EAE6DE;
+            /* Slightly darker paper for contrast */
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .grid-item {
+            aspect-ratio: 1 / 1;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+            /* Stronger shadow */
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.02);
+            z-index: 5;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- DECORATIONS --- */
+        .sticker-black {
+            background: #000;
+            color: #fff;
+            padding: 8px 15px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 40%;
+            right: -20px;
+            /* Overlapping the divider */
+            z-index: 10;
+            transform: rotate(3deg);
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .red-arrow {
+            position: absolute;
+            top: 45%;
+            right: 120px;
+            width: 80px;
+            height: 60px;
+            transform: rotate(-10deg);
+        }
+
+        .handwritten-1-1 {
+            font-family: 'Caveat', cursive;
+            color: #E63946;
+            font-size: 2rem;
+            position: absolute;
+            top: 48%;
+            /* Adjust based on arrow */
+            right: 140px;
+            font-weight: 700;
+        }
+
+        /* Placeholder colors for the grid to mimic the reference warmth */
+        .placeholder-orange {
+            background: #E89B48;
+        }
+
+        .placeholder-light {
+            background: #E6D5C3;
+        }
+
+        .placeholder-green {
+            background: #8BA888;
+        }
+
+
+        @media (max-width: 900px) {
+            .slide-container {
+                grid-template-columns: 1fr;
+            }
+
+            .content-col {
+                padding: 40px 20px;
+            }
+
+            .sticker-black {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 20px 0;
+                display: inline-block;
+            }
+
+            .red-arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Back Button -->
+    <a href="index.html#work" style="position: fixed; top: 20px; left: 20px; z-index: 100; text-decoration: none;">
+        <span
+            style="background: #000; color: #fff; padding: 10px 15px; font-family: 'Cutive Mono'; font-weight: bold;">←
+            BACK</span>
+    </a>
+
+    <div class="slide-container">
+
+        <!-- LEFT COLUMN -->
+        <div class="content-col">
+
+            <!-- Red Header -->
+            <div class="red-block-header">
+                Social Media<br>Design
+            </div>
+
+            <!-- Brand Name with Circle -->
+            <div class="brand-name-wrapper">
+                <div class="brand-name">Logo Rebranding</div>
+                <!-- SVG Red Circle -->
+                <svg class="hand-circle" viewBox="0 0 200 100" preserveAspectRatio="none">
+                    <path d="M10,50 Q40,10 100,20 T190,50 T100,90 T10,50" fill="none" stroke="#E63946" stroke-width="3"
+                        stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="0" />
+                </svg>
+            </div>
+
+            <!-- Arrow & Label (Pointing to Grid) -->
+            <div class="sticker-black">
+                Instagram<br>posts
+            </div>
+
+            <!-- Arrow SVG -->
+            <div class="red-arrow">
+                <svg viewBox="0 0 100 100" fill="none" stroke="#E63946" stroke-width="3" stroke-linecap="round">
+                    <path d="M10,80 Q50,10 90,40" />
+                    <path d="M90,40 L80,30" />
+                    <path d="M90,40 L80,50" />
+                </svg>
+            </div>
+
+            <div class="handwritten-1-1">1:1</div>
+
+            <div style="margin-top: 100px;"></div> <!-- Spacer -->
+
+            <!-- Overview -->
+            <div class="overview-box">
+                Overview
+            </div>
+
+            <p class="description-text">
+                A curated analysis of <span class="highlight-pink-box">iconic logo rebrands</span>, examining how brands
+                modernize their visual identities while staying recognizable. The project focuses on trends that drive
+                clarity, scalability, and digital relevance.
+            </p>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="gallery-col">
+            <div class="insta-grid">
+                <!-- Row 1 -->
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/1.png" alt="Slide 1">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/2.png" alt="Slide 2">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/3.png" alt="Slide 3">
+                </div>
+
+                <!-- Row 2 -->
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/4.png" alt="Slide 4">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/5.png" alt="Slide 5">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/6.png" alt="Slide 6">
+                </div>
+
+                <!-- Row 3 -->
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/7.png" alt="Slide 7">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/8.png" alt="Slide 8">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/9.png" alt="Slide 9">
+                </div>
+
+                <!-- Row 4 -->
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/10.png" alt="Slide 10">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/11.png" alt="Slide 11">
+                </div>
+                <div class="grid-item">
+                    <img src="assets/logo rebranding case study/12.png" alt="Slide 12">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
