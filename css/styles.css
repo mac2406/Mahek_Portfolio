@@ -1311,6 +1311,11 @@ button,
     border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
 }
 
+.resume-stamp {
+    transform: rotate(2.5deg);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
 /* Barcode */
 .barcode-footer {
     margin-top: 60px;
