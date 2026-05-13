@@ -496,6 +496,14 @@ button,
     animation: bounce 3s infinite ease-in-out;
 }
 
+@media (max-width: 992px) {
+    .sticker-badge {
+        width: 80px;
+        height: 80px;
+        right: -30px;
+    }
+}
+
 .tape-corner {
     position: absolute;
     top: -15px;
