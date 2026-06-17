@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Design - Mahek Gopani</title>
+    <meta name="description" content="UI/UX design projects by Mahek Gopani.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Cutive+Mono&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/collage-enhancements.css">
+
+    <style>
+        .uiux-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            padding: 40px 0;
+            align-items: stretch;
+        }
+
+        .project-card-scrap {
+            background: #fff;
+            padding: 24px;
+            border: 2px solid #000;
+            box-shadow: 8px 8px 0px #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card-scrap:hover {
+            transform: translateY(-5px) rotate(-1deg);
+            box-shadow: 12px 12px 0px #E63946;
+        }
+
+        .polaroid-project-card {
+            background: #fff;
+            padding: 20px 20px 40px 20px;
+            border: 1px solid #eaeaea;
+            box-shadow: 4px 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transform: rotate(var(--rot, 0.5deg));
+            transition: transform 0.3s ease;
+        }
+
+        .polaroid-project-card:hover {
+            transform: translateY(-8px) rotate(-1deg);
+        }
+
+        .project-thumbnail-wrapper {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: #f4f4f4;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+
+        .project-thumbnail-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tape-overlay-center {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            backdrop-filter: blur(1.5px);
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body style="background-color: #F4F1EA;">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Back Button -->
+    <div class="back-btn-strip">
+        <a href="index.html">← COVER</a>
+    </div>
+
+    <!-- Scrapbook Tab Navigation -->
+    <header class="scrapbook-nav-header">
+        <nav class="scrapbook-tabs-container">
+            <a href="about.html" class="scrapbook-tab">About Me</a>
+            <a href="ui-ux.html" class="scrapbook-tab active">UI/UX Design</a>
+            <a href="social-media.html" class="scrapbook-tab">Social Media Design</a>
+            <a href="eduassist.html" class="scrapbook-tab">AI Projects</a>
+        </nav>
+    </header>
+
+    <main class="container" style="padding-bottom: 100px;">
+        
+        <!-- Header banner -->
+        <div style="margin: 40px 0 20px 0;">
+            <div class="sticker-red-block" style="display: inline-block;">UI/UX Design</div>
+            <p class="typewriter-text" style="margin-top: 25px; max-width: 600px;">
+                A display of digital products, client dashboards, and responsive platforms designed to bring clarity to complex user flows.
+            </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="uiux-grid">
+            
+            <!-- Project 1: StarGems Inc (Polaroid style) -->
+            <div class="polaroid-project-card" style="--rot: -1deg;">
+                <div class="tape-overlay-center"></div>
+                <div>
+                    <div class="project-thumbnail-wrapper">
+                        <!-- We use a custom abstract or layout background since they don't have a thumbnail for stargems -->
+                        <div style="width:100%; height:100%; background:#1a1a1a; display:flex; align-items:center; justify-content:center; flex-direction:column; padding:20px; color:#fff;">
+                            <span style="font-family: var(--font-heading); font-size:2.2rem; font-weight:900; color:#E63946;">Lumina Vault</span>
+                            <span style="font-family:'Cutive Mono'; font-size:0.8rem; margin-top:5px; text-transform:uppercase; letter-spacing:1px;">Dashboard suite</span>
+                        </div>
+                    </div>
+                    <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">StarGems Inc.</h3>
+                    <p class="typewriter-text" style="font-size: 0.9rem; line-height: 1.5; color: #555;">
+                        Designed Lumina Vault dashboard system, streamlining inventory controls and metal margin updates.
+                    </p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <a href="stargems.html" class="highlight-pink-box" style="font-family: 'Cutive Mono'; font-weight: bold; text-decoration: none; color: #000; font-size: 0.95rem;">VIEW CASE STUDY →</a>
+                </div>
+            </div>
+
+            <!-- Project 2: Shallots Austin (Scrap paper style) -->
+            <div class="project-card-scrap" style="transform: rotate(1.5deg); background: #fffdf9; border-left: 5px solid #E63946;">
+                <div class="sticker-label sticker-label-black" style="position: absolute; top: -15px; left: 20px; transform: rotate(-3deg); font-size: 0.95rem; padding: 4px 12px; z-index: 2;">LIVE SITE</div>
+                <div style="margin-top: 20px;">
+                    <h3 style="font-family: var(--font-heading); font-size: 2.2rem; margin: 0 0 15px 0; color: #222; line-height: 1.1;">Shallots Restaurant</h3>
+                    <p class="typewriter-text" style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 25px;">
+                        A responsive website built for a modern Indian cuisine restaurant in Austin, focusing on immersive photography and seamless digital reservation/menu browsing.
+                    </p>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <a href="https://www.shallotsaustin.com/" target="_blank" class="highlight-pink-box" style="font-family: 'Cutive Mono'; font-weight: bold; text-decoration: none; color: #000;">VISIT WEBSITE ↗</a>
+                    <span style="font-family: 'Caveat'; font-size: 1.4rem; color: #E63946; transform: rotate(-5deg);">Austin, TX</span>
+                </div>
+            </div>
+
+            <!-- Project 3: Gym Landing Page (Dark block style) -->
+            <div style="background: #111; color: #fff; padding: 40px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transform: rotate(-0.5deg); box-shadow: 5px 10px 20px rgba(0,0,0,0.15);">
+                <div style="position: absolute; top: -45px; right: -45px; width: 140px; height: 140px; background: #E63946; border-radius: 50%; opacity: 0.15; filter: blur(25px); pointer-events: none;"></div>
+                
+                <div>
+                    <div style="font-family: 'Cutive Mono', monospace; font-size: 0.8rem; color: #aaa; margin-bottom: 25px; letter-spacing: 2px;">WEBSITE DESIGN</div>
+                    <h3 style="font-family: var(--font-heading); font-size: 2rem; margin: 0 0 15px 0; color: #fff; line-height: 1.2;">Gym Landing Page</h3>
+                    <p class="typewriter-text" style="font-size: 0.95rem; color: #999; line-height: 1.6; margin-bottom: 30px;">
+                        A high-energy, dark-themed conversion funnel landing page designed for a modern startup fitness brand.
+                    </p>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 15px; margin-top: 10px;">
+                    <a href="https://gym-landing-page-seven-psi.vercel.app/" target="_blank" style="display: flex; align-items: center; gap: 10px; color: #fff; font-family: 'Cutive Mono'; font-weight: bold; text-decoration: none;">
+                        <div style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; color: #E63946;">
+                            →
+                        </div>
+                        EXPLORE LIVE
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Red pen arrow pointing down -->
+        <div style="text-align: center; margin: 50px 0;">
+            <div style="font-family: 'Caveat'; font-size: 2rem; color: #E63946; display: inline-block; transform: rotate(-5deg);">
+                check out my case studies for deep details!
+            </div>
+            <div style="font-size: 2.5rem; color: #E63946; margin-top: -10px;">↓</div>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

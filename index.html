@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahek Gopani - UI/UX Designer</title>
-    <meta name="description"
-        content="Portfolio of Mahek Gopani, a UI/UX Designer passionate about creating clear, engaging, and timeless digital experiences.">
+    <title>Mahek Gopani - Creative Portfolio</title>
+    <meta name="description" content="Creative Portfolio of Mahek Gopani, UI/UX Designer & Frontend Developer.">
 
-    <!-- Google Fonts: Playfair Display (Serif), Cutive Mono (Typewriter), Caveat (Handwriting) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -16,8 +15,17 @@
         rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=4">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collage-enhancements.css">
+
+    <style>
+        /* Cover specific layout rules */
+        body {
+            overflow: hidden;
+            /* Lock viewport for pure book cover sticker style */
+            background: #F4F1EA;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,390 +33,69 @@
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
-    <!-- Dynamic Background -->
-    <div class="background-animation">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-    </div>
+    <!-- Main Cover Layout -->
+    <main class="cover-layout">
 
-    <!-- Navigation -->
-    <header class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">Mahek Gopani</a>
-            <nav class="nav-links">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#work">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <!-- Mobile Menu Toggle -->
+        <!-- Floating Labels (Top Left & Top Right) -->
+        <div class="floating-paper-label label-top-left" style="left: 10vw;">
+            Mumbai, India
         </div>
-    </header>
+        <div class="floating-paper-label label-top-right" style="right: 10vw;">
+            mahek0624@gmail.com
+        </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="hero section">
-            <div class="container hero-container magazine-hero-layout">
-                <div class="decorative-scrap scrap-1"></div>
-                <div class="decorative-scrap scrap-2"></div>
+        <!-- Circled Red Year Badge -->
+        <div class="circled-year-badge">
+            2026
+        </div>
 
-                <div class="hero-text-layer">
-                    <div class="magazine-issue-no">VOL. 01 — 2025</div>
-                    <h1 class="hero-title-mixed">
-                        <span class="font-serif-italic">The</span> <br>
-                        <span class="font-bold-display">CREATIVE</span> <br>
-                        <span class="font-hand-highlight">Portfolio</span> <span class="font-typewriter">of</span> <br>
-                        MAHEK GOPANI
-                    </h1>
-                    <p class="magazine-bio">
-                        <span class="tape-strip">UI/UX DESIGNER</span> & FRONTEND DEV.<br>
-                        Creating <span class="circled-text">chaos</span> that makes perfect sense.
-                    </p>
-                    <div class="hero-cta-group">
-                        <a href="#work" class="btn-collage magnetic-btn">Explore Work <span
-                                class="arrow-drawn">→</span></a>
-                    </div>
-                </div>
+        <!-- Star Stickers Overlaid on Cover (Crumpled Silver Stars) -->
+        <img src="assets/paper_star.png" alt="Star" class="paper-star-sticker star-1">
+        <img src="assets/paper_star.png" alt="Star" class="paper-star-sticker star-2">
+        <img src="assets/paper_star.png" alt="Star" class="paper-star-sticker star-3">
+        <img src="assets/paper_star.png" alt="Star" class="paper-star-sticker star-4">
 
-                <div class="hero-image-layer">
-                    <div class="collage-image-wrapper">
-                        <img src="profile.png" alt="Mahek Gopani" class="profile-img-collage">
-                        <div class="sticker-badge">
-                            <span>HELLO!</span>
-                        </div>
-                        <div class="tape-corner"></div>
-                        <div class="tape-corner tape-bottom-right"></div>
-                        <div class="hand-drawn-arrow"></div>
-                    </div>
-                </div>
+        <!-- Screaming Mouth Sticker on the Right Cover Side -->
+        <img src="assets/screaming_mouth.png" alt="Screaming Mouth" class="screaming-mouth-sticker">
+
+        <!-- Cover Center Layout (Torn slips text stack) -->
+        <div class="cover-center">
+
+            <div class="sticker-red-block">
+                UI/UX & Design
             </div>
 
-            <div class="wave-separator">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-                        class="shape-fill"></path>
-                </svg>
+            <h1 class="giant-paper-slip">
+                Portfolio
+            </h1>
+
+            <div class="slanted-paper-name">
+                <span>of</span> Mahek Gopani
             </div>
-        </section>
 
-        <!-- About Section (Refined Exact Match) -->
-        <section id="about" class="about section">
-            <div class="container about-collage-container">
+        </div>
 
-                <!-- Left Column: Bio Only (No Photo as requested) -->
-                <div class="about-col-left">
-                    <div style="position: relative; margin-top: 40px;">
-                        <div class="sticker-label sticker-label-red">About Me</div>
-                    </div>
+        <!-- Navigation Entries (Bottom Left) -->
+        <div class="cover-links-group">
+            <a href="about.html" class="cover-link-slip">About Me</a>
+            <a href="ui-ux.html" class="cover-link-slip">UI/UX</a>
+            <a href="social-media.html" class="cover-link-slip">Social Media</a>
+        </div>
 
-                    <div class="scrap-card card-bio" style="margin-top: 30px;">
-                        <p class="typewriter-text" style="font-size: 1.1rem;">
-                            Hi! I’m Mahek, a <span class="highlight-pink">UI/UX Designer</span> focused on creating
-                            <span class="highlight-pink">thoughtful digital experiences</span> where creativity and
-                            clarity coexist — designs that feel <span class="highlight-pink">expressive, intentional,
-                                and easy to use</span>.
-                        </p>
-                    </div>
-
-                    <div class="scrap-card card-bio" style="transform: rotate(-2deg); margin-top: 10px;">
-                        <p class="typewriter-text">
-                            I enjoy exploring ideas through research, structure, and visual storytelling, and I adapt
-                            quickly to different project needs while collaborating closely to deliver meaningful,
-                            user-centred outcomes.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Right Column: Gray Board & Strips -->
-                <div class="about-col-right">
-
-                    <!-- THE GRAY BOARD CONTAINER -->
-                    <div class="gray-board-container">
-
-                        <!-- Experiences Section -->
-                        <div class="collage-section-wrapper">
-                            <div class="sticker-label sticker-label-black">Experiences</div>
-                            <!-- Exp Item 1 -->
-                            <div class="scrap-card">
-                                <span class="collage-role">Cloud Website Solutions<span class="collage-date">| Jan 2026
-                                        - Apr
-                                        2026</span></span>
-                                <span class="highlight-pink" style="font-size: 0.9rem;">UI/UX Developer Intern</span>
-                            </div>
-                            <!-- Exp Item 2 -->
-                            <div class="scrap-card">
-                                <span class="collage-role">RevoltronX <span class="collage-date">| Oct 2024 - Feb
-                                        2025</span></span>
-                                <span class="highlight-pink" style="font-size: 0.9rem;">Graphic Design Intern</span>
-                            </div>
-                            <!-- Exp Item 3 -->
-                            <div class="scrap-card">
-                                <span class="collage-role">Prodigy InfoTech <span class="collage-date">| May 2024 -
-                                        Jun 2024</span></span>
-                                <span class="highlight-pink" style="font-size: 0.9rem;">Web Development Intern</span>
-                            </div>
-                        </div>
-
-                        <!-- Volunteers / Education Section -->
-                        <div class="collage-section-wrapper" style="margin-top: 50px;">
-                            <div class="sticker-label sticker-label-black">Education</div>
-                            <div class="scrap-card">
-                                <span class="collage-role">NMIMS University <span class="collage-date">| 2022 -
-                                        2026</span></span>
-                                <span class="highlight-pink" style="font-size: 0.9rem;">B.Tech Information
-                                    Technology</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- END GRAY BOARD -->
-
-                    <!-- Skills & Expertise Strips (Outside Board) -->
-                    <div class="skills-expertise-container">
-
-                        <!-- Skills Strip -->
-                        <div class="strip-wrapper">
-                            <div class="strip-label">Skills</div>
-                            <div class="strip-content">
-                                Figma | Canva | HTML | CSS | JavaScript
-                            </div>
-                        </div>
-
-                        <!-- Expertise Strip -->
-                        <div class="strip-wrapper">
-                            <div class="strip-label">Expertise</div>
-                            <div class="strip-content">
-                                UI/UX Design | Web Development | Graphic Design | Branding
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+        <!-- Floating Zine Details Widget (Bottom Center) -->
+        <div class="floating-zine-widget">
+            <img src="profile.png" alt="Mahek Gopani">
+            <div>
+                <strong style="display: block; font-size: 0.8rem; line-height: 1;">Mahek Gopani</strong>
+                <span style="font-size: 0.7rem; color: #888;">UI/UX Design</span>
             </div>
-        </section>
+            <a href="https://www.linkedin.com/in/mahek-gopani-b34643249/" target="_blank"
+                style="text-decoration: none;">
+                <button class="btn-follow">+ Follow</button>
+            </a>
+        </div>
 
-        <!-- Torn Divider 1 -->
-        <div class="torn-divider divider-top"></div>
-
-        <!-- Work Section -->
-        <section id="work" class="work section">
-            <!-- Doodles & Stickers -->
-            <img src="data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z' fill='%23111' opacity='0.8'/%3E%3C/svg%3E"
-                class="doodle doodle-star-1" alt="Star Doodle">
-
-            <div class="sticker-burst-new">NEW!</div>
-
-            <div class="paper-scrap scrap-random-1"></div>
-            <div class="paper-scrap scrap-random-2"></div>
-
-            <div class="container">
-                <div class="work-header-collage">
-                    <h2 class="section-title">Projects</h2>
-                    <!-- Red Circle Doodle -->
-                    <div class="doodle-red-circle"></div>
-                </div>
-                <p>A collection of projects.</p>
-                <div class="work-grid">
-
-                    <!-- Project 1 -->
-                    <article class="project-zine-item">
-                        <div class="photo-container rotate-left">
-                            <div class="scotch-tape tape-top"></div>
-                            <div class="photo-frame">
-                                <div class="project-thumbnail">
-                                    <img src="" alt="StarGems Inc"
-                                        style="width: 100%; height: 100%; object-fit: contain; background: #000; filter: none !important; padding: 10px;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-zine-info">
-                            <div class="zine-label">
-                                <span class="zine-number">#01</span>
-                                <span class="zine-tag">WEBSITE</span>
-                            </div>
-                            <h3>StarGems Inc.</h3>
-                            <p class="handwritten-note"></p>
-                            <a href="stargems.html" class="link-scribble">See Project <span
-                                    class="scribble-underline"></span></a>
-                        </div>
-                    </article>
-
-                    <!-- Project 1 -->
-                    <article class="project-zine-item">
-                        <div class="photo-container rotate-left">
-                            <div class="scotch-tape tape-top"></div>
-                            <div class="photo-frame">
-                                <div class="project-thumbnail">
-                                    <img src="assets/shallots logo white.png" alt="Shallots Website"
-                                        style="width: 100%; height: 100%; object-fit: contain; background: #000; filter: none !important; padding: 10px;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-zine-info">
-                            <div class="zine-label">
-                                <span class="zine-number">#01</span>
-                                <span class="zine-tag">WEBSITE</span>
-                            </div>
-                            <h3>Shallots Website</h3>
-                            <p class="handwritten-note">A tasty digital experience for modern Indian cuisine.</p>
-                            <a href="https://www.shallotsaustin.com/" class="link-scribble">See Project <span
-                                    class="scribble-underline"></span></a>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-zine-item" style="margin-top: 50px;">
-                        <div class="photo-container rotate-right">
-                            <div class="scotch-tape tape-top" style="left: auto; right: 40%; transform: rotate(5deg);">
-                            </div>
-                            <div class="photo-frame">
-                                <div class="project-thumbnail">
-                                    <img src="assets/EduAssist/Card.png" alt="EduAssist"
-                                        style="width: 100%; height: 100%; object-fit: contain; background: #222;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-zine-info">
-                            <div class="zine-label">
-                                <span class="zine-number">#02</span>
-                                <span class="zine-tag">AI PROJECT</span>
-                            </div>
-                            <h3>EduAssist</h3>
-                            <p class="handwritten-note">An intelligent assistant for campus inquiries.</p>
-                            <a href="eduassist.html" class="link-scribble">View Project <span
-                                    class="scribble-underline"></span></a>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="project-zine-item">
-                        <div class="photo-container rotate-left">
-                            <div class="scotch-tape tape-top"></div>
-                            <div class="photo-frame">
-                                <div class="project-thumbnail">
-                                    <div class="abstract-art art-3">
-                                        <div class="art-shape shape-blob"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-zine-info">
-                            <div class="zine-label">
-                                <span class="zine-number">#03</span>
-                                <span class="zine-tag">WEBSITE</span>
-                            </div>
-                            <h3>Gym Landing Page</h3>
-                            <p class="handwritten-note">A bold new identity for a fashion startup.</p>
-                            <a href="https://gym-landing-page-seven-psi.vercel.app/" class="link-scribble">View Project
-                                <span class="scribble-underline"></span></a>
-                        </div>
-                    </article>
-
-                    <!-- Project 4 (Social Media) -->
-                    <article class="project-zine-item" style="margin-top: 50px;">
-                        <div class="photo-container rotate-right">
-                            <div class="scotch-tape tape-top" style="left: auto; right: 40%; transform: rotate(5deg);">
-                            </div>
-                            <div class="photo-frame">
-                                <div class="project-thumbnail"
-                                    style="background: #E89B48; display: flex; align-items: center; justify-content: center;">
-                                    <span
-                                        style="font-family: var(--font-heading); color: white; font-size: 2rem;">M</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-zine-info">
-                            <div class="zine-label">
-                                <span class="zine-number">#04</span>
-                                <span class="zine-tag">INSTAGRAM</span>
-                            </div>
-                            <h3>Logo Rebranding</h3>
-                            <p class="handwritten-note">Case study on Logo Rebranding.</p>
-                            <a href="social-media.html" class="link-scribble">View Case Study <span
-                                    class="scribble-underline"></span></a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact section">
-            <div class="container zine-back-cover">
-                <div class="subscription-card"
-                    style="position: relative; overflow: hidden; padding: 60px; text-align: center;">
-                    <!-- Magic Circle Background -->
-                    <div class="magic-circle"
-                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 400px; background: #f0f0f0; border-radius: 50%; z-index: 0; pointer-events: none;">
-                    </div>
-
-                    <div style="position: relative; z-index: 1;">
-                        <div class="tape-strip tape-corner-left"></div>
-                        <div class="tape-strip tape-corner-right"></div>
-
-                        <h2
-                            style="font-family: var(--font-heading); font-size: 4rem; line-height: 1; margin-bottom: 20px; color: var(--text-primary);">
-                            Let's Create <span style="font-style: italic; font-weight: 400;">Magic!</span>
-                        </h2>
-                        <p class="typewriter-text align-center"
-                            style="margin-bottom: 50px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; color: var(--text-secondary);">
-                            It would be a pleasure to collaborate with you.
-                        </p>
-
-                        <div class="contact-stamps"
-                            style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                            <a href="mailto:mahekgopani2406@gmail.com" class="stamp-link email-stamp">
-                                <span>EMAIL ME</span>
-                            </a>
-                            <a href="https://linkedin.com/in/mahek-gopani" class="stamp-link linkedin-stamp">
-                                <span>LINKEDIN</span>
-                            </a>
-                            <a href="https://github.com/mac2406" class="stamp-link github-stamp">
-                                <span>GITHUB</span>
-                            </a>
-                            <a href="assets/Mahek%20Gopani%20(CV).pdf" class="stamp-link resume-stamp" target="_blank">
-                                <span>RESUME</span>
-                            </a>
-                        </div>
-
-                        <!-- Option 2: Rubber Stamp Footer -->
-                        <div class="footer-stamp" style="margin-top: 60px; display: inline-block; position: relative;">
-                            <div
-                                style="border: 3px double var(--text-secondary); border-radius: 50%; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; transform: rotate(-12deg); opacity: 0.8; mask-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><filter id=\'noise\'><feTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\'/></filter><rect width=\'100%\' height=\'100%\' filter=\'url(%23noise)\' opacity=\'0.6\'/></svg>'); -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><filter id=\'noise\'><feTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\'/></filter><rect width=\'100%\' height=\'100%\' filter=\'url(%23noise)\' opacity=\'0.6\'/></svg>'); mix-blend-mode: multiply;">
-                                <div style="text-align: center; color: var(--text-secondary);">
-                                    <div
-                                        style="font-family: var(--font-heading); font-weight: 900; font-size: 1.1rem; letter-spacing: 1px; line-height: 1.2; border-bottom: 2px solid var(--text-secondary); padding-bottom: 5px; margin-bottom: 5px;">
-                                        MAHEK<br>GOPANI</div>
-                                    <div
-                                        style="font-family: 'Cutive Mono', monospace; font-size: 0.8rem; font-weight: bold;">
-                                        ★ 2025 ★</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
-
-    <!-- Hidden Standard Footer -->
-    <!-- <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="year"></span> Mahek Gopani. All rights reserved.</p>
-        </div>
-    </footer> -->
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
