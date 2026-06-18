@@ -917,3 +917,181 @@
     background: #E63946;
     transform: rotate(0) scale(1.05);
 }
+
+/* =========================================
+   SOCIAL MEDIA PORTFOLIO SHOWCASE
+   ========================================= */
+
+.social-media-section {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    padding: 100px 0;
+    align-items: center;
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 992px) {
+    .social-media-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 0;
+    }
+}
+
+.collage-showcase-card {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 10px 15px 35px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    position: relative;
+    transform: rotate(var(--rot, 0.5deg));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 100%;
+}
+
+.collage-showcase-card:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 10;
+}
+
+.collage-showcase-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Red Marker Circle around Brand Name */
+.circled-brand {
+    position: relative;
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #111;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 20px;
+    border: 1px dashed rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+}
+
+.circled-brand::after {
+    content: '';
+    position: absolute;
+    inset: -8px -15px;
+    border: 3px solid #E63946;
+    border-radius: 70% 30% 60% 40% / 50% 60% 40% 50%;
+    transform: rotate(-3deg);
+    pointer-events: none;
+}
+
+/* Handwritten subtext labels */
+.handwritten-arrow-label {
+    font-family: 'Caveat', cursive;
+    color: #E63946;
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+/* Custom tape labels */
+.sticker-label-black-mini {
+    background: #000;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 6px 14px;
+    display: inline-block;
+    transform: rotate(-1.5deg);
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+}
+
+/* Horizontal Scroll Ribbon for Starbucks */
+.starbucks-ribbon-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px 10px;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+}
+
+.starbucks-ribbon-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.starbucks-ribbon-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.starbucks-ribbon-container::-webkit-scrollbar-thumb {
+    background: rgba(230, 57, 70, 0.3);
+    border-radius: 4px;
+}
+
+.starbucks-ribbon-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(230, 57, 70, 0.6);
+}
+
+.starbucks-ribbon-image {
+    height: 380px;
+    width: auto;
+    max-width: none;
+    display: block;
+    box-shadow: 8px 12px 25px rgba(0,0,0,0.15);
+    border: 8px solid #fff;
+    transform: rotate(-0.5deg);
+    transition: transform 0.3s;
+}
+
+.starbucks-ribbon-image:hover {
+    transform: rotate(0deg) scale(1.005);
+}
+
+/* Responsive 3x4 Grid for Case Studies */
+.grid-3x4 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.grid-3x4-item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    box-shadow: 5px 8px 18px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, z-index 0.3s ease;
+    position: relative;
+    background-color: #eee;
+}
+
+.grid-3x4-item:hover {
+    transform: scale(1.05) rotate(1deg);
+    z-index: 10;
+    box-shadow: 10px 15px 25px rgba(0, 0, 0, 0.35);
+}
+
+.grid-3x4-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .grid-3x4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .starbucks-ribbon-image {
+        height: 240px;
+    }
+}

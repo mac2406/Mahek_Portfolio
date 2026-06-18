@@ -10,32 +10,31 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Cutive+Mono&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Cutive+Mono&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collage-enhancements.css">
 
     <style>
-        .branding-section {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            min-height: 80vh;
-            gap: 40px;
-            padding: 80px 0;
-            border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+        body {
+            background-color: #F4F1EA;
+            /* Warm paper tone */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+            overflow-x: hidden;
         }
 
-        @media (max-width: 900px) {
-            .branding-section {
-                grid-template-columns: 1fr;
-                padding: 40px 0;
-            }
+        .social-media-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 120px 20px;
         }
     </style>
 </head>
 
-<body style="background-color: #F4F1EA;">
+<body>
     <!-- Custom Cursor -->
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
@@ -55,153 +54,200 @@
         </nav>
     </header>
 
-    <main class="container" style="padding-bottom: 120px;">
-        
-        <!-- SECTION 1: Instagram Posts (Screenshot 3) -->
-        <section class="branding-section">
-            <!-- Left Side: Header & Overview -->
+    <main class="social-media-container">
+
+        <!-- SECTION 1: Instagram Posts -->
+        <section class="social-media-section">
+            <!-- Left Side: Editorial Text & Labels -->
             <div style="display: flex; flex-direction: column; justify-content: center;">
-                <div class="red-block-header" style="margin-bottom: 30px;">
+                <div class="red-block-header" style="margin-bottom: 30px; font-size: 3rem; max-width: 100%;">
                     Social Media<br>Design
                 </div>
 
-                <div class="brand-name-wrapper" style="margin-bottom: 40px;">
-                    <div class="brand-name highlight-circle-doodle">Momleys</div>
+                <div class="handwritten-arrow-label">
+                    Instagram posts <span
+                        style="background: #000; color: #fff; padding: 2px 8px; font-size: 1.1rem; font-family: var(--font-heading); margin-left: 5px;">1:1</span>
+                    &rarr;
                 </div>
 
-                <div class="sticker-black" style="position: relative; top: auto; right: auto; display: inline-block; margin-bottom: 20px; width: fit-content; transform: rotate(-2deg);">
-                    Instagram posts
-                </div>
-                <div style="font-family: 'Caveat'; font-size: 1.8rem; color: #E63946; margin-bottom: 30px; transform: rotate(-5deg);">
-                    Ratio 1:1
-                </div>
-
-                <div class="scrap-card" style="transform: rotate(1deg); margin-bottom: 20px;">
-                    <h4 style="font-family: var(--font-heading); margin-bottom: 10px;">Overview:</h4>
-                    <p class="typewriter-text" style="font-size: 0.95rem; margin: 0;">
-                        Momleys is a premium bakery brand known for its signature banana pastry. The visual strategy targets women aged 25–55 who appreciate aesthetic branding, artisanal packaging, and rich visual storytelling.
+                <div class="scrap-card" style="transform: rotate(1deg); margin-top: 15px;">
+                    <h4 style="font-family: var(--font-heading); margin-bottom: 10px; font-size: 1.2rem;">Overview:</h4>
+                    <p class="typewriter-text" style="font-size: 0.95rem; margin: 0; line-height: 1.6;">
+                        Momleys is a premium bakery brand in Bandung known for its signature banana pastry. Targeting
+                        women aged 25–55 from upper-middle-class backgrounds, the brand specializes in artisanal
+                        packaging, modern aesthetics, and rich visual storytelling on social channels.
                     </p>
                 </div>
             </div>
 
-            <!-- Right Side: Instagram Posts 1:1 Grid -->
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <div class="insta-grid">
-                    <!-- Row 1 -->
-                    <div class="grid-item">
-                        <img src="assets/logo rebranding case study/1.png" alt="Pastry Post 1">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/logo rebranding case study/2.png" alt="Pastry Post 2">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/logo rebranding case study/3.png" alt="Pastry Post 3">
-                    </div>
+            <!-- Right Side: 3x4 Instagram Posts Grid -->
+            <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+                <div class="grid-3x4">
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/1.png"
+                            alt="Momleys 1"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/2.png"
+                            alt="Momleys 2"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/3.png"
+                            alt="Momleys 3"></div>
 
-                    <!-- Row 2 -->
-                    <div class="grid-item">
-                        <img src="assets/logo rebranding case study/4.png" alt="Pastry Post 4">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/logo rebranding case study/5.png" alt="Pastry Post 5">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/logo rebranding case study/6.png" alt="Pastry Post 6">
-                    </div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/4.png"
+                            alt="Momleys 4"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/5.png"
+                            alt="Momleys 5"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/6.png"
+                            alt="Momleys 6"></div>
 
-                    <!-- Row 3 -->
-                    <div class="grid-item">
-                        <img src="assets/logo rebranding case study/7.png" alt="Pastry Post 7">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/logo rebranding case study/8.png" alt="Pastry Post 8">
-                    </div>
-                    <div class="grid-item">
-                        <img src="assets/logo rebranding case study/9.png" alt="Pastry Post 9">
-                    </div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/7.png"
+                            alt="Momleys 7"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/8.png"
+                            alt="Momleys 8"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/9.png"
+                            alt="Momleys 9"></div>
+
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/10.png"
+                            alt="Momleys 10"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/11.png"
+                            alt="Momleys 11"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/logo rebranding case study/12.png"
+                            alt="Momleys 12"></div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: Instagram Stories (Screenshot 4) -->
-        <section class="branding-section">
-            <!-- Left Side: Overview -->
+        <!-- SECTION 2: Inkvise Brand Identity -->
+        <section class="social-media-section">
+            <!-- Left Side: Brand Concept -->
             <div style="display: flex; flex-direction: column; justify-content: center;">
-                <div class="brand-name-wrapper" style="margin-bottom: 30px;">
-                    <div class="brand-name highlight-circle-doodle" style="font-size: 2.2rem;">Momleys Stories</div>
+                <div class="brand-name-wrapper" style="margin-bottom: 25px;">
+                    <div class="circled-brand">Inkvise</div>
                 </div>
 
-                <div class="sticker-black" style="position: relative; top: auto; right: auto; display: inline-block; margin-bottom: 20px; width: fit-content; transform: rotate(1.5deg);">
-                    Instagram stories
-                </div>
-                <div style="font-family: 'Caveat'; font-size: 1.8rem; color: #E63946; margin-bottom: 30px; transform: rotate(-3deg);">
-                    Ratio 16:9
+                <div class="sticker-label-black-mini">
+                    Brand Identity Design
                 </div>
 
-                <div class="scrap-card" style="transform: rotate(-1deg); margin-bottom: 20px;">
-                    <h4 style="font-family: var(--font-heading); margin-bottom: 10px;">Visual System:</h4>
-                    <p class="typewriter-text" style="font-size: 0.95rem; margin: 0;">
-                        A comprehensive visual strategy was developed to enhance brand awareness and drive sales on Instagram and Tokopedia. Using a minimalist design approach with modern typography, clean and engaging visuals were created to reflect Momleys premium identity.
+                <div class="scrap-card" style="transform: rotate(-0.5deg); margin-top: 15px;">
+                    <h4 style="font-family: var(--font-heading); margin-bottom: 12px; font-size: 1.2rem;">Overview:</h4>
+                    <p class="typewriter-text"
+                        style="font-size: 0.9rem; margin: 0 0 12px 0; line-height: 1.6; text-align: justify;">
+                        Designed the visual identity for Inkvise, a brand dedicated to redefining the art of writing
+                        with elegance and purpose for modern professionals. The identity balances classic authority with
+                        minimalist simplicity.
+                    </p>
+                    <p class="typewriter-text"
+                        style="font-size: 0.9rem; margin: 0; line-height: 1.6; text-align: justify;">
+                        The process started from conceptual pencil sketches on notebooks, building up to a structured
+                        wordmark where "ink meets precision." The visual palette relies on deep blue, slate, and crisp
+                        white typography.
                     </p>
                 </div>
             </div>
 
-            <!-- Right Side: Stories overlapping polaroid frames -->
-            <div style="display: flex; align-items: center; justify-content: center; gap: 30px; width: 100%;">
-                <div class="story-frame" style="--rotation: -2deg; width: 45%; max-width: 260px;">
-                    <img src="assets/logo rebranding case study/10.png" alt="Story 1">
-                </div>
-                <div class="story-frame" style="--rotation: 3deg; width: 45%; max-width: 260px; margin-top: 30px;">
-                    <img src="assets/logo rebranding case study/11.png" alt="Story 2">
+            <!-- Right Side: 3x4 Inkvise Posts Grid -->
+            <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+                <div class="grid-3x4">
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/1.png" alt="Inkvise 1">
+                    </div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/2.png" alt="Inkvise 2">
+                    </div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/3.png" alt="Inkvise 3">
+                    </div>
+
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/4.png" alt="Inkvise 4">
+                    </div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/5.png" alt="Inkvise 5">
+                    </div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/6.png" alt="Inkvise 6">
+                    </div>
+
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/7.png" alt="Inkvise 7">
+                    </div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/8.png" alt="Inkvise 8">
+                    </div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/9.png" alt="Inkvise 9">
+                    </div>
+
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/10.png"
+                            alt="Inkvise 10"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/11.png"
+                            alt="Inkvise 11"></div>
+                    <div class="grid-3x4-item"><img src="assets/social-media/inkvise case study/12.png"
+                            alt="Inkvise 12"></div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 3: Instagram Ads Stamp (Screenshot 5) -->
-        <section class="branding-section" style="border-bottom: none;">
-            <!-- Left Side: Overview -->
+        <!-- SECTION 3: Anyhow Media Campaign -->
+        <section class="social-media-section">
+            <!-- Left Side: Campaign info -->
             <div style="display: flex; flex-direction: column; justify-content: center;">
-                <div class="brand-name-wrapper" style="margin-bottom: 30px;">
-                    <div class="brand-name highlight-circle-doodle" style="font-size: 2.2rem;">Momleys Ads</div>
+                <div class="brand-name-wrapper" style="margin-bottom: 25px;">
+                    <div class="circled-brand" style="font-size: 2rem;">Anyhow Media</div>
                 </div>
 
-                <div class="sticker-black" style="position: relative; top: auto; right: auto; display: inline-block; margin-bottom: 25px; width: fit-content; transform: rotate(-2deg); background: #E63946;">
-                    Instagram Ads Design
+                <div class="sticker-label-black-mini" style="background: #E63946;">
+                    Campaign Poster Design
                 </div>
 
-                <div class="scrap-card" style="transform: rotate(1.5deg);">
-                    <h4 style="font-family: var(--font-heading); margin-bottom: 10px;">Ad Campaigns:</h4>
-                    <p class="typewriter-text" style="font-size: 0.95rem; margin: 0;">
-                        A carousel ad campaign was created to promote Momleys Eid hampers. The design featured warm colors and festive illustrations, reflecting the spirit of Eid. The format enabled interactive storytelling, effectively highlighting product details and key selling points.
+                <div class="scrap-card" style="transform: rotate(1.2deg); margin-top: 15px;">
+                    <h4 style="font-family: var(--font-heading); margin-bottom: 12px; font-size: 1.2rem;">Overview:</h4>
+                    <p class="typewriter-text"
+                        style="font-size: 0.9rem; margin: 0 0 12px 0; line-height: 1.6; text-align: justify;">
+                        Developed high-impact digital campaign graphics for Anyhow Media. Under the theme "Imagine a
+                        world without...", the posts use strong typography, bold layouts, and textured red overlays to
+                        draw viewer attention instantly.
+                    </p>
+                    <p class="typewriter-text"
+                        style="font-size: 0.9rem; margin: 0; line-height: 1.6; text-align: justify;">
+                        Focusing on corporate branding and culture statements like "Your Culture is Your Brand" and
+                        "Seconds matter, make it count," the campaign is designed for high-conversion social feeds.
                     </p>
                 </div>
             </div>
 
-            <!-- Right Side: Perforated Postage Stamp containing grids -->
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <div class="postage-stamp-frame" style="width: 100%; max-width: 680px;">
-                    <div class="postage-stamp-inner">
-                        <div class="stamp-grid">
-                            <div class="stamp-item">
-                                <img src="assets/logo rebranding case study/1.png" alt="Ad 1">
-                            </div>
-                            <div class="stamp-item">
-                                <img src="assets/logo rebranding case study/4.png" alt="Ad 2">
-                            </div>
-                            <div class="stamp-item">
-                                <img src="assets/logo rebranding case study/6.png" alt="Ad 3">
-                            </div>
-                            <div class="stamp-item">
-                                <img src="assets/logo rebranding case study/7.png" alt="Ad 4">
-                            </div>
-                            <div class="stamp-item">
-                                <img src="assets/logo rebranding case study/8.png" alt="Ad 5">
-                            </div>
-                            <div class="stamp-item">
-                                <img src="assets/logo rebranding case study/9.png" alt="Ad 6">
-                            </div>
-                        </div>
-                    </div>
+            <!-- Right Side: Two campaign graphics -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; width: 100%;">
+                <div class="story-frame"
+                    style="--rotation: -2.5deg; width: 45%; max-width: 250px; padding: 10px 10px 10px 10px;">
+                    <img src="assets/social-media/Imagine a world without/1.png" alt="Anyhow Campaign 1"
+                        style="aspect-ratio: 1/1; object-fit: cover;">
+                </div>
+                <div class="story-frame"
+                    style="--rotation: 3.5deg; width: 45%; max-width: 250px; padding: 10px 10px 10px 10px;">
+                    <img src="assets/social-media/Imagine a world without/2.png" alt="Anyhow Campaign 2"
+                        style="aspect-ratio: 1/1; object-fit: cover;">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Starbucks Instagram Carousel -->
+        <section class="social-media-section" style="border-bottom: none;">
+            <!-- Left Side: Carousel Overview -->
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <div class="brand-name-wrapper" style="margin-bottom: 25px;">
+                    <div class="circled-brand" style="font-size: 2rem;">Starbucks</div>
+                </div>
+
+                <div class="sticker-label-black-mini" style="background: #00704A;">
+                    Instagram Carousel Ribbon
+                </div>
+
+                <div class="scrap-card" style="transform: rotate(-0.8deg); margin-top: 15px;">
+                    <h4 style="font-family: var(--font-heading); margin-bottom: 10px; font-size: 1.2rem;">Overview:</h4>
+                    <p class="typewriter-text"
+                        style="font-size: 0.95rem; margin: 0; line-height: 1.6; text-align: justify;">
+                        Designed a continuous 10-panel carousel ribbon for Starbucks. The layout allows each post to
+                        merge seamlessly into the next, maintaining visual continuity as the user swishes through the
+                        slides on their feed.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Side: Ribbon Slide Ribbon -->
+            <div style="display: flex; align-items: center; justify-content: center; overflow: hidden; width: 100%;">
+                <div class="starbucks-ribbon-container">
+                    <img src="assets/social-media/starbucks carousel.png" class="starbucks-ribbon-image"
+                        alt="Starbucks Continuous Carousel Ribbon Grid">
                 </div>
             </div>
         </section>
