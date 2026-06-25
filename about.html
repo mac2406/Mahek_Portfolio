@@ -188,10 +188,10 @@
                 <!-- The live heatmap chart — default GitHub green, no colour override -->
                 <div style="overflow-x: auto;">
                     <img
+                        id="gh-chart-img"
                         src="https://ghchart.rshah.org/mac2406"
                         alt="Mahek Gopani GitHub contribution graph"
                         style="display: block; width: 100%; min-width: 640px; max-width: 100%;"
-                        loading="lazy"
                     >
                 </div>
 
@@ -258,6 +258,35 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+
+    <!-- Live GitHub contributions -->
+    <script>
+        (function () {
+            const USERNAME = 'mac2406';
+            const countEl = document.getElementById('github-contribution-count');
+            const chartImg = document.getElementById('gh-chart-img');
+
+            // 1. Daily cache-bust on the chart image so it always shows today's data
+            //    (same day = same URL = browser cache hit; new day = fresh fetch)
+            const today = new Date().toISOString().slice(0, 10); // e.g. "2026-06-25"
+            if (chartImg) {
+                chartImg.src = 'https://ghchart.rshah.org/' + USERNAME + '?d=' + today;
+            }
+
+            // 2. Fetch live contribution total from public API (no token needed)
+            fetch('https://github-contributions-api.jogruber.de/v4/' + USERNAME + '?y=last')
+                .then(function (res) { return res.json(); })
+                .then(function (data) {
+                    var total = (data && data.total && data.total.lastYear) ? data.total.lastYear : null;
+                    if (total !== null && countEl) {
+                        countEl.textContent = total.toLocaleString() + ' contributions in the last year';
+                    }
+                })
+                .catch(function () {
+                    // Silently keep the fallback text if the API is unavailable
+                });
+        })();
+    </script>
 </body>
 
 </html>
