@@ -234,20 +234,27 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: #F4F1EA;">
     <!-- Custom Cursor -->
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
-    <!-- Back Button -->
-    <div class="back-btn-strip">
-        <a href="ui-ux.html">← UI/UX DESIGN</a>
-    </div>
+    <!-- Sticky Navigation Bar -->
+    <nav class="cover-sticky-nav" aria-label="Main navigation">
+        <a href="index.html" class="cover-nav-logo">MG</a>
+        <div class="cover-nav-links">
+            <a href="about.html" class="cover-nav-link">About</a>
+            <a href="ui-ux.html" class="cover-nav-link">UI/UX</a>
+            <a href="social-media.html" class="cover-nav-link">Social Media</a>
+            <a href="eduassist.html" class="cover-nav-link">AI Project</a>
+            <a href="about.html#contact" class="cover-nav-link contact-link">Contact</a>
+        </div>
+    </nav>
 
     <div class="slide-container" style="display: block; padding-top: 100px;">
 
         <!-- STAR GEMS HERO -->
-        <div style="padding: 0 60px; margin-bottom: 80px;">
+        <div style="padding: 0 60px; margin-bottom: 60px;">
             <div class="red-block-header" style="transform: rotate(-1deg); margin-bottom: 20px;">
                 StarGems Inc.
             </div>
@@ -258,161 +265,356 @@
                         stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="0" />
                 </svg>
             </div>
-            
-            <div class="overview-box" style="display: block; margin-top: 40px; max-width: 800px; transform: rotate(0deg);">
+
+            <div class="overview-box"
+                style="display: block; margin-top: 40px; max-width: 800px; transform: rotate(0deg);">
                 Project Overview
             </div>
             <p class="description-text" style="max-width: 800px; margin-top: 20px;">
-                Designed and implemented the <span class="highlight-pink-box">Lumina Vault</span> dashboard suite for StarGems Inc., 
-                streamlining complex diamond and jewelry management workflows. The project involved creating a high-end, 
+                Designed and implemented the <span class="highlight-pink-box">Lumina Vault</span> dashboard suite for
+                StarGems Inc.,
+                streamlining complex diamond and jewelry management workflows. The project involved creating a high-end,
                 professional interface for pricing, inventory control, and market analysis.
             </p>
             <div style="margin-top: 30px;">
-                <a href="https://stargems.com/" target="_blank" class="highlight-pink-box" style="font-family: 'Cutive Mono'; font-weight: bold; text-decoration: none; color: #000; font-size: 1rem;">VISIT LIVE SITE ↗</a>
+                <a href="https://stargems.com/" target="_blank" class="highlight-pink-box"
+                    style="font-family: 'Cutive Mono'; font-weight: bold; text-decoration: none; color: #000; font-size: 1rem;">VISIT
+                    LIVE SITE ↗</a>
             </div>
         </div>
 
-        <!-- THE WEB PAGE CARDS -->
-        <div style="padding: 0 60px; margin-bottom: 100px;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 50px; align-items: stretch;">
-                
+        <!-- SECTION: PROBLEM -->
+        <hr class="case-section-divider">
+        <section class="case-section-block">
+            <div class="case-section-label">01 / Problem</div>
+            <h2 class="case-section-heading">The Challenge</h2>
+            <div class="scrap-card" style="max-width: 800px; transform: rotate(0.3deg); padding: 30px;">
+                <p class="typewriter-text" style="margin: 0;">
+                    StarGems Inc. managed their diamond inventory, markup calculations, and rate tracking across
+                    disconnected spreadsheets and manual records. This created errors in pricing, delays in market
+                    response, and no unified view for administrators. The business needed a cohesive digital suite to
+                    bring clarity to complex multi-module workflows.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION: PROCESS -->
+        <hr class="case-section-divider">
+        <section class="case-section-block">
+            <div class="case-section-label">02 / Process</div>
+            <h2 class="case-section-heading">How I Worked</h2>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1000px;">
+                <div class="scrap-card" style="transform: rotate(-1deg); padding: 24px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 10px;">Research &amp;
+                        Discovery</h4>
+                    <p class="typewriter-text" style="font-size: 0.9rem; margin: 0; line-height: 1.6;">Conducted
+                        stakeholder interviews to understand the pricing workflows, diamond grading terminology, and
+                        pain points in the existing system.</p>
+                </div>
+                <div class="scrap-card" style="transform: rotate(1.2deg); padding: 24px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 10px;">Information
+                        Architecture</h4>
+                    <p class="typewriter-text" style="font-size: 0.9rem; margin: 0; line-height: 1.6;">Mapped all
+                        modules &mdash; Markup Management, Rate Tracking, Stone Pricing, and the central Dashboard
+                        &mdash; into a coherent navigation hierarchy.</p>
+                </div>
+                <div class="scrap-card" style="transform: rotate(-0.6deg); padding: 24px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 10px;">Iterative
+                        Design</h4>
+                    <p class="typewriter-text" style="font-size: 0.9rem; margin: 0; line-height: 1.6;">Built
+                        low-fidelity wireframes in Figma, then progressed to high-fidelity prototypes with client
+                        feedback loops at each milestone.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: SOLUTION -->
+        <hr class="case-section-divider">
+        <section class="case-section-block">
+            <div class="case-section-label">03 / Solution</div>
+            <h2 class="case-section-heading">The Deliverables</h2>
+
+            <!-- THE WEB PAGE CARDS -->
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 50px; align-items: stretch; margin-top: 20px;">
+
                 <!-- Card 1: Markup Management -->
-                <div class="polaroid-project-card" style="--rot: -1.2deg; background: #fff; padding: 20px 20px 30px 20px;">
+                <div class="polaroid-project-card"
+                    style="--rot: -1.2deg; background: #fff; padding: 20px 20px 30px 20px;">
                     <div class="tape-overlay-center"></div>
                     <div>
                         <div class="project-thumbnail-wrapper" style="aspect-ratio: 4/3; margin-bottom: 15px;">
-                            <img src="assets/stargems_markup.png" alt="Markup Management" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="assets/stargems_markup.png" alt="Markup Management"
+                                style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">Markup Management</h3>
+                        <h3
+                            style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">
+                            Markup Management</h3>
                         <p class="typewriter-text" style="font-size: 0.9rem; line-height: 1.5; color: #555;">
-                            A sophisticated tool for managing retail and wholesale markups with real-time calculations and bulk update capabilities.
+                            A sophisticated tool for managing retail and wholesale markups with real-time calculations
+                            and bulk update capabilities.
                         </p>
                     </div>
                     <div style="margin-top: 15px; display: flex; gap: 8px;">
-                        <span style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">MODULE 01</span>
-                        <span style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">PRICING</span>
+                        <span
+                            style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">MODULE
+                            01</span>
+                        <span
+                            style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">PRICING</span>
                     </div>
                 </div>
 
                 <!-- Card 2: Rate Management -->
-                <div class="polaroid-project-card" style="--rot: 1.5deg; background: #fff; padding: 20px 20px 30px 20px;">
+                <div class="polaroid-project-card"
+                    style="--rot: 1.5deg; background: #fff; padding: 20px 20px 30px 20px;">
                     <div class="tape-overlay-center"></div>
                     <div>
                         <div class="project-thumbnail-wrapper" style="aspect-ratio: 4/3; margin-bottom: 15px;">
-                            <img src="assets/stargems_rate.png" alt="Rate Tracking System" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="assets/stargems_rate.png" alt="Rate Tracking System"
+                                style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">Rate Tracking System</h3>
+                        <h3
+                            style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">
+                            Rate Tracking System</h3>
                         <p class="typewriter-text" style="font-size: 0.9rem; line-height: 1.5; color: #555;">
-                            Integrated metal and stone market rates tracking with automated margin adjustments for precision pricing.
+                            Integrated metal and stone market rates tracking with automated margin adjustments for
+                            precision pricing.
                         </p>
                     </div>
                     <div style="margin-top: 15px; display: flex; gap: 8px;">
-                        <span style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">MODULE 02</span>
-                        <span style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">METRICS</span>
+                        <span
+                            style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">MODULE
+                            02</span>
+                        <span
+                            style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">METRICS</span>
                     </div>
                 </div>
 
                 <!-- Card 3: Stone Pricing Explorer -->
-                <div class="polaroid-project-card" style="--rot: -0.8deg; background: #fff; padding: 20px 20px 30px 20px;">
+                <div class="polaroid-project-card"
+                    style="--rot: -0.8deg; background: #fff; padding: 20px 20px 30px 20px;">
                     <div class="tape-overlay-center"></div>
                     <div>
                         <div class="project-thumbnail-wrapper" style="aspect-ratio: 4/3; margin-bottom: 15px;">
-                            <img src="assets/stargems_pricing.png" alt="Stone Pricing Explorer" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="assets/stargems_pricing.png" alt="Stone Pricing Explorer"
+                                style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">Stone Pricing Explorer</h3>
+                        <h3
+                            style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">
+                            Stone Pricing Explorer</h3>
                         <p class="typewriter-text" style="font-size: 0.9rem; line-height: 1.5; color: #555;">
-                            An interactive search and comparison tool for evaluating stone prices based on cut, color, clarity, and carat weight.
+                            An interactive search and comparison tool for evaluating stone prices based on cut, color,
+                            clarity, and carat weight.
                         </p>
                     </div>
                     <div style="margin-top: 15px; display: flex; gap: 8px;">
-                        <span style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">MODULE 03</span>
-                        <span style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">EXPLORER</span>
+                        <span
+                            style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">MODULE
+                            03</span>
+                        <span
+                            style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">EXPLORER</span>
                     </div>
                 </div>
 
                 <!-- Card 4: Lumina Vault Dashboard -->
-                <div class="polaroid-project-card" style="--rot: 0.9deg; background: #fff; padding: 20px 20px 30px 20px;">
+                <div class="polaroid-project-card"
+                    style="--rot: 0.9deg; background: #fff; padding: 20px 20px 30px 20px;">
                     <div class="tape-overlay-center"></div>
                     <div>
                         <div class="project-thumbnail-wrapper" style="aspect-ratio: 4/3; margin-bottom: 15px;">
-                            <img src="assets/stargems_dashboard.png" alt="Lumina Vault Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="assets/stargems_dashboard.png" alt="Lumina Vault Dashboard"
+                                style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">Main Dashboard</h3>
+                        <h3
+                            style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">
+                            Main Dashboard</h3>
                         <p class="typewriter-text" style="font-size: 0.9rem; line-height: 1.5; color: #555;">
-                            The central hub for administrators, providing high-level insights and quick access to all management modules.
+                            The central hub for administrators, providing high-level insights and quick access to all
+                            management modules.
                         </p>
                     </div>
                     <div style="margin-top: 15px; display: flex; gap: 8px;">
-                        <span style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">MODULE 04</span>
-                        <span style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">ANALYTICS</span>
+                        <span
+                            style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">MODULE
+                            04</span>
+                        <span
+                            style="background: #eee; padding: 4px 10px; font-size: 0.75rem; font-family: 'Cutive Mono';">ANALYTICS</span>
                     </div>
                 </div>
 
             </div>
-        </div>
+        </section>
+
+        <!-- SECTION: OUTCOME -->
+        <hr class="case-section-divider">
+        <section class="case-section-block">
+            <div class="case-section-label">04 / Outcome</div>
+            <h2 class="case-section-heading">Results &amp; Impact</h2>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; max-width: 900px;">
+                <div class="scrap-card" style="transform: rotate(-1.2deg); padding: 24px; background: #fffdf5;">
+                    <div
+                        style="font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #E63946; line-height: 1;">
+                        4</div>
+                    <div style="font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; margin-top: 4px;">
+                        Modules Delivered</div>
+                    <p class="typewriter-text" style="font-size: 0.85rem; margin-top: 10px; margin-bottom: 0;">Covering
+                        pricing, inventory, market rates &amp; analytics in a unified dashboard.</p>
+                </div>
+                <div class="scrap-card" style="transform: rotate(1deg); padding: 24px; background: #fffdf5;">
+                    <div
+                        style="font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #E63946; line-height: 1;">
+                        ↓</div>
+                    <div style="font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; margin-top: 4px;">
+                        Reduced Manual Effort</div>
+                    <p class="typewriter-text" style="font-size: 0.85rem; margin-top: 10px; margin-bottom: 0;">Bulk
+                        update tools and real-time calculations replaced hours of manual spreadsheet work.</p>
+                </div>
+                <div class="scrap-card" style="transform: rotate(-0.6deg); padding: 24px; background: #fffdf5;">
+                    <div
+                        style="font-family: var(--font-heading); font-size: 3rem; font-weight: 900; color: #E63946; line-height: 1;">
+                        ★</div>
+                    <div style="font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; margin-top: 4px;">
+                        Live Site</div>
+                    <p class="typewriter-text" style="font-size: 0.85rem; margin-top: 10px; margin-bottom: 0;">Deployed
+                        and actively used by the StarGems team. <a href="https://stargems.com/" target="_blank"
+                            class="highlight-pink-box"
+                            style="font-size: 0.85rem; text-decoration: none; color: #000;">Visit site ↗</a></p>
+                </div>
+            </div>
+        </section>
 
     </div>
 
     <!-- DIFFERENT CARD DESIGN TYPES SECTION -->
     <div style="max-width: 1400px; margin: 100px auto 60px auto; padding: 0 60px;">
-        <div class="red-block-header" style="font-size: 2.2rem; margin-bottom: 50px; transform: rotate(1deg); padding: 10px 20px;">
+        <div class="red-block-header"
+            style="font-size: 2.2rem; margin-bottom: 50px; transform: rotate(1deg); padding: 10px 20px;">
             More Projects
         </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: stretch;">
-            
+
+        <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: stretch;">
+
             <!-- Card Design Type 1: The Collage / Polaroid -->
-            <a href="eduassist.html" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-8px) rotate(-1deg)'" onmouseout="this.style.transform='translateY(0) rotate(0)'">
-                <div style="background: #fff; padding: 20px 20px 40px 20px; box-shadow: 5px 15px 30px rgba(0,0,0,0.1); position: relative; height: 100%; border: 1px solid #eaeaea;">
-                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 80px; height: 30px; background: rgba(255,255,255,0.6); border: 1px solid #ddd; backdrop-filter: blur(2px); box-shadow: 0 2px 4px rgba(0,0,0,0.05); z-index: 10;"></div>
-                    <div style="width: 100%; aspect-ratio: 4/3; background: #f4f4f4; margin-bottom: 25px; overflow: hidden; position: relative;">
-                        <!-- Placeholder for image -->
-                        <div style="position: absolute; inset: 0; background: linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%, #e0e0e0), linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%, #e0e0e0); background-size: 20px 20px; background-position: 0 0, 10px 10px; opacity: 0.5;"></div>
-                        <img src="assets/EduAssist/Card.png" alt="EduAssist" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1;" onerror="this.style.display='none'">
+            <a href="eduassist.html"
+                style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s; cursor: pointer;"
+                onmouseover="this.style.transform='translateY(-8px) rotate(-1deg)'"
+                onmouseout="this.style.transform='translateY(0) rotate(0)'">
+                <div
+                    style="background: #fff; padding: 20px 20px 40px 20px; box-shadow: 5px 15px 30px rgba(0,0,0,0.1); position: relative; height: 100%; border: 1px solid #eaeaea;">
+                    <div
+                        style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 80px; height: 30px; background: rgba(255,255,255,0.6); border: 1px solid #ddd; backdrop-filter: blur(2px); box-shadow: 0 2px 4px rgba(0,0,0,0.05); z-index: 10;">
                     </div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">EduAssist</h3>
-                    <p style="font-family: 'Cutive Mono', monospace; font-size: 0.9rem; color: #666; margin: 0 0 15px 0;">AI PROJECT / CHATBOT</p>
-                    <div style="font-family: 'Caveat', cursive; font-size: 1.5rem; color: #E63946;">View Case Study &rarr;</div>
+                    <div
+                        style="width: 100%; aspect-ratio: 4/3; background: #f4f4f4; margin-bottom: 25px; overflow: hidden; position: relative;">
+                        <!-- Placeholder for image -->
+                        <div
+                            style="position: absolute; inset: 0; background: linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%, #e0e0e0), linear-gradient(45deg, #e0e0e0 25%, transparent 25%, transparent 75%, #e0e0e0 75%, #e0e0e0); background-size: 20px 20px; background-position: 0 0, 10px 10px; opacity: 0.5;">
+                        </div>
+                        <img src="assets/EduAssist/Card.png" alt="EduAssist"
+                            style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 1;"
+                            onerror="this.style.display='none'">
+                    </div>
+                    <h3
+                        style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">
+                        EduAssist</h3>
+                    <p
+                        style="font-family: 'Cutive Mono', monospace; font-size: 0.9rem; color: #666; margin: 0 0 15px 0;">
+                        AI PROJECT / CHATBOT</p>
+                    <div style="font-family: 'Caveat', cursive; font-size: 1.5rem; color: #E63946;">View Case Study
+                        &rarr;</div>
                 </div>
             </a>
 
             <!-- Card Design Type 2: The Scrap Paper / Sticker -->
-            <a href="https://www.shallotsaustin.com/" style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-                <div style="background: #fffdf9; padding: 40px 30px; transform: rotate(1.5deg); height: 100%; display: flex; flex-direction: column; position: relative; box-shadow: 2px 3px 10px rgba(0,0,0,0.08); clip-path: polygon(1% 0%, 99% 1%, 100% 98%, 0% 100%);">
-                    <div class="sticker-label-black" style="position: absolute; top: -10px; left: 20px; transform: rotate(-3deg); z-index: 2; padding: 5px 15px; font-family: 'Playfair Display', serif; font-weight: 700;">LIVE SITE</div>
+            <a href="https://www.shallotsaustin.com/"
+                style="text-decoration: none; color: inherit; display: block; transition: transform 0.3s;"
+                onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                <div
+                    style="background: #fffdf9; padding: 40px 30px; transform: rotate(1.5deg); height: 100%; display: flex; flex-direction: column; position: relative; box-shadow: 2px 3px 10px rgba(0,0,0,0.08); clip-path: polygon(1% 0%, 99% 1%, 100% 98%, 0% 100%);">
+                    <div class="sticker-label-black"
+                        style="position: absolute; top: -10px; left: 20px; transform: rotate(-3deg); z-index: 2; padding: 5px 15px; font-family: 'Playfair Display', serif; font-weight: 700;">
+                        LIVE SITE</div>
                     <div style="margin-top: 20px; flex-grow: 1;">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 15px 0; color: #222; line-height: 1.1;">Shallots<br>Austin</h3>
-                        <p style="font-family: 'Inter', sans-serif; font-size: 1rem; color: #444; line-height: 1.6; margin-bottom: 30px;">A tasty digital experience designed for modern Indian cuisine.</p>
+                        <h3
+                            style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 15px 0; color: #222; line-height: 1.1;">
+                            Shallots<br>Austin</h3>
+                        <p
+                            style="font-family: 'Inter', sans-serif; font-size: 1rem; color: #444; line-height: 1.6; margin-bottom: 30px;">
+                            A tasty digital experience designed for modern Indian cuisine.</p>
                     </div>
                     <div style="align-self: flex-start;">
-                        <span class="highlight-pink-box" style="font-family: 'Cutive Mono', monospace; font-weight: bold; font-size: 0.95rem; color: #111;">VISIT WEBSITE ↗</span>
+                        <span class="highlight-pink-box"
+                            style="font-family: 'Cutive Mono', monospace; font-weight: bold; font-size: 0.95rem; color: #111;">VISIT
+                            WEBSITE ↗</span>
                     </div>
                 </div>
             </a>
 
             <!-- Card Design Type 3: The Dark Editorial Block -->
-            <a href="https://gym-landing-page-seven-psi.vercel.app/" style="text-decoration: none; display: block; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-8px) rotate(1deg)'" onmouseout="this.style.transform='translateY(0) rotate(0)'">
-                <div style="background: #1a1a1a; color: #fff; padding: 40px; position: relative; overflow: hidden; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+            <a href="https://gym-landing-page-seven-psi.vercel.app/"
+                style="text-decoration: none; display: block; transition: transform 0.3s;"
+                onmouseover="this.style.transform='translateY(-8px) rotate(1deg)'"
+                onmouseout="this.style.transform='translateY(0) rotate(0)'">
+                <div
+                    style="background: #1a1a1a; color: #fff; padding: 40px; position: relative; overflow: hidden; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
                     <!-- Decorative blurred circle -->
-                    <div style="position: absolute; top: -40px; right: -40px; width: 150px; height: 150px; background: #E63946; border-radius: 50%; opacity: 0.15; filter: blur(30px); pointer-events: none;"></div>
-                    
-                    <div>
-                        <div style="font-family: 'Cutive Mono', monospace; font-size: 0.85rem; color: #aaa; margin-bottom: 25px; letter-spacing: 1px;">03 / DESIGN</div>
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 20px 0; line-height: 1.2;">Gym Landing<br>Page</h3>
-                        <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #888; line-height: 1.6;">A bold new identity for a fitness startup.</p>
+                    <div
+                        style="position: absolute; top: -40px; right: -40px; width: 150px; height: 150px; background: #E63946; border-radius: 50%; opacity: 0.15; filter: blur(30px); pointer-events: none;">
                     </div>
-                    
+
+                    <div>
+                        <div
+                            style="font-family: 'Cutive Mono', monospace; font-size: 0.85rem; color: #aaa; margin-bottom: 25px; letter-spacing: 1px;">
+                            03 / DESIGN</div>
+                        <h3
+                            style="font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 20px 0; line-height: 1.2;">
+                            Gym Landing<br>Page</h3>
+                        <p style="font-family: 'Inter', sans-serif; font-size: 0.95rem; color: #888; line-height: 1.6;">
+                            A bold new identity for a fitness startup.</p>
+                    </div>
+
                     <div style="display: flex; align-items: center; gap: 15px; margin-top: 30px;">
-                        <div style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #E63946;">
-                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        <div
+                            style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: #E63946;">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
                         </div>
-                        <span style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Explore</span>
+                        <span
+                            style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Explore</span>
                     </div>
                 </div>
             </a>
 
         </div>
     </div>
+
+    <!-- Contact Footer -->
+    <footer class="site-contact-footer">
+        <div class="footer-inner">
+            <h2 class="footer-heading">Let's Create <em>Magic!</em></h2>
+            <p class="footer-sub">It would be a pleasure to collaborate with you.</p>
+            <div class="footer-links">
+                <a href="mailto:mahek0624@gmail.com" class="footer-stamp-link">✉ Email Me</a>
+                <a href="https://linkedin.com/in/mahek-gopani-b34643249" target="_blank"
+                    class="footer-stamp-link">LinkedIn ↗</a>
+                <a href="https://github.com/mac2406" target="_blank" class="footer-stamp-link">GitHub ↗</a>
+                <a href="assets/Mahek Gopani (CV).pdf" target="_blank" class="footer-stamp-link">Resume ↓</a>
+            </div>
+            <div class="footer-rubber-stamp">
+                <div class="footer-rubber-stamp-inner">
+                    <div class="footer-rubber-stamp-name">MAHEK<br>GOPANI</div>
+                    <div class="footer-rubber-stamp-year">★ 2026 ★</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 

@@ -19,29 +19,26 @@
     <link rel="stylesheet" href="css/collage-enhancements.css">
 </head>
 
-<body>
+<body style="background-color: #F4F1EA;">
     <!-- Custom Cursor -->
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
-    <!-- Back Button to Cover -->
-    <div class="back-btn-strip">
-        <a href="index.html">← COVER</a>
-    </div>
+    <!-- Sticky Navigation Bar -->
+    <nav class="cover-sticky-nav" aria-label="Main navigation">
+        <a href="index.html" class="cover-nav-logo">MG</a>
+        <div class="cover-nav-links">
+            <a href="about.html" class="cover-nav-link">About</a>
+            <a href="ui-ux.html" class="cover-nav-link">UI/UX</a>
+            <a href="social-media.html" class="cover-nav-link">Social Media</a>
+            <a href="eduassist.html" class="cover-nav-link">AI Project</a>
+            <a href="about.html#contact" class="cover-nav-link contact-link">Contact</a>
+        </div>
+    </nav>
 
-    <!-- Scrapbook Tab Header -->
-    <header class="scrapbook-nav-header">
-        <nav class="scrapbook-tabs-container">
-            <a href="about.html" class="scrapbook-tab active">About Me</a>
-            <a href="ui-ux.html" class="scrapbook-tab">UI/UX Design</a>
-            <a href="social-media.html" class="scrapbook-tab">Social Media Design</a>
-            <a href="eduassist.html" class="scrapbook-tab">AI Projects</a>
-        </nav>
-    </header>
-
-    <main class="container">
+    <main class="container" style="padding-top: 100px;">
         <!-- Main Two-Column Scrapbook Layout -->
-        <div class="about-collage-container" style="padding-top: 40px; position: relative;">
+        <div class="about-collage-container" style="position: relative;">
 
             <!-- Left Column: Cutout photo + Lined Paper Bio -->
             <div class="about-col-left" style="gap: 30px;">
@@ -152,55 +149,28 @@
             </div>
         </div>
 
-        <!-- Contact Section (Zine Back Cover) -->
-        <section id="contact" class="contact" style="padding: 60px 0 80px 0; border-top: 2px dashed rgba(0,0,0,0.1);">
-            <div class="subscription-card"
-                style="position: relative; overflow: hidden; padding: 40px; text-align: center; background: #fffdf5; border: 1px solid #e2ded0; box-shadow: 2px 4px 10px rgba(0,0,0,0.08);">
-                <div style="position: relative; z-index: 1;">
-                    <h2
-                        style="font-family: var(--font-heading); font-size: 3.5rem; line-height: 1; margin-bottom: 15px; color: var(--text-primary);">
-                        Let's Create <span style="font-style: italic; font-weight: 400;">Magic!</span>
-                    </h2>
-                    <p class="typewriter-text align-center"
-                        style="margin-bottom: 40px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; color: var(--text-secondary);">
-                        It would be a pleasure to collaborate with you.
-                    </p>
+    </main>
 
-                    <div class="contact-stamps"
-                        style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                        <a href="mailto:mahekgopani2406@gmail.com" class="stamp-link email-stamp">
-                            <span>EMAIL ME</span>
-                        </a>
-                        <a href="https://linkedin.com/in/mahek-gopani" target="_blank"
-                            class="stamp-link linkedin-stamp">
-                            <span>LINKEDIN</span>
-                        </a>
-                        <a href="https://github.com/mac2406" target="_blank" class="stamp-link github-stamp">
-                            <span>GITHUB</span>
-                        </a>
-                        <a href="assets/Mahek Gopani (CV).pdf" target="_blank" class="stamp-link resume-stamp">
-                            <span>RESUME</span>
-                        </a>
-                    </div>
-
-                    <!-- Rubber Stamp Footer -->
-                    <div class="footer-stamp" style="margin-top: 40px; display: inline-block; position: relative;">
-                        <div
-                            style="border: 3px double var(--text-secondary); border-radius: 50%; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; transform: rotate(-10deg); opacity: 0.85;">
-                            <div style="text-align: center; color: var(--text-secondary);">
-                                <div
-                                    style="font-family: var(--font-heading); font-weight: 900; font-size: 1rem; letter-spacing: 1px; line-height: 1.2; border-bottom: 2px solid var(--text-secondary); padding-bottom: 4px; margin-bottom: 4px;">
-                                    MAHEK<br>GOPANI</div>
-                                <div
-                                    style="font-family: 'Cutive Mono', monospace; font-size: 0.75rem; font-weight: bold;">
-                                    ★ 2026 ★</div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Contact Footer -->
+    <footer id="contact" class="site-contact-footer">
+        <div class="footer-inner">
+            <h2 class="footer-heading">Let's Create <em>Magic!</em></h2>
+            <p class="footer-sub">It would be a pleasure to collaborate with you.</p>
+            <div class="footer-links">
+                <a href="mailto:mahek0624@gmail.com" class="footer-stamp-link">✉ Email Me</a>
+                <a href="https://linkedin.com/in/mahek-gopani-b34643249" target="_blank"
+                    class="footer-stamp-link">LinkedIn ↗</a>
+                <a href="https://github.com/mac2406" target="_blank" class="footer-stamp-link">GitHub ↗</a>
+                <a href="assets/Mahek Gopani (CV).pdf" target="_blank" class="footer-stamp-link">Resume ↓</a>
+            </div>
+            <div class="footer-rubber-stamp">
+                <div class="footer-rubber-stamp-inner">
+                    <div class="footer-rubber-stamp-name">MAHEK<br>GOPANI</div>
+                    <div class="footer-rubber-stamp-year">★ 2026 ★</div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>

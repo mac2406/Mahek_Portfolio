@@ -19,78 +19,210 @@
     <link rel="stylesheet" href="css/collage-enhancements.css">
 
     <style>
+        /* ── Brand Card Grid ─────────────────────────────── */
         .uiux-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
-            padding: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            padding: 50px 0 20px 0;
             align-items: stretch;
         }
 
-        .project-card-scrap {
-            background: #fff;
-            padding: 24px;
-            border: 2px solid #000;
-            box-shadow: 8px 8px 0px #000;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .brand-card {
             position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .project-card-scrap:hover {
-            transform: translateY(-5px) rotate(-1deg);
-            box-shadow: 12px 12px 0px #E63946;
-        }
-
-        .polaroid-project-card {
-            background: #fff;
-            padding: 20px 20px 40px 20px;
-            border: 1px solid #eaeaea;
-            box-shadow: 4px 10px 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transform: rotate(var(--rot, 0.5deg));
-            transition: transform 0.3s ease;
-        }
-
-        .polaroid-project-card:hover {
-            transform: translateY(-8px) rotate(-1deg);
-        }
-
-        .project-thumbnail-wrapper {
-            width: 100%;
-            aspect-ratio: 4/3;
-            background: #f4f4f4;
             overflow: hidden;
-            position: relative;
-            margin-bottom: 20px;
-            border: 1px solid #eee;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border: 2px solid rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.2), box-shadow 0.35s ease;
+            cursor: pointer;
         }
 
-        .project-thumbnail-wrapper img {
+        .brand-card:hover {
+            transform: translateY(-8px) rotate(-0.5deg);
+            box-shadow: 16px 24px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        /* The full-bleed image/brand visual area */
+        .brand-card-visual {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .brand-card-visual img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .tape-overlay-center {
+        .brand-card:hover .brand-card-visual img {
+            transform: scale(1.05);
+        }
+
+        /* Dark gradient overlay so text is readable */
+        .brand-card-overlay {
             position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90px;
-            height: 30px;
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(1.5px);
-            z-index: 10;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.85) 0%,
+                    rgba(0, 0, 0, 0.4) 45%,
+                    rgba(0, 0, 0, 0.05) 100%);
+        }
+
+        /* Content sits above overlay */
+        .brand-card-content {
+            position: relative;
+            z-index: 2;
+            padding: 28px 28px 32px 28px;
+        }
+
+        /* Top-left category tag */
+        .brand-card-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .brand-tag-pill {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            color: #fff;
+            font-family: 'Cutive Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+        }
+
+        .brand-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-card-desc {
+            font-family: 'Cutive Mono', monospace;
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.78);
+            line-height: 1.55;
+            margin: 0 0 20px 0;
+        }
+
+        .brand-card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Cutive Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #000;
+            background: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .brand-card-cta:hover {
+            background: #E63946;
+            color: #fff;
+        }
+
+        /* Card-specific brand backgrounds (used when there's no full img) */
+        .brand-bg-stargems {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 40%, #243447 100%);
+        }
+
+        .brand-bg-shallots {
+            background: linear-gradient(135deg, #3b1f0d 0%, #5c2e10 50%, #7a3d18 100%);
+        }
+
+        .brand-bg-gym {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #111 100%);
+        }
+
+        .brand-bg-borthwick {
+            background: linear-gradient(135deg, #1a0a0a 0%, #2d1010 40%, #3d1a1a 100%);
+        }
+
+        .brand-bg-rockys {
+            background: linear-gradient(135deg, #0a0f1a 0%, #101828 40%, #1a2438 100%);
+        }
+
+        .brand-bg-jefferson {
+            background: linear-gradient(135deg, #0d1a0d 0%, #162416 40%, #1e301e 100%);
+        }
+
+        .brand-bg-wrights {
+            background: linear-gradient(135deg, #1a1508 0%, #2a2010 40%, #3a2e18 100%);
+        }
+
+        .brand-bg-weather {
+            background: linear-gradient(160deg, #1a4a7a 0%, #2563a8 40%, #3b82c4 70%, #60a5d4 100%);
+        }
+
+        .brand-bg-portfolio {
+            background: linear-gradient(135deg, #1a0a2e 0%, #2d1060 40%, #0d2040 70%, #0a1a2d 100%);
+        }
+
+        .brand-bg-tictactoe {
+            background: linear-gradient(135deg, #0a1a0a 0%, #14301a 40%, #1e4028 100%);
+        }
+
+        .brand-bg-stopwatch {
+            background: linear-gradient(135deg, #111 0%, #1c1c1c 50%, #242424 100%);
+        }
+
+        /* Logo-style brand mark for cards without full screenshots */
+        .brand-mark {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 30px 120px;
+            gap: 20px;
+        }
+
+        .brand-mark-logo {
+            max-width: 180px;
+            max-height: 160px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .brand-mark-wordmark {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.12);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1;
+            user-select: none;
+            position: absolute;
+            bottom: 100px;
         }
     </style>
 </head>
@@ -100,22 +232,19 @@
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
-    <!-- Back Button -->
-    <div class="back-btn-strip">
-        <a href="index.html">← COVER</a>
-    </div>
+    <!-- Sticky Navigation Bar -->
+    <nav class="cover-sticky-nav" aria-label="Main navigation">
+        <a href="index.html" class="cover-nav-logo">MG</a>
+        <div class="cover-nav-links">
+            <a href="about.html" class="cover-nav-link">About</a>
+            <a href="ui-ux.html" class="cover-nav-link">UI/UX</a>
+            <a href="social-media.html" class="cover-nav-link">Social Media</a>
+            <a href="eduassist.html" class="cover-nav-link">AI Project</a>
+            <a href="about.html#contact" class="cover-nav-link contact-link">Contact</a>
+        </div>
+    </nav>
 
-    <!-- Scrapbook Tab Navigation -->
-    <header class="scrapbook-nav-header">
-        <nav class="scrapbook-tabs-container">
-            <a href="about.html" class="scrapbook-tab">About Me</a>
-            <a href="ui-ux.html" class="scrapbook-tab active">UI/UX Design</a>
-            <a href="social-media.html" class="scrapbook-tab">Social Media Design</a>
-            <a href="eduassist.html" class="scrapbook-tab">AI Projects</a>
-        </nav>
-    </header>
-
-    <main class="container" style="padding-bottom: 100px;">
+    <main class="container" style="padding-top: 100px;">
 
         <!-- Header banner -->
         <div style="margin: 40px 0 20px 0;">
@@ -129,76 +258,457 @@
         <!-- Projects Grid -->
         <div class="uiux-grid">
 
-            <!-- Project 1: StarGems Inc (Polaroid style) -->
-            <div class="polaroid-project-card" style="--rot: -1.5deg;">
-                <div class="tape-overlay-center"></div>
-                <div>
-                    <div class="project-thumbnail-wrapper">
-                        <img src="assets/stargems_dashboard.png" alt="Lumina Vault Dashboard">
+            <!-- ── CARD 1: StarGems Inc ──────────────────────── -->
+            <a href="stargems.html" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-stargems">
+                    <!-- Brand tags top-left -->
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">UI/UX Design</span>
+                        <span class="brand-tag-pill">Dashboard</span>
                     </div>
-                    <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">
-                        StarGems Inc.</h3>
-                    <p class="typewriter-text" style="font-size: 0.9rem; line-height: 1.5; color: #555;">
-                        Designed the Lumina Vault dashboard system, streamlining diamond inventory controls and market watch tracking.
-                    </p>
-                </div>
-                <div style="margin-top: 20px;">
-                    <a href="stargems.html" class="highlight-pink-box"
-                        style="font-family: 'Cutive Mono'; font-weight: bold; text-decoration: none; color: #000; font-size: 0.95rem;">VIEW CASE STUDY →</a>
-                </div>
-            </div>
 
-            <!-- Project 2: Shallots Austin (Polaroid style) -->
-            <div class="polaroid-project-card" style="--rot: 1.2deg;">
-                <div class="tape-overlay-center"></div>
-                <div>
-                    <div class="project-thumbnail-wrapper">
-                        <img src="assets/shallots_website.png" alt="Shallots Restaurant Website">
+                    <!-- Brand visual: decorative diamond motif + wordmark -->
+                    <div class="brand-mark">
+                        <!-- Decorative diamond SVG -->
+                        <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="opacity:0.55;">
+                            <polygon points="45,2 88,45 45,88 2,45" stroke="rgba(201,168,106,0.9)" stroke-width="1.5"
+                                fill="none" />
+                            <polygon points="45,14 76,45 45,76 14,45" stroke="rgba(201,168,106,0.6)" stroke-width="1"
+                                fill="none" />
+                            <polygon points="45,26 64,45 45,64 26,45" stroke="rgba(201,168,106,0.4)" stroke-width="1"
+                                fill="rgba(201,168,106,0.06)" />
+                        </svg>
+                        <div
+                            style="font-family:'Playfair Display',serif; font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(201,168,106,0.7); margin-top:4px;">
+                            LUMINA VAULT</div>
+                        <div class="brand-mark-wordmark">STARGEMS</div>
                     </div>
-                    <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">
-                        Shallots Restaurant</h3>
-                    <p class="typewriter-text" style="font-size: 0.9rem; line-height: 1.5; color: #555;">
-                        Built a premium web experience for Austin's Indian cuisine restaurant, featuring immersive culinary photography and digital reservation booking.
-                    </p>
-                </div>
-                <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-                    <a href="https://www.shallotsaustin.com/" target="_blank" class="highlight-pink-box"
-                        style="font-family: 'Cutive Mono'; font-weight: bold; text-decoration: none; color: #000; font-size: 0.95rem;">VISIT WEBSITE ↗</a>
-                    <span style="font-family: 'Caveat'; font-size: 1.3rem; color: #E63946; transform: rotate(-5deg);">Austin, TX</span>
-                </div>
-            </div>
 
-            <!-- Project 3: Gym Landing Page (Polaroid style) -->
-            <div class="polaroid-project-card" style="--rot: -0.8deg;">
-                <div class="tape-overlay-center"></div>
-                <div>
-                    <div class="project-thumbnail-wrapper">
-                        <img src="assets/gym_website.png" alt="Forge Fitness Landing Page">
+                    <!-- Dark gradient overlay -->
+                    <div class="brand-card-overlay"></div>
+
+                    <!-- Text content -->
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Diamond &amp; jewellery management suite — pricing, inventory &amp;
+                            market analytics.</p>
+                        <h2 class="brand-card-title">StarGems Inc.</h2>
+                        <span class="brand-card-cta">View Case Study →</span>
                     </div>
-                    <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 0 0 10px 0; color: #111;">
-                        Gym Landing Page</h3>
-                    <p class="typewriter-text" style="font-size: 0.9rem; line-height: 1.5; color: #555;">
-                        Developed a high-energy conversion landing page design with strong typography layouts and responsive membership tables.
-                    </p>
-                </div>
-                <div style="margin-top: 20px;">
-                    <a href="https://gym-landing-page-seven-psi.vercel.app/" target="_blank" class="highlight-pink-box"
-                        style="font-family: 'Cutive Mono'; font-weight: bold; text-decoration: none; color: #000; font-size: 0.95rem;">EXPLORE LIVE ↗</a>
-                </div>
-            </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 2: Shallots Austin ────────────────────── -->
+            <a href="https://www.shallotsaustin.com/" target="_blank" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-shallots">
+                    <!-- Brand tags top-left -->
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Web Design</span>
+                        <span class="brand-tag-pill">Live Site</span>
+                    </div>
+
+                    <!-- Brand visual: shallots onion logo -->
+                    <div class="brand-mark" style="padding-bottom: 200px;">
+                        <img src="assets/Shallots/shallots logo white.png" alt="Shallots Logo" class="brand-mark-logo"
+                            style="max-width:120px; max-height:120px; filter:none; opacity:0.88;">
+                        <div
+                            style="font-family:'Playfair Display',serif; font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,220,180,0.7); margin-top:10px;">
+                            AUSTIN, TEXAS</div>
+                        <div class="brand-mark-wordmark" style="color:rgba(255,255,255,0.06);">SHALLOTS</div>
+                    </div>
+
+                    <!-- Dark gradient overlay -->
+                    <div class="brand-card-overlay"></div>
+
+                    <!-- Text content -->
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Premium dining website for Austin's modern Indian cuisine restaurant
+                            — immersive &amp; warm.</p>
+                        <h2 class="brand-card-title">Shallots Restaurant</h2>
+                        <span class="brand-card-cta">Visit Website ↗</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 3: Gym Landing Page ───────────────────── -->
+            <a href="https://gym-landing-page-seven-psi.vercel.app/" target="_blank"
+                style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-gym">
+                    <!-- Brand tags top-left -->
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Landing Page</span>
+                        <span class="brand-tag-pill">Live Site</span>
+                    </div>
+
+                    <!-- Brand visual: bold typographic mark -->
+                    <div class="brand-mark">
+                        <div style="text-align:center; line-height:1;">
+                            <div
+                                style="font-family:'Playfair Display',serif; font-size:5rem; font-weight:900; color:rgba(230,57,70,0.18); letter-spacing:-0.04em; line-height:1;">
+                                FORGE</div>
+                            <div
+                                style="font-family:'Cutive Mono',monospace; font-size:0.7rem; letter-spacing:0.4em; color:rgba(230,57,70,0.6); margin-top:6px; text-transform:uppercase;">
+                                Fitness Studio</div>
+                            <!-- Decorative bar -->
+                            <div style="width:60px; height:2px; background:rgba(230,57,70,0.5); margin:16px auto 0;">
+                            </div>
+                        </div>
+                        <div class="brand-mark-wordmark" style="color:rgba(255,255,255,0.04);">GYM</div>
+                    </div>
+
+                    <!-- Dark gradient overlay -->
+                    <div class="brand-card-overlay"></div>
+
+                    <!-- Text content -->
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">High-energy conversion landing page with bold type systems &amp;
+                            responsive membership tiers.</p>
+                        <h2 class="brand-card-title">Gym Landing Page</h2>
+                        <span class="brand-card-cta">Explore Live ↗</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 4: Borthwick Jewelry ─────────────────── -->
+            <a href="#" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-borthwick">
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Web Design</span>
+                        <span class="brand-tag-pill">Jewelry</span>
+                    </div>
+                    <div class="brand-mark">
+                        <!-- Elegant ring motif -->
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="opacity:0.6;">
+                            <circle cx="40" cy="40" r="36" stroke="rgba(201,168,106,0.8)" stroke-width="1.5"
+                                fill="none" />
+                            <circle cx="40" cy="40" r="28" stroke="rgba(201,168,106,0.5)" stroke-width="1"
+                                fill="none" />
+                            <circle cx="40" cy="40" r="6" fill="rgba(201,168,106,0.4)" />
+                        </svg>
+                        <div
+                            style="font-family:'Playfair Display',serif; font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(201,168,106,0.75); margin-top:8px;">
+                            EST. MMXXIV</div>
+                        <div class="brand-mark-wordmark">BORTHWICK</div>
+                    </div>
+                    <div class="brand-card-overlay"></div>
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Elegant jewelry brand website — bespoke collections, refined
+                            aesthetics &amp; luxury storytelling.</p>
+                        <h2 class="brand-card-title">Borthwick Jewelry</h2>
+                        <span class="brand-card-cta">View Project →</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 5: Rocky's Diamond ───────────────────── -->
+            <a href="#" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-rockys">
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Web Design</span>
+                        <span class="brand-tag-pill">Diamond</span>
+                    </div>
+                    <div class="brand-mark">
+                        <!-- Diamond facet mark -->
+                        <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="opacity:0.55;">
+                            <polygon points="40,4 76,28 76,62 40,86 4,62 4,28" stroke="rgba(148,185,255,0.8)"
+                                stroke-width="1.5" fill="none" />
+                            <polygon points="40,18 62,32 62,58 40,72 18,58 18,32" stroke="rgba(148,185,255,0.45)"
+                                stroke-width="1" fill="rgba(148,185,255,0.04)" />
+                            <line x1="40" y1="4" x2="40" y2="86" stroke="rgba(148,185,255,0.2)" stroke-width="0.5" />
+                            <line x1="4" y1="28" x2="76" y2="62" stroke="rgba(148,185,255,0.2)" stroke-width="0.5" />
+                            <line x1="76" y1="28" x2="4" y2="62" stroke="rgba(148,185,255,0.2)" stroke-width="0.5" />
+                        </svg>
+                        <div
+                            style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.4em; text-transform:uppercase; color:rgba(148,185,255,0.6); margin-top:10px;">
+                            PREMIUM DIAMONDS</div>
+                        <div class="brand-mark-wordmark" style="color:rgba(148,185,255,0.06);">ROCKY'S</div>
+                    </div>
+                    <div class="brand-card-overlay"></div>
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Diamond retail platform with sophisticated navigation, gem filtering
+                            &amp; trust-driven UI.</p>
+                        <h2 class="brand-card-title">Rocky's Diamond</h2>
+                        <span class="brand-card-cta">View Project →</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 6: Jefferson Website ─────────────────── -->
+            <a href="#" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-jefferson">
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Web Design</span>
+                        <span class="brand-tag-pill">Brand</span>
+                    </div>
+                    <div class="brand-mark">
+                        <!-- Classic crest / monogram -->
+                        <div style="text-align:center;">
+                            <div
+                                style="font-family:'Playfair Display',serif; font-size:4.5rem; font-weight:900; color:rgba(120,180,120,0.2); letter-spacing:0.05em; line-height:1;">
+                                J</div>
+                            <div style="width:40px; height:1px; background:rgba(120,200,120,0.4); margin:10px auto;">
+                            </div>
+                            <div
+                                style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.4em; color:rgba(120,200,120,0.6); text-transform:uppercase;">
+                                JEFFERSON</div>
+                        </div>
+                        <div class="brand-mark-wordmark" style="color:rgba(120,200,120,0.05);">JEFFERSON</div>
+                    </div>
+                    <div class="brand-card-overlay"></div>
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Clean, authoritative brand website with structured layouts &amp;
+                            confident visual identity.</p>
+                        <h2 class="brand-card-title">Jefferson Website</h2>
+                        <span class="brand-card-cta">View Project →</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 7: Wright's Jewelry ───────────────────── -->
+            <a href="#" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-wrights">
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Landing Page</span>
+                        <span class="brand-tag-pill">Jewelry</span>
+                    </div>
+                    <div class="brand-mark">
+                        <!-- Ornate filigree-style mark -->
+                        <svg width="90" height="60" viewBox="0 0 90 60" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="opacity:0.55;">
+                            <path
+                                d="M45 5 C20 5, 5 20, 5 30 C5 42, 20 55, 45 55 C70 55, 85 42, 85 30 C85 20, 70 5, 45 5Z"
+                                stroke="rgba(210,180,100,0.8)" stroke-width="1" fill="none" />
+                            <path
+                                d="M45 15 C28 15, 15 22, 15 30 C15 38, 28 45, 45 45 C62 45, 75 38, 75 30 C75 22, 62 15, 45 15Z"
+                                stroke="rgba(210,180,100,0.45)" stroke-width="0.8" fill="rgba(210,180,100,0.03)" />
+                            <line x1="10" y1="30" x2="80" y2="30" stroke="rgba(210,180,100,0.3)" stroke-width="0.5"
+                                stroke-dasharray="3 3" />
+                        </svg>
+                        <div
+                            style="font-family:'Playfair Display',serif; font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(210,180,100,0.7); margin-top:8px;">
+                            FINE JEWELRY</div>
+                        <div class="brand-mark-wordmark" style="color:rgba(210,180,100,0.06);">WRIGHT'S</div>
+                    </div>
+                    <div class="brand-card-overlay"></div>
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Artisan jewelry landing page — warm palette, heritage feel &amp;
+                            handcrafted detail photography.</p>
+                        <h2 class="brand-card-title">Wright's Jewelry</h2>
+                        <span class="brand-card-cta">View Project →</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 8: Weather App ──────────────────────── -->
+            <a href="#" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-weather">
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Web App</span>
+                        <span class="brand-tag-pill">API Integration</span>
+                    </div>
+                    <div class="brand-mark">
+                        <!-- Cloud + sun SVG -->
+                        <svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="opacity:0.6;">
+                            <!-- Sun rays -->
+                            <circle cx="68" cy="22" r="12" stroke="rgba(255,220,80,0.7)" stroke-width="1.5"
+                                fill="rgba(255,220,80,0.08)" />
+                            <line x1="68" y1="4" x2="68" y2="10" stroke="rgba(255,220,80,0.5)" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <line x1="82" y1="8" x2="78" y2="12" stroke="rgba(255,220,80,0.5)" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <line x1="86" y1="22" x2="80" y2="22" stroke="rgba(255,220,80,0.5)" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <!-- Cloud -->
+                            <path
+                                d="M12 52 C12 52, 10 45, 18 42 C18 34, 28 28, 38 32 C42 24, 56 22, 62 32 C70 32, 76 38, 74 46 C72 52, 65 55, 55 55 L20 55 C15 55, 12 52, 12 52Z"
+                                stroke="rgba(255,255,255,0.6)" stroke-width="1.2" fill="rgba(255,255,255,0.08)" />
+                        </svg>
+                        <div
+                            style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-top:12px;">
+                            REAL-TIME FORECAST</div>
+                        <div class="brand-mark-wordmark" style="color:rgba(255,255,255,0.07);">WEATHER</div>
+                    </div>
+                    <div class="brand-card-overlay"></div>
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Live weather dashboard with API integration, location search &amp;
+                            animated condition displays.</p>
+                        <h2 class="brand-card-title">Weather App</h2>
+                        <span class="brand-card-cta">View Project →</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 9: Responsive Portfolio ───────────────── -->
+            <a href="#" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-portfolio">
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Frontend Dev</span>
+                        <span class="brand-tag-pill">Responsive</span>
+                    </div>
+                    <div class="brand-mark">
+                        <!-- Grid/layout motif -->
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="opacity:0.55;">
+                            <rect x="4" y="4" width="32" height="32" rx="2" stroke="rgba(180,120,255,0.7)"
+                                stroke-width="1.2" fill="rgba(180,120,255,0.05)" />
+                            <rect x="44" y="4" width="32" height="14" rx="2" stroke="rgba(80,200,255,0.7)"
+                                stroke-width="1.2" fill="rgba(80,200,255,0.05)" />
+                            <rect x="44" y="24" width="32" height="12" rx="2" stroke="rgba(80,200,255,0.5)"
+                                stroke-width="1" fill="rgba(80,200,255,0.03)" />
+                            <rect x="4" y="44" width="14" height="32" rx="2" stroke="rgba(255,120,180,0.6)"
+                                stroke-width="1.2" fill="rgba(255,120,180,0.04)" />
+                            <rect x="24" y="44" width="52" height="32" rx="2" stroke="rgba(255,200,80,0.6)"
+                                stroke-width="1.2" fill="rgba(255,200,80,0.04)" />
+                        </svg>
+                        <div
+                            style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(180,120,255,0.65); margin-top:12px;">
+                            HTML / CSS / JS</div>
+                        <div class="brand-mark-wordmark" style="color:rgba(180,120,255,0.06);">PORTFOLIO</div>
+                    </div>
+                    <div class="brand-card-overlay"></div>
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Fully responsive portfolio website built from scratch — fluid
+                            layouts, mobile-first design.</p>
+                        <h2 class="brand-card-title">Responsive Portfolio</h2>
+                        <span class="brand-card-cta">View Project →</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 10: Tic Tac Toe ─────────────────────── -->
+            <a href="#" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-tictactoe">
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Web Game</span>
+                        <span class="brand-tag-pill">JavaScript</span>
+                    </div>
+                    <div class="brand-mark">
+                        <!-- Tic-tac-toe grid SVG -->
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="opacity:0.55;">
+                            <!-- Grid lines -->
+                            <line x1="28" y1="6" x2="28" y2="74" stroke="rgba(80,220,120,0.6)" stroke-width="2"
+                                stroke-linecap="round" />
+                            <line x1="52" y1="6" x2="52" y2="74" stroke="rgba(80,220,120,0.6)" stroke-width="2"
+                                stroke-linecap="round" />
+                            <line x1="6" y1="28" x2="74" y2="28" stroke="rgba(80,220,120,0.6)" stroke-width="2"
+                                stroke-linecap="round" />
+                            <line x1="6" y1="52" x2="74" y2="52" stroke="rgba(80,220,120,0.6)" stroke-width="2"
+                                stroke-linecap="round" />
+                            <!-- X in top-left -->
+                            <line x1="10" y1="10" x2="22" y2="22" stroke="rgba(255,100,100,0.7)" stroke-width="2"
+                                stroke-linecap="round" />
+                            <line x1="22" y1="10" x2="10" y2="22" stroke="rgba(255,100,100,0.7)" stroke-width="2"
+                                stroke-linecap="round" />
+                            <!-- O in center -->
+                            <circle cx="40" cy="40" r="7" stroke="rgba(255,220,80,0.7)" stroke-width="2" fill="none" />
+                            <!-- X in bottom-right -->
+                            <line x1="58" y1="58" x2="70" y2="70" stroke="rgba(255,100,100,0.6)" stroke-width="2"
+                                stroke-linecap="round" />
+                            <line x1="70" y1="58" x2="58" y2="70" stroke="rgba(255,100,100,0.6)" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        <div
+                            style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(80,220,120,0.65); margin-top:12px;">
+                            2-PLAYER GAME</div>
+                        <div class="brand-mark-wordmark" style="color:rgba(80,220,120,0.06);">X &amp; O</div>
+                    </div>
+                    <div class="brand-card-overlay"></div>
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Classic 2-player game with smooth win detection, score tracking &amp;
+                            animated game states.</p>
+                        <h2 class="brand-card-title">Tic Tac Toe</h2>
+                        <span class="brand-card-cta">View Project →</span>
+                    </div>
+                </article>
+            </a>
+
+            <!-- ── CARD 11: Stopwatch Web App ───────────────── -->
+            <a href="#" style="text-decoration: none; display: block;">
+                <article class="brand-card brand-bg-stopwatch">
+                    <div class="brand-card-tag">
+                        <span class="brand-tag-pill">Web App</span>
+                        <span class="brand-tag-pill">JavaScript</span>
+                    </div>
+                    <div class="brand-mark">
+                        <!-- Watch face SVG -->
+                        <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="opacity:0.55;">
+                            <!-- Crown stem -->
+                            <rect x="34" y="2" width="12" height="8" rx="2" stroke="rgba(200,200,200,0.6)"
+                                stroke-width="1" fill="rgba(200,200,200,0.05)" />
+                            <!-- Watch case -->
+                            <circle cx="40" cy="50" r="32" stroke="rgba(200,200,200,0.7)" stroke-width="1.5"
+                                fill="rgba(200,200,200,0.04)" />
+                            <circle cx="40" cy="50" r="26" stroke="rgba(200,200,200,0.35)" stroke-width="1"
+                                fill="none" />
+                            <!-- Hour markers -->
+                            <line x1="40" y1="24" x2="40" y2="30" stroke="rgba(200,200,200,0.6)" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <line x1="40" y1="70" x2="40" y2="76" stroke="rgba(200,200,200,0.6)" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <line x1="14" y1="50" x2="20" y2="50" stroke="rgba(200,200,200,0.6)" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <line x1="60" y1="50" x2="66" y2="50" stroke="rgba(200,200,200,0.6)" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <!-- Hands -->
+                            <line x1="40" y1="50" x2="40" y2="30" stroke="rgba(230,57,70,0.9)" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <line x1="40" y1="50" x2="55" y2="50" stroke="rgba(230,57,70,0.6)" stroke-width="1.2"
+                                stroke-linecap="round" />
+                            <circle cx="40" cy="50" r="2" fill="rgba(230,57,70,0.8)" />
+                        </svg>
+                        <div
+                            style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(200,200,200,0.55); margin-top:12px;">
+                            PRECISION TIMING</div>
+                        <div class="brand-mark-wordmark" style="color:rgba(200,200,200,0.05);">00:00:00</div>
+                    </div>
+                    <div class="brand-card-overlay"></div>
+                    <div class="brand-card-content">
+                        <p class="brand-card-desc">Precision stopwatch with lap recording, split times &amp; clean
+                            minimal interface design.</p>
+                        <h2 class="brand-card-title">Stopwatch App</h2>
+                        <span class="brand-card-cta">View Project →</span>
+                    </div>
+                </article>
+            </a>
 
         </div>
 
-        <!-- Red pen arrow pointing down -->
-        <div style="text-align: center; margin: 50px 0;">
+        <!-- Handwritten note -->
+        <div style="text-align: center; margin: 50px 0 20px;">
             <div
-                style="font-family: 'Caveat'; font-size: 2rem; color: #E63946; display: inline-block; transform: rotate(-5deg);">
+                style="font-family: 'Caveat'; font-size: 2rem; color: #E63946; display: inline-block; transform: rotate(-3deg);">
                 check out my case studies for deep details!
             </div>
             <div style="font-size: 2.5rem; color: #E63946; margin-top: -10px;">↓</div>
         </div>
 
     </main>
+
+    <!-- Contact Footer -->
+    <footer class="site-contact-footer">
+        <div class="footer-inner">
+            <h2 class="footer-heading">Let's Create <em>Magic!</em></h2>
+            <p class="footer-sub">It would be a pleasure to collaborate with you.</p>
+            <div class="footer-links">
+                <a href="mailto:mahek0624@gmail.com" class="footer-stamp-link">✉ Email Me</a>
+                <a href="https://linkedin.com/in/mahek-gopani-b34643249" target="_blank"
+                    class="footer-stamp-link">LinkedIn ↗</a>
+                <a href="https://github.com/mac2406" target="_blank" class="footer-stamp-link">GitHub ↗</a>
+                <a href="assets/Mahek Gopani (CV).pdf" target="_blank" class="footer-stamp-link">Resume ↓</a>
+            </div>
+            <div class="footer-rubber-stamp">
+                <div class="footer-rubber-stamp-inner">
+                    <div class="footer-rubber-stamp-name">MAHEK<br>GOPANI</div>
+                    <div class="footer-rubber-stamp-year">★ 2026 ★</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>

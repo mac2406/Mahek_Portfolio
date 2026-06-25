@@ -10,7 +10,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Cutive+Mono&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Cutive+Mono&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -66,34 +68,35 @@
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
-    <!-- Back Button -->
-    <div class="back-btn-strip">
-        <a href="index.html">← COVER</a>
-    </div>
+    <!-- Sticky Navigation Bar -->
+    <nav class="cover-sticky-nav" aria-label="Main navigation">
+        <a href="index.html" class="cover-nav-logo">MG</a>
+        <div class="cover-nav-links">
+            <a href="about.html" class="cover-nav-link">About</a>
+            <a href="ui-ux.html" class="cover-nav-link">UI/UX</a>
+            <a href="social-media.html" class="cover-nav-link">Social Media</a>
+            <a href="eduassist.html" class="cover-nav-link">AI Project</a>
+            <a href="about.html#contact" class="cover-nav-link contact-link">Contact</a>
+        </div>
+    </nav>
 
-    <!-- Scrapbook Tab Navigation -->
-    <header class="scrapbook-nav-header">
-        <nav class="scrapbook-tabs-container">
-            <a href="about.html" class="scrapbook-tab">About Me</a>
-            <a href="ui-ux.html" class="scrapbook-tab">UI/UX Design</a>
-            <a href="social-media.html" class="scrapbook-tab">Social Media Design</a>
-            <a href="eduassist.html" class="scrapbook-tab active">AI Projects</a>
-        </nav>
-    </header>
-
-    <main class="container" style="padding-bottom: 120px;">
+    <main class="container" style="padding-top: 100px;">
 
         <!-- Project Header -->
         <header class="project-page-header">
             <div class="sticker-red-block" style="display: inline-block; margin-bottom: 20px;">AI Project</div>
-            
+
             <h1 class="hero-title-mixed" style="margin-bottom: 30px;">
-                <span class="font-serif-italic">Edu</span><span class="font-hand-highlight" style="font-size: 4.5rem; margin-left: 10px;">Assist</span>
+                <span class="font-serif-italic">Edu</span><span class="font-hand-highlight"
+                    style="font-size: 4.5rem; margin-left: 10px;">Assist</span>
             </h1>
 
             <div class="scrap-card" style="max-width: 700px; transform: rotate(0.5deg);">
                 <p class="typewriter-text" style="margin: 0;">
-                    An intelligent virtual assistant designed to streamline campus inquiries. <span class="highlight-pink">EduAssist</span> integrates natural language processing to help NMIMS students instantly retrieve course requirements, scheduling timetables, and upcoming department events.
+                    An intelligent virtual assistant designed to streamline campus inquiries. <span
+                        class="highlight-pink">EduAssist</span> integrates natural language processing to help NMIMS
+                    students instantly retrieve course requirements, scheduling timetables, and upcoming department
+                    events.
                 </p>
             </div>
         </header>
@@ -133,17 +136,42 @@
 
                 <div class="scrap-card" style="transform: rotate(0.5deg); padding: 30px;">
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li class="typewriter-text" style="margin-bottom: 12px;"><strong>Core Engine:</strong> Python, Flask REST API</li>
-                        <li class="typewriter-text" style="margin-bottom: 12px;"><strong>Model Integrations:</strong> LLM APIs & Custom NLP matching algorithms</li>
-                        <li class="typewriter-text" style="margin-bottom: 0;"><strong>Web Interface:</strong> Clean HTML5/CSS3 dashboard panel</li>
+                        <li class="typewriter-text" style="margin-bottom: 12px;"><strong>Core Engine:</strong> Python,
+                            Flask REST API</li>
+                        <li class="typewriter-text" style="margin-bottom: 12px;"><strong>Model Integrations:</strong>
+                            LLM APIs & Custom NLP matching algorithms</li>
+                        <li class="typewriter-text" style="margin-bottom: 0;"><strong>Web Interface:</strong> Clean
+                            HTML5/CSS3 dashboard panel</li>
                     </ul>
                 </div>
 
-                <img src="assets/kiss_stamp.png" alt="Stamp" style="position: absolute; bottom: -30px; right: -30px; width: 90px; height: 90px; z-index: 10; transform: rotate(15deg); pointer-events: none;">
+                <img src="assets/kiss_stamp.png" alt="Stamp"
+                    style="position: absolute; bottom: -30px; right: -30px; width: 90px; height: 90px; z-index: 10; transform: rotate(15deg); pointer-events: none;">
             </div>
         </section>
 
     </main>
+
+    <!-- Contact Footer -->
+    <footer class="site-contact-footer">
+        <div class="footer-inner">
+            <h2 class="footer-heading">Let's Create <em>Magic!</em></h2>
+            <p class="footer-sub">It would be a pleasure to collaborate with you.</p>
+            <div class="footer-links">
+                <a href="mailto:mahek0624@gmail.com" class="footer-stamp-link">✉ Email Me</a>
+                <a href="https://linkedin.com/in/mahek-gopani-b34643249" target="_blank"
+                    class="footer-stamp-link">LinkedIn ↗</a>
+                <a href="https://github.com/mac2406" target="_blank" class="footer-stamp-link">GitHub ↗</a>
+                <a href="assets/Mahek Gopani (CV).pdf" target="_blank" class="footer-stamp-link">Resume ↓</a>
+            </div>
+            <div class="footer-rubber-stamp">
+                <div class="footer-rubber-stamp-inner">
+                    <div class="footer-rubber-stamp-name">MAHEK<br>GOPANI</div>
+                    <div class="footer-rubber-stamp-year">★ 2026 ★</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>

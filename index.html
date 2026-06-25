@@ -21,8 +21,6 @@
     <style>
         /* Cover specific layout rules */
         body {
-            overflow: hidden;
-            /* Lock viewport for pure book cover sticker style */
             background: #F4F1EA;
         }
     </style>
@@ -33,16 +31,20 @@
     <div class="cursor-dot" data-cursor-dot></div>
     <div class="cursor-outline" data-cursor-outline></div>
 
+    <!-- Sticky Navigation Bar -->
+    <nav class="cover-sticky-nav" aria-label="Main navigation">
+        <a href="index.html" class="cover-nav-logo">MG</a>
+        <div class="cover-nav-links">
+            <a href="about.html" class="cover-nav-link">About</a>
+            <a href="ui-ux.html" class="cover-nav-link">UI/UX</a>
+            <a href="social-media.html" class="cover-nav-link">Social Media</a>
+            <a href="eduassist.html" class="cover-nav-link">AI Project</a>
+            <a href="about.html#contact" class="cover-nav-link contact-link">Contact</a>
+        </div>
+    </nav>
+
     <!-- Main Cover Layout -->
     <main class="cover-layout">
-
-        <!-- Floating Labels (Top Left & Top Right) -->
-        <div class="floating-paper-label label-top-left" style="left: 10vw;">
-            Mumbai, India
-        </div>
-        <div class="floating-paper-label label-top-right" style="right: 10vw;">
-            mahek0624@gmail.com
-        </div>
 
         <!-- Circled Red Year Badge -->
         <div class="circled-year-badge">
@@ -80,6 +82,7 @@
             <a href="about.html" class="cover-link-slip">About Me</a>
             <a href="ui-ux.html" class="cover-link-slip">UI/UX</a>
             <a href="social-media.html" class="cover-link-slip">Social Media</a>
+            <a href="eduassist.html" class="cover-link-slip">AI Project</a>
         </div>
 
         <!-- Floating Zine Details Widget (Bottom Center) -->
