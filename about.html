@@ -149,6 +149,101 @@
             </div>
         </div>
 
+        <!-- ── GitHub Activity Section ──────────────────────────── -->
+        <div style="margin: 60px 0 70px 0; position: relative;">
+
+            <!-- Section label -->
+            <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 30px;">
+                <div class="sticker-red-block" style="display: inline-block; font-size: 1.1rem; padding: 5px 14px;">
+                    GitHub Activity
+                </div>
+                <div style="font-family: 'Caveat', cursive; font-size: 1.4rem; color: #444; transform: rotate(-1.5deg);">
+                    — what i've been building lately ✦
+                </div>
+            </div>
+
+            <!-- Washi tape accent strip across the top of the chart card -->
+            <div style="
+                position: absolute;
+                top: 52px;
+                left: -10px;
+                width: 120px;
+                height: 18px;
+                background: rgba(230, 57, 70, 0.18);
+                border-left: 3px solid rgba(230,57,70,0.35);
+                transform: rotate(-2deg);
+                z-index: 5;
+            "></div>
+
+            <!-- Contribution heatmap card -->
+            <div class="scrap-card" style="
+                transform: rotate(-0.6deg);
+                padding: 28px 24px 20px 24px;
+                background: #1a1a2e;
+                border: 2px solid rgba(0,0,0,0.12);
+                margin-bottom: 28px;
+                overflow: hidden;
+                position: relative;
+            ">
+                <!-- Pinhole dots top corners -->
+                <div style="position:absolute;top:10px;left:12px;width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);"></div>
+                <div style="position:absolute;top:10px;right:12px;width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);"></div>
+
+                <div style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px;">
+                    mac2406 · contributions in the last year
+                </div>
+
+                <!-- Live contribution chart from ghchart.rshah.org -->
+                <img
+                    src="https://ghchart.rshah.org/E63946/mac2406"
+                    alt="Mahek Gopani's GitHub contribution chart"
+                    style="width: 100%; max-width: 100%; display: block; opacity: 0.92; filter: contrast(1.05);"
+                    loading="lazy"
+                >
+
+                <a href="https://github.com/mac2406" target="_blank" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    margin-top: 16px;
+                    font-family: 'Cutive Mono', monospace;
+                    font-size: 0.75rem;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    color: rgba(230,57,70,0.85);
+                    text-decoration: none;
+                    transition: color 0.2s;
+                " onmouseover="this.style.color='#E63946'" onmouseout="this.style.color='rgba(230,57,70,0.85)'">
+                    ↗ View full profile on GitHub
+                </a>
+            </div>
+
+            <!-- Stats card row -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+
+                <!-- GitHub Stats -->
+                <div class="scrap-card" style="transform: rotate(0.8deg); padding: 20px; background: #0d1117; border: 2px solid rgba(0,0,0,0.1); overflow: hidden;">
+                    <img
+                        src="https://github-readme-stats.vercel.app/api?username=mac2406&show_icons=true&theme=dark&bg_color=0d1117&title_color=E63946&icon_color=E63946&text_color=c9d1d9&border_color=30363d&hide_border=false&count_private=true"
+                        alt="Mahek's GitHub Stats"
+                        style="width: 100%; display: block;"
+                        loading="lazy"
+                    >
+                </div>
+
+                <!-- Top Languages -->
+                <div class="scrap-card" style="transform: rotate(-0.5deg); padding: 20px; background: #0d1117; border: 2px solid rgba(0,0,0,0.1); overflow: hidden;">
+                    <img
+                        src="https://github-readme-stats.vercel.app/api/top-langs/?username=mac2406&layout=compact&theme=dark&bg_color=0d1117&title_color=E63946&text_color=c9d1d9&border_color=30363d&hide_border=false"
+                        alt="Mahek's Most Used Languages"
+                        style="width: 100%; display: block;"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+        </div>
+
     </main>
 
     <!-- Contact Footer -->
