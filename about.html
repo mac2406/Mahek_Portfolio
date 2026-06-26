@@ -266,24 +266,28 @@
             const countEl = document.getElementById('github-contribution-count');
             const chartImg = document.getElementById('gh-chart-img');
 
-            // 1. Daily cache-bust on the chart image so it always shows today's data
-            //    (same day = same URL = browser cache hit; new day = fresh fetch)
-            const today = new Date().toISOString().slice(0, 10); // e.g. "2026-06-25"
+            // 1. Daily cache-bust — same day uses cached image, new day fetches fresh chart
+            const today = new Date().toISOString().slice(0, 10);
             if (chartImg) {
                 chartImg.src = 'https://ghchart.rshah.org/' + USERNAME + '?d=' + today;
             }
 
-            // 2. Fetch live contribution total from public API (no token needed)
+            // 2. Fetch live contribution data and sum ALL individual day counts.
+            //    (data.total.lastYear only counts public repos; summing the array
+            //     gives the true total that matches the heatmap displayed.)
             fetch('https://github-contributions-api.jogruber.de/v4/' + USERNAME + '?y=last')
                 .then(function (res) { return res.json(); })
                 .then(function (data) {
-                    var total = (data && data.total && data.total.lastYear) ? data.total.lastYear : null;
-                    if (total !== null && countEl) {
+                    if (!data || !Array.isArray(data.contributions)) return;
+                    var total = data.contributions.reduce(function (sum, day) {
+                        return sum + (day.count || 0);
+                    }, 0);
+                    if (countEl) {
                         countEl.textContent = total.toLocaleString() + ' contributions in the last year';
                     }
                 })
                 .catch(function () {
-                    // Silently keep the fallback text if the API is unavailable
+                    // Keep the fallback text if the API is unavailable
                 });
         })();
     </script>
