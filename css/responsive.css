@@ -1,0 +1,374 @@
+/* ============================================================
+   MAHEK GOPANI PORTFOLIO — RESPONSIVE OVERRIDES
+   Breakpoints: 480px | 768px | 992px
+   ============================================================ */
+
+/* ── 1. GLOBAL HELPERS ──────────────────────────────────────── */
+img { max-width: 100%; height: auto; }
+
+/* ── 2. STICKY NAV — HAMBURGER MENU ────────────────────────── */
+
+/* Hamburger button (hidden on desktop) */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+    z-index: 400;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #111;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+    /* Show hamburger */
+    .nav-hamburger { display: flex; }
+
+    /* Nav becomes a full-width drop-down panel */
+    .cover-sticky-nav {
+        padding: 14px 20px;
+        flex-wrap: nowrap;    /* logo + hamburger on one line */
+        align-items: center;
+    }
+
+    .cover-nav-links {
+        display: none;           /* hidden by default */
+        position: fixed;
+        top: 57px;               /* below the nav bar */
+        left: 0;
+        right: 0;
+        background: rgba(244,241,234,0.97);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 16px 20px 24px;
+        border-bottom: 2px dashed rgba(0,0,0,0.12);
+        z-index: 299;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    /* Show when open */
+    .cover-nav-links.nav-open {
+        display: flex;
+    }
+
+    .cover-nav-link {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 10px 16px;
+        transform: none !important;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .cover-nav-link:last-child { border-bottom: none; }
+}
+
+/* ── 3. INDEX / COVER PAGE ──────────────────────────────────── */
+@media (max-width: 768px) {
+    /* Sidebars take too much space — shrink dramatically */
+    .torn-sidebar-left,
+    .torn-sidebar-right {
+        width: 6vw;
+        min-width: 30px;
+    }
+
+    /* Main centre block */
+    .cover-center { max-width: 90vw; }
+
+    /* Giant "Portfolio" slip */
+    .giant-paper-slip {
+        font-size: clamp(2.2rem, 9vw, 4rem);
+        padding: 14px 20px;
+        letter-spacing: -1px;
+    }
+
+    /* Red sticker block */
+    .sticker-red-block {
+        font-size: clamp(1.1rem, 4vw, 1.8rem);
+        padding: 8px 16px;
+    }
+
+    /* Name slip */
+    .slanted-paper-name {
+        font-size: clamp(1.1rem, 4vw, 1.8rem);
+        padding: 6px 14px;
+    }
+
+    /* Cover links group */
+    .cover-links-group {
+        left: 5vw;
+        bottom: 40px;
+        gap: 8px;
+    }
+
+    .cover-link-slip {
+        font-size: 0.85rem;
+        padding: 6px 14px;
+    }
+
+    /* Stars — scale down */
+    .star-1 { width: 50px; height: 50px; left: 4vw; }
+    .star-2 { width: 38px; height: 38px; left: 5vw; }
+    .star-3 { width: 44px; height: 44px; right: 6vw; }
+    .star-4 { width: 55px; height: 55px; right: 4vw; }
+
+    /* Screaming mouth sticker */
+    .screaming-mouth-sticker {
+        width: 110px;
+        height: 110px;
+        right: 4vw;
+        bottom: 80px;
+    }
+
+    /* Floating zine widget — shrink or hide */
+    .floating-zine-widget {
+        font-size: 0.72rem;
+        padding: 8px 14px;
+        gap: 10px;
+        bottom: 20px;
+        max-width: 92vw;
+    }
+
+    /* Floating labels */
+    .label-top-left, .label-top-right {
+        display: none; /* hide on very small screens */
+    }
+
+    /* Circled year */
+    .circled-year-badge {
+        font-size: 1.6rem;
+        right: 8vw;
+        top: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .giant-paper-slip {
+        font-size: clamp(1.8rem, 8vw, 2.8rem);
+        padding: 10px 14px;
+    }
+    .cover-layout { padding: 20px 10px; }
+}
+
+/* ── 4. ABOUT PAGE ──────────────────────────────────────────── */
+@media (max-width: 992px) {
+    .about-collage-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 60px 20px;
+    }
+    .gray-board-container {
+        margin-right: 0;
+        padding: 50px 20px 40px;
+        transform: rotate(0deg); /* avoid overflow from tilt */
+    }
+    .skills-expertise-container { padding-left: 0; }
+}
+
+@media (max-width: 768px) {
+    /* GitHub contributions panel inside about */
+    #gh-chart-img { min-width: unset; width: 100%; }
+
+    /* GitHub panel wrapper */
+    .about-collage-container > div[style*="background: #161b22"] {
+        padding: 12px;
+    }
+}
+
+/* ── 5. UI/UX PAGE ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .uiux-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+        gap: 24px !important;
+        padding: 0 20px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .uiux-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .brand-card {
+        min-height: 260px !important;
+    }
+}
+
+/* ── 6. SOCIAL MEDIA PAGE ───────────────────────────────────── */
+@media (max-width: 992px) {
+    .social-media-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 0;
+    }
+}
+
+/* ── 7. STARGEMS CASE STUDY ─────────────────────────────────── */
+@media (max-width: 768px) {
+    /* Hero section */
+    div[style*="padding: 0 60px"] {
+        padding: 0 20px !important;
+    }
+
+    /* Section blocks */
+    .case-section-block {
+        padding: 40px 20px;
+    }
+
+    .case-section-heading {
+        font-size: clamp(1.8rem, 6vw, 2.8rem);
+    }
+
+    /* Process cards grid */
+    .case-section-block > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Landing page cards grid */
+    .sg-page-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Outcome metrics */
+    .case-section-block div[style*="minmax(260px"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .red-block-header {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+        padding: 10px 18px;
+    }
+
+    .sg-page-card { min-height: 340px; }
+    .sg-card-title { font-size: 1.5rem; }
+}
+
+/* ── 8. EDUASSIST PAGE ──────────────────────────────────────── */
+@media (max-width: 900px) {
+    /* Two-col layouts inside eduassist */
+    div[style*="grid-template-columns: 1fr 1fr"],
+    div[style*="grid-template-columns: 1.2fr 1fr"],
+    div[style*="grid-template-columns: 1fr 1.2fr"] {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* General large padding sections */
+    div[style*="padding: 60px"],
+    section[style*="padding: 60px"] {
+        padding: 30px 20px !important;
+    }
+}
+
+/* ── 9. PAGE-WIDE SECTION PADDING ───────────────────────────── */
+@media (max-width: 768px) {
+    /* Catch-all for any block with 60px horizontal padding */
+    .slide-container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Case study hero block padding */
+    .slide-container > div[style*="padding: 0 60px"] {
+        padding: 0 20px !important;
+    }
+
+    /* More Projects / outer wrappers */
+    div[style*="padding: 0 60px"] {
+        padding: 0 20px !important;
+    }
+}
+
+/* ── 10. FOOTER ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .site-contact-footer {
+        padding: 40px 20px;
+        margin-top: 40px;
+    }
+
+    .footer-heading {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+
+    .footer-links {
+        gap: 10px;
+    }
+
+    .footer-stamp-link {
+        font-size: 0.75rem;
+        padding: 8px 14px;
+    }
+}
+
+/* ── 11. COVER PAGE STICKY NAV PADDING ADJUSTMENT ───────────── */
+/* Prevent content being hidden under the nav on mobile */
+@media (max-width: 768px) {
+    body { overflow-x: hidden; }
+
+    /* Cover page specific top padding */
+    .cover-layout {
+        padding-top: 60px;
+    }
+
+    /* Subpage content top padding (slide-container) */
+    .slide-container[style*="padding-top"] {
+        padding-top: 80px !important;
+    }
+}
+
+/* ── 12. TYPEWRITER TEXT READABILITY ────────────────────────── */
+@media (max-width: 480px) {
+    .typewriter-text,
+    .description-text {
+        font-size: 0.95rem;
+    }
+}
+
+/* ── 13. POLAROID / SCRAP CARDS ─────────────────────────────── */
+@media (max-width: 768px) {
+    .polaroid-project-card {
+        transform: none !important;
+    }
+
+    .scrap-card {
+        transform: none !important;
+    }
+}
+
+/* ── 14. STRIP SKILLS (About) ───────────────────────────────── */
+@media (max-width: 600px) {
+    .strip-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .strip-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* ── 15. OVERFLOW GUARD ─────────────────────────────────────── */
+* { max-width: 100%; box-sizing: border-box; }
+
+/* Allow horizontal scroll only for gallery ribbons */
+.starbucks-ribbon-container { max-width: 100vw; }

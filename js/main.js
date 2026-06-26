@@ -7,17 +7,48 @@ document.addEventListener('DOMContentLoaded', () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Mobile Menu Toggle
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    // ── NEW: Cover sticky-nav hamburger toggle ──────────────────
+    const hamburger   = document.getElementById('nav-hamburger');
+    const navLinks    = document.getElementById('cover-nav-links');
 
-    if (mobileBtn && navLinks) {
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('nav-open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close when any link inside is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('nav-open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+
+    // Mobile Menu Toggle (legacy navbar)
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const legacyNavLinks = document.querySelector('.nav-links');
+
+    if (mobileBtn && legacyNavLinks) {
         mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            legacyNavLinks.classList.toggle('active');
 
             // Hamburger animation
             const spans = mobileBtn.querySelectorAll('span');
-            if (navLinks.classList.contains('active')) {
+            if (legacyNavLinks.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 6px)';
                 spans[1].style.opacity = '0';
                 spans[2].style.transform = 'rotate(-45deg) translate(5px, -6px)';
@@ -29,9 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
+        legacyNavLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+                legacyNavLinks.classList.remove('active');
                 const spans = mobileBtn.querySelectorAll('span');
                 spans[0].style.transform = 'none';
                 spans[1].style.opacity = '1';
@@ -39,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
 
     // Smooth Scroll for Anchors (Adding offset for fixed header)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
