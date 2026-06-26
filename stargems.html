@@ -347,25 +347,71 @@
                     flex-direction: column;
                     background: #ffffff;
                     border: 2px solid rgba(0, 0, 0, 0.07);
+                    border-radius: 12px;
                     margin-bottom: 36px;
                     overflow: hidden;
-                    transition: transform 0.3s cubic-bezier(.22, .68, 0, 1.15), box-shadow 0.3s ease;
+                    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
                     cursor: pointer;
                     text-decoration: none;
                     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
                     width: 100%;
                 }
 
-                .sg-page-card:hover {
-                    transform: translateY(-6px) rotate(-0.3deg);
-                    box-shadow: 12px 18px 30px rgba(0, 0, 0, 0.12);
+                /* Alternating card tilts for a handmade collage feel */
+                .sg-page-grid > a:nth-child(odd) .sg-page-card:hover {
+                    transform: translateY(-8px) rotate(-0.5deg);
+                    box-shadow: 12px 20px 35px rgba(0, 0, 0, 0.12);
+                }
+
+                .sg-page-grid > a:nth-child(even) .sg-page-card:hover {
+                    transform: translateY(-8px) rotate(0.5deg);
+                    box-shadow: -12px 20px 35px rgba(0, 0, 0, 0.12);
+                }
+
+                /* Custom Washi Tapes for Scrapbook Aesthetic */
+                .sg-card-tape {
+                    position: absolute;
+                    top: -6px;
+                    width: 75px;
+                    height: 18px;
+                    z-index: 50;
+                    pointer-events: none;
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+                    clip-path: polygon(0% 10%, 4% 0%, 96% 0%, 100% 10%, 98% 50%, 100% 90%, 96% 100%, 4% 100%, 0% 90%, 2% 50%);
+                    opacity: 0.82;
+                    transition: transform 0.3s ease;
+                }
+
+                .sg-page-card:hover .sg-card-tape {
+                    transform: scale(1.05) translateY(-2px);
+                }
+
+                .sg-card-tape-orange {
+                    background: rgba(244, 162, 97, 0.75); /* accent-secondary */
+                    transform: rotate(-3deg);
+                    left: 20%;
+                }
+
+                .sg-card-tape-green {
+                    background: rgba(139, 168, 136, 0.75); /* scrapbook green */
+                    transform: rotate(2.5deg);
+                    left: 60%;
+                }
+
+                .sg-card-tape-red {
+                    background: rgba(230, 57, 70, 0.65); /* accent red */
+                    transform: rotate(-1.5deg);
+                    left: 45%;
                 }
 
                 /* ── Browser Mockup Header ───────────────────────────────── */
                 .sg-browser-header {
-                    height: 32px;
-                    background: #f0ede6;
+                    height: 34px;
+                    background: rgba(244, 241, 234, 0.7);
+                    backdrop-filter: blur(8px);
+                    -webkit-backdrop-filter: blur(8px);
                     border-bottom: 2px solid rgba(0, 0, 0, 0.07);
+                    border-top: 1px solid rgba(255, 255, 255, 0.4);
                     display: flex;
                     align-items: center;
                     padding: 0 14px;
@@ -375,21 +421,36 @@
                 }
 
                 .browser-dot {
-                    width: 8px;
-                    height: 8px;
+                    width: 9px;
+                    height: 9px;
                     border-radius: 50%;
-                    display: inline-block;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
                 }
 
                 .dot-red { background: #ff5f56; }
                 .dot-yellow { background: #ffbd2e; }
                 .dot-green { background: #27c93f; }
 
+                /* Realistic Window Symbols on Hover */
+                .sg-page-card:hover .browser-dot::after {
+                    font-size: 6px;
+                    font-weight: bold;
+                    color: rgba(0, 0, 0, 0.5);
+                    position: absolute;
+                    line-height: 1;
+                }
+                .sg-page-card:hover .dot-red::after { content: '×'; top: 1px; }
+                .sg-page-card:hover .dot-yellow::after { content: '–'; top: 0px; }
+                .sg-page-card:hover .dot-green::after { content: '+'; top: 1px; }
+
                 .browser-url {
                     font-family: 'Cutive Mono', monospace;
                     font-size: 0.65rem;
-                    color: rgba(0, 0, 0, 0.42);
-                    background: rgba(255, 255, 255, 0.5);
+                    color: rgba(0, 0, 0, 0.45);
+                    background: rgba(255, 255, 255, 0.6);
                     padding: 2px 14px;
                     border-radius: 4px;
                     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -528,6 +589,7 @@
 
                  <!-- ── CARD 1: Ring Studio ───────────────────────────── -->
                 <a href="https://ringstudio.stargems.com/" target="_blank" class="sg-page-card">
+                    <div class="sg-card-tape sg-card-tape-orange"></div>
                     <div class="sg-browser-header">
                         <span class="browser-dot dot-red"></span>
                         <span class="browser-dot dot-yellow"></span>
@@ -550,6 +612,7 @@
 
                 <!-- ── CARD 2: Website Design & SEO ──────────────────── -->
                 <a href="https://stargems.com/website-design-and-seo.aspx" target="_blank" class="sg-page-card">
+                    <div class="sg-card-tape sg-card-tape-green"></div>
                     <div class="sg-browser-header">
                         <span class="browser-dot dot-red"></span>
                         <span class="browser-dot dot-yellow"></span>
@@ -572,6 +635,7 @@
 
                 <!-- ── CARD 3: Recent Work ────────────────────────────── -->
                 <a href="https://stargems.com/recent-work.aspx" target="_blank" class="sg-page-card">
+                    <div class="sg-card-tape sg-card-tape-red"></div>
                     <div class="sg-browser-header">
                         <span class="browser-dot dot-red"></span>
                         <span class="browser-dot dot-yellow"></span>
@@ -594,6 +658,7 @@
 
                 <!-- ── CARD 4: Register ───────────────────────────────── -->
                 <a href="https://stargems.com/register.aspx?Pg=New" target="_blank" class="sg-page-card">
+                    <div class="sg-card-tape sg-card-tape-orange" style="left: 65%;"></div>
                     <div class="sg-browser-header">
                         <span class="browser-dot dot-red"></span>
                         <span class="browser-dot dot-yellow"></span>
@@ -616,6 +681,7 @@
 
                 <!-- ── CARD 5: Video Tutorials ────────────────────────── -->
                 <a href="https://stargems.com/video-tutorials.aspx" target="_blank" class="sg-page-card">
+                    <div class="sg-card-tape sg-card-tape-green" style="left: 15%;"></div>
                     <div class="sg-browser-header">
                         <span class="browser-dot dot-red"></span>
                         <span class="browser-dot dot-yellow"></span>
@@ -638,6 +704,7 @@
 
                 <!-- ── CARD 6: FAQs ───────────────────────────────────── -->
                 <a href="https://stargems.com/faqs.aspx" target="_blank" class="sg-page-card">
+                    <div class="sg-card-tape sg-card-tape-red" style="left: 55%;"></div>
                     <div class="sg-browser-header">
                         <span class="browser-dot dot-red"></span>
                         <span class="browser-dot dot-yellow"></span>
