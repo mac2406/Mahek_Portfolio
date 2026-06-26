@@ -406,11 +406,31 @@
                 /* ── Screenshot Viewport ─────────────────────────────────── */
                 .sg-screenshot-viewport {
                     position: relative;
-                    overflow: hidden;
+                    height: 280px; /* Default height */
+                    overflow-y: auto;
+                    overflow-x: hidden;
                     background: #eae6dd;
                     display: block;
                     border-bottom: 2px solid rgba(0, 0, 0, 0.07);
-                    height: auto !important;
+                    scroll-behavior: smooth;
+                }
+
+                /* Custom Scrollbar */
+                .sg-screenshot-viewport::-webkit-scrollbar {
+                    width: 6px;
+                }
+
+                .sg-screenshot-viewport::-webkit-scrollbar-track {
+                    background: rgba(0, 0, 0, 0.02);
+                }
+
+                .sg-screenshot-viewport::-webkit-scrollbar-thumb {
+                    background: rgba(0, 0, 0, 0.12);
+                    border-radius: 3px;
+                }
+
+                .sg-screenshot-viewport::-webkit-scrollbar-thumb:hover {
+                    background: rgba(0, 0, 0, 0.25);
                 }
 
                 .sg-screenshot-img {
@@ -506,7 +526,7 @@
 
             <div class="sg-page-grid">
 
-                <!-- ── CARD 1: Ring Studio ───────────────────────────── -->
+                 <!-- ── CARD 1: Ring Studio ───────────────────────────── -->
                 <a href="https://ringstudio.stargems.com/" target="_blank" class="sg-page-card">
                     <div class="sg-browser-header">
                         <span class="browser-dot dot-red"></span>
@@ -514,7 +534,7 @@
                         <span class="browser-dot dot-green"></span>
                         <span class="browser-url">ringstudio.stargems.com</span>
                     </div>
-                    <div class="sg-screenshot-viewport">
+                    <div class="sg-screenshot-viewport" style="height: 310px;">
                         <img src="assets/cover/stargems-cover/ringstudio.png" alt="Ring Studio Screenshot" class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
@@ -536,7 +556,7 @@
                         <span class="browser-dot dot-green"></span>
                         <span class="browser-url">stargems.com/website-design</span>
                     </div>
-                    <div class="sg-screenshot-viewport">
+                    <div class="sg-screenshot-viewport" style="height: 250px;">
                         <img src="assets/cover/stargems-cover/website-design.png" alt="Website Design & SEO Screenshot" class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
@@ -558,7 +578,7 @@
                         <span class="browser-dot dot-green"></span>
                         <span class="browser-url">stargems.com/recent-work</span>
                     </div>
-                    <div class="sg-screenshot-viewport">
+                    <div class="sg-screenshot-viewport" style="height: 280px;">
                         <img src="assets/cover/stargems-cover/recent-work.png" alt="Recent Work Screenshot" class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
@@ -580,7 +600,7 @@
                         <span class="browser-dot dot-green"></span>
                         <span class="browser-url">stargems.com/register</span>
                     </div>
-                    <div class="sg-screenshot-viewport">
+                    <div class="sg-screenshot-viewport" style="height: 240px;">
                         <img src="assets/cover/stargems-cover/register.png" alt="Register Screenshot" class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
@@ -602,7 +622,7 @@
                         <span class="browser-dot dot-green"></span>
                         <span class="browser-url">stargems.com/video-tutorials</span>
                     </div>
-                    <div class="sg-screenshot-viewport">
+                    <div class="sg-screenshot-viewport" style="height: 290px;">
                         <img src="assets/cover/stargems-cover/video-tutorials.png" alt="Video Tutorials Screenshot" class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
@@ -624,7 +644,7 @@
                         <span class="browser-dot dot-green"></span>
                         <span class="browser-url">stargems.com/faqs</span>
                     </div>
-                    <div class="sg-screenshot-viewport">
+                    <div class="sg-screenshot-viewport" style="height: 260px;">
                         <img src="assets/cover/stargems-cover/faqs.png" alt="FAQs Screenshot" class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
