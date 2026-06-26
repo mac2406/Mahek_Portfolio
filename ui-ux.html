@@ -30,6 +30,7 @@
 
         /* ── Card Container ──────────────────────────────────────── */
         .brand-card {
+            position: relative; /* Required for absolute overlay positioning */
             break-inside: avoid;
             display: flex;
             flex-direction: column;
@@ -106,14 +107,29 @@
             display: block;
         }
 
-        /* ── Card Info Body ──────────────────────────────────────── */
+        /* ── Card Info Body (Hidden by default, slides up on hover) ── */
         .brand-card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
             padding: 24px;
             display: flex;
             flex-direction: column;
             gap: 12px;
-            background: #ffffff;
-            z-index: 2;
+            background: rgba(26, 23, 20, 0.88); /* Premium dark warm background */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 5;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+
+        .brand-card:hover .brand-card-info {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .brand-card-info .brand-card-tag {
@@ -124,9 +140,9 @@
         }
 
         .brand-card-info .brand-tag-pill {
-            background: rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.09);
-            color: #444444;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #eeeeee;
             font-family: 'Cutive Mono', monospace;
             font-size: 0.65rem;
             letter-spacing: 0.08em;
@@ -138,7 +154,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.7rem;
             font-weight: 900;
-            color: #111111;
+            color: #ffffff;
             line-height: 1.2;
             margin: 0;
             letter-spacing: -0.01em;
@@ -147,7 +163,7 @@
         .brand-card-info .brand-card-desc {
             font-family: 'Cutive Mono', monospace;
             font-size: 0.8rem;
-            color: #555555;
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.5;
             margin: 0;
         }
@@ -159,8 +175,8 @@
             font-family: 'Cutive Mono', monospace;
             font-size: 0.78rem;
             font-weight: 700;
-            color: #ffffff;
-            background: #111111;
+            color: #000000;
+            background: #ffffff;
             padding: 8px 16px;
             text-decoration: none;
             letter-spacing: 0.05em;

@@ -284,6 +284,37 @@ img {
     }
 }
 
+@media (max-width: 768px) {
+    /* Fallback: display card details statically on touch screens since there is no hover */
+    .brand-card-info {
+        position: static !important;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        background: #ffffff !important;
+        color: #111111 !important;
+        border-top: 2px solid rgba(0, 0, 0, 0.07) !important;
+    }
+
+    .brand-card-info .brand-tag-pill {
+        background: rgba(0, 0, 0, 0.05) !important;
+        border: 1px solid rgba(0, 0, 0, 0.09) !important;
+        color: #444444 !important;
+    }
+
+    .brand-card-info .brand-card-title {
+        color: #111111 !important;
+    }
+
+    .brand-card-info .brand-card-desc {
+        color: #555555 !important;
+    }
+
+    .brand-card-info .brand-card-cta {
+        color: #ffffff !important;
+        background: #111111 !important;
+    }
+}
+
 @media (max-width: 600px) {
     .uiux-grid {
         column-count: 1 !important;
