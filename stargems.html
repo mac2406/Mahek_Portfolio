@@ -507,10 +507,10 @@
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    padding: 16px 20px;
+                    padding: 14px 18px; /* Compact padding */
                     display: flex;
                     flex-direction: column;
-                    gap: 8px;
+                    gap: 6px; /* Compact gap */
                     background: linear-gradient(135deg, rgba(30, 26, 22, 0.94) 0%, rgba(16, 13, 10, 0.98) 100%);
                     backdrop-filter: blur(12px);
                     -webkit-backdrop-filter: blur(12px);
@@ -528,7 +528,7 @@
 
                 .sg-card-info .sg-card-tag {
                     display: flex;
-                    gap: 6px;
+                    gap: 5px;
                     flex-wrap: wrap;
                     margin-bottom: 2px;
                 }
@@ -538,15 +538,15 @@
                     border: 1px solid rgba(244, 162, 97, 0.35);
                     color: #F4A261;
                     font-family: 'Cutive Mono', monospace;
-                    font-size: 0.6rem;
+                    font-size: 0.6rem; /* Compact font */
                     letter-spacing: 0.08em;
                     text-transform: uppercase;
-                    padding: 3px 8px;
+                    padding: 2px 8px; /* Compact padding */
                 }
 
                 .sg-card-info .sg-card-title {
                     font-family: 'Playfair Display', serif;
-                    font-size: 1.3rem;
+                    font-size: 1.25rem; /* Compact title size */
                     font-weight: 900;
                     color: #ffffff;
                     line-height: 1.2;
@@ -555,27 +555,31 @@
                 }
 
                 .sg-card-info .sg-card-desc {
-                    display: none; /* Hide on desktop hover to prevent covering the screenshot */
+                    font-family: 'Cutive Mono', monospace;
+                    font-size: 0.72rem; /* Compact description size */
+                    color: rgba(255, 255, 255, 0.8);
+                    line-height: 1.4;
+                    margin: 0;
                 }
 
                 .sg-card-info .sg-card-cta {
                     display: inline-flex;
                     align-items: center;
-                    gap: 6px;
+                    gap: 4px;
                     font-family: 'Cutive Mono', monospace;
-                    font-size: 0.72rem;
+                    font-size: 0.7rem; /* Compact cta text */
                     font-weight: 700;
                     color: #000000;
                     background: #ffffff;
-                    padding: 6px 12px;
+                    padding: 5px 12px; /* Compact cta padding */
                     text-decoration: none;
                     letter-spacing: 0.05em;
                     text-transform: uppercase;
                     border-radius: 4px;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
                     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
                     width: fit-content;
-                    margin-top: 4px;
+                    margin-top: 2px;
                 }
 
                 .sg-card-info .sg-card-cta:hover {
