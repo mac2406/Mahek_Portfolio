@@ -20,131 +20,182 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <style>
-        /* ── Brand Card Grid ─────────────────────────────── */
+        /* ── Equal Size Card Grid ────────────────────────────────── */
         .uiux-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 40px;
+            gap: 36px;
             padding: 50px 0 20px 0;
-            align-items: stretch;
         }
 
+        /* ── Card Container ──────────────────────────────────────── */
         .brand-card {
-            position: relative;
-            overflow: hidden;
-            min-height: 520px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            border: 2px solid rgba(0, 0, 0, 0.08);
-            transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.2), box-shadow 0.35s ease;
+            background: #ffffff;
+            border: 2px solid rgba(0, 0, 0, 0.07);
+            margin-bottom: 36px;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(.22, .68, 0, 1.15), box-shadow 0.3s ease;
             cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            width: 100%;
+            height: 100%;
         }
 
         .brand-card:hover {
-            transform: translateY(-8px) rotate(-0.5deg);
-            box-shadow: 16px 24px 40px rgba(0, 0, 0, 0.18);
+            transform: translateY(-6px) rotate(-0.3deg);
+            box-shadow: 12px 18px 30px rgba(0, 0, 0, 0.12);
         }
 
-        /* The full-bleed image/brand visual area */
-        .brand-card-visual {
-            position: absolute;
-            inset: 0;
+        /* ── Browser Mockup Header ───────────────────────────────── */
+        .brand-browser-header {
+            height: 32px;
+            background: #f0ede6;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.07);
             display: flex;
             align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .brand-card-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .brand-card:hover .brand-card-visual img {
-            transform: scale(1.05);
-        }
-
-        /* Dark gradient overlay so text is readable */
-        .brand-card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top,
-                    rgba(0, 0, 0, 0.85) 0%,
-                    rgba(0, 0, 0, 0.4) 45%,
-                    rgba(0, 0, 0, 0.05) 100%);
-        }
-
-        /* Content sits above overlay */
-        .brand-card-content {
+            padding: 0 14px;
+            gap: 6px;
             position: relative;
-            z-index: 2;
-            padding: 28px 28px 32px 28px;
+            flex-shrink: 0;
         }
 
-        /* Top-left category tag */
-        .brand-card-tag {
+        .browser-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .browser-url {
+            font-family: 'Cutive Mono', monospace;
+            font-size: 0.65rem;
+            color: rgba(0, 0, 0, 0.42);
+            background: rgba(255, 255, 255, 0.5);
+            padding: 2px 14px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin: 0 auto;
             position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 3;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            max-width: 50%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* ── Scrollable Viewport ─────────────────────────────────── */
+        .brand-screenshot-viewport {
+            position: relative;
+            height: 350px; /* Uniform height for equal-sized cards */
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: #eae6dd;
+            display: block;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.07);
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        .brand-screenshot-viewport::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .brand-screenshot-viewport::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.02);
+        }
+        
+        .brand-screenshot-viewport::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.12);
+            border-radius: 3px;
+        }
+        
+        .brand-screenshot-viewport::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .brand-screenshot-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        /* ── Card Info Body ──────────────────────────────────────── */
+        .brand-card-info {
+            padding: 24px;
             display: flex;
-            gap: 8px;
+            flex-direction: column;
+            gap: 12px;
+            background: #ffffff;
+            z-index: 2;
+            flex-grow: 1; /* Stretch content area to match card height */
+        }
+
+        .brand-card-info .brand-card-tag {
+            display: flex;
+            gap: 6px;
             flex-wrap: wrap;
+            margin-bottom: 4px;
         }
 
-        .brand-tag-pill {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            color: #fff;
+        .brand-card-info .brand-tag-pill {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.09);
+            color: #444444;
             font-family: 'Cutive Mono', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            padding: 5px 12px;
+            padding: 4px 10px;
         }
 
-        .brand-card-title {
+        .brand-card-info .brand-card-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 1.7rem;
             font-weight: 900;
-            color: #fff;
-            line-height: 1.1;
-            margin: 0 0 8px 0;
-            letter-spacing: -0.02em;
+            color: #111111;
+            line-height: 1.2;
+            margin: 0;
+            letter-spacing: -0.01em;
         }
 
-        .brand-card-desc {
+        .brand-card-info .brand-card-desc {
             font-family: 'Cutive Mono', monospace;
-            font-size: 0.82rem;
-            color: rgba(255, 255, 255, 0.78);
-            line-height: 1.55;
-            margin: 0 0 20px 0;
+            font-size: 0.8rem;
+            color: #555555;
+            line-height: 1.5;
+            margin: 0;
         }
 
-        .brand-card-cta {
+        .brand-card-info .brand-card-cta {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             font-family: 'Cutive Mono', monospace;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            color: #000;
-            background: #fff;
-            padding: 10px 20px;
+            color: #ffffff;
+            background: #111111;
+            padding: 8px 16px;
             text-decoration: none;
             letter-spacing: 0.05em;
             text-transform: uppercase;
             transition: background 0.2s, color 0.2s;
+            width: fit-content;
+            margin-top: auto; /* Push CTA to bottom of card container */
         }
 
-        .brand-card-cta:hover {
+        .brand-card-info .brand-card-cta:hover {
             background: #E63946;
-            color: #fff;
+            color: #ffffff;
         }
 
         /* Card-specific brand backgrounds (used when there's no full img) */
@@ -236,7 +287,8 @@
     <!-- Sticky Navigation Bar -->
     <nav class="cover-sticky-nav" aria-label="Main navigation">
         <a href="index.html" class="cover-nav-logo">MG</a>
-        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu"
+            aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="cover-nav-links" id="cover-nav-links">
             <a href="about.html" class="cover-nav-link">About</a>
             <a href="ui-ux.html" class="cover-nav-link">UI/UX</a>
@@ -262,39 +314,23 @@
 
             <!-- ── CARD 1: StarGems Inc ──────────────────────── -->
             <a href="stargems.html" style="text-decoration: none; display: block;">
-                <article class="brand-card brand-bg-stargems">
-                    <!-- Brand tags top-left -->
-                    <div class="brand-card-tag">
-                        <span class="brand-tag-pill">UI/UX Design</span>
-                        <span class="brand-tag-pill">Dashboard</span>
+                <article class="brand-card">
+                    <div class="brand-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">vault.stargems.com</span>
                     </div>
-
-                    <!-- Brand visual: decorative diamond motif + wordmark -->
-                    <div class="brand-mark">
-                        <!-- Decorative diamond SVG -->
-                        <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <polygon points="45,2 88,45 45,88 2,45" stroke="rgba(201,168,106,0.9)" stroke-width="1.5"
-                                fill="none" />
-                            <polygon points="45,14 76,45 45,76 14,45" stroke="rgba(201,168,106,0.6)" stroke-width="1"
-                                fill="none" />
-                            <polygon points="45,26 64,45 45,64 26,45" stroke="rgba(201,168,106,0.4)" stroke-width="1"
-                                fill="rgba(201,168,106,0.06)" />
-                        </svg>
-                        <div
-                            style="font-family:'Playfair Display',serif; font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(201,168,106,0.7); margin-top:4px;">
-                            LUMINA VAULT</div>
-                        <div class="brand-mark-wordmark">STARGEMS</div>
+                    <div class="brand-screenshot-viewport" style="height: 355px;">
+                        <img src="assets/cover/stargems.png" alt="StarGems Dashboard Screenshot" class="brand-screenshot-img">
                     </div>
-
-                    <!-- Dark gradient overlay -->
-                    <div class="brand-card-overlay"></div>
-
-                    <!-- Text content -->
-                    <div class="brand-card-content">
-                        <p class="brand-card-desc">Diamond &amp; jewellery management suite — pricing, inventory &amp;
-                            market analytics.</p>
+                    <div class="brand-card-info">
+                        <div class="brand-card-tag">
+                            <span class="brand-tag-pill">UI/UX Design</span>
+                            <span class="brand-tag-pill">Dashboard</span>
+                        </div>
                         <h2 class="brand-card-title">StarGems Inc.</h2>
+                        <p class="brand-card-desc">Diamond &amp; jewellery management suite — pricing, inventory &amp; market analytics.</p>
                         <span class="brand-card-cta">View Case Study →</span>
                     </div>
                 </article>
@@ -302,70 +338,47 @@
 
             <!-- ── CARD 2: Shallots Austin ────────────────────── -->
             <a href="https://www.shallotsaustin.com/" target="_blank" style="text-decoration: none; display: block;">
-                <article class="brand-card brand-bg-shallots">
-                    <!-- Brand tags top-left -->
-                    <div class="brand-card-tag">
-                        <span class="brand-tag-pill">Web Design</span>
-                        <span class="brand-tag-pill">Live Site</span>
+                <article class="brand-card">
+                    <div class="brand-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">shallotsaustin.com</span>
                     </div>
-
-                    <!-- Brand visual: shallots onion logo -->
-                    <div class="brand-mark" style="padding-bottom: 200px;">
-                        <img src="assets/Shallots/shallots logo white.png" alt="Shallots Logo" class="brand-mark-logo"
-                            style="max-width:120px; max-height:120px; filter:none; opacity:0.88;">
-                        <div
-                            style="font-family:'Playfair Display',serif; font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,220,180,0.7); margin-top:10px;">
-                            AUSTIN, TEXAS</div>
-                        <div class="brand-mark-wordmark" style="color:rgba(255,255,255,0.06);">SHALLOTS</div>
+                    <div class="brand-screenshot-viewport" style="height: 320px;">
+                        <img src="assets/cover/shallots.png" alt="Shallots Restaurant Screenshot" class="brand-screenshot-img">
                     </div>
-
-                    <!-- Dark gradient overlay -->
-                    <div class="brand-card-overlay"></div>
-
-                    <!-- Text content -->
-                    <div class="brand-card-content">
-                        <p class="brand-card-desc">Premium dining website for Austin's modern Indian cuisine restaurant
-                            — immersive &amp; warm.</p>
+                    <div class="brand-card-info">
+                        <div class="brand-card-tag">
+                            <span class="brand-tag-pill">Web Design</span>
+                            <span class="brand-tag-pill">Live Site</span>
+                        </div>
                         <h2 class="brand-card-title">Shallots Restaurant</h2>
+                        <p class="brand-card-desc">Premium dining website for Austin's modern Indian cuisine restaurant — immersive &amp; warm.</p>
                         <span class="brand-card-cta">Visit Website ↗</span>
                     </div>
                 </article>
             </a>
 
             <!-- ── CARD 3: Gym Landing Page ───────────────────── -->
-            <a href="https://gym-landing-page-seven-psi.vercel.app/" target="_blank"
-                style="text-decoration: none; display: block;">
-                <article class="brand-card brand-bg-gym">
-                    <!-- Brand tags top-left -->
-                    <div class="brand-card-tag">
-                        <span class="brand-tag-pill">Landing Page</span>
-                        <span class="brand-tag-pill">Live Site</span>
+            <a href="https://gym-landing-page-seven-psi.vercel.app/" target="_blank" style="text-decoration: none; display: block;">
+                <article class="brand-card">
+                    <div class="brand-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">forgegym.com</span>
                     </div>
-
-                    <!-- Brand visual: bold typographic mark -->
-                    <div class="brand-mark">
-                        <div style="text-align:center; line-height:1;">
-                            <div
-                                style="font-family:'Playfair Display',serif; font-size:5rem; font-weight:900; color:rgba(230,57,70,0.18); letter-spacing:-0.04em; line-height:1;">
-                                FORGE</div>
-                            <div
-                                style="font-family:'Cutive Mono',monospace; font-size:0.7rem; letter-spacing:0.4em; color:rgba(230,57,70,0.6); margin-top:6px; text-transform:uppercase;">
-                                Fitness Studio</div>
-                            <!-- Decorative bar -->
-                            <div style="width:60px; height:2px; background:rgba(230,57,70,0.5); margin:16px auto 0;">
-                            </div>
+                    <div class="brand-screenshot-viewport" style="height: 420px;">
+                        <img src="assets/cover/gym.png" alt="Gym Landing Page Screenshot" class="brand-screenshot-img">
+                    </div>
+                    <div class="brand-card-info">
+                        <div class="brand-card-tag">
+                            <span class="brand-tag-pill">Landing Page</span>
+                            <span class="brand-tag-pill">Live Site</span>
                         </div>
-                        <div class="brand-mark-wordmark" style="color:rgba(255,255,255,0.04);">GYM</div>
-                    </div>
-
-                    <!-- Dark gradient overlay -->
-                    <div class="brand-card-overlay"></div>
-
-                    <!-- Text content -->
-                    <div class="brand-card-content">
-                        <p class="brand-card-desc">High-energy conversion landing page with bold type systems &amp;
-                            responsive membership tiers.</p>
                         <h2 class="brand-card-title">Gym Landing Page</h2>
+                        <p class="brand-card-desc">High-energy conversion landing page with bold type systems &amp; responsive membership tiers.</p>
                         <span class="brand-card-cta">Explore Live ↗</span>
                     </div>
                 </article>
@@ -373,65 +386,48 @@
 
             <!-- ── CARD 4: Borthwick Jewelry ─────────────────── -->
             <a href="https://borthwick-jewelry.vercel.app/" style="text-decoration: none; display: block;">
-                <article class="brand-card brand-bg-borthwick">
-                    <div class="brand-card-tag">
-                        <span class="brand-tag-pill">Web Design</span>
-                        <span class="brand-tag-pill">Jewelry</span>
+                <article class="brand-card">
+                    <div class="brand-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">borthwickjewelry.com</span>
                     </div>
-                    <div class="brand-mark">
-                        <!-- Elegant ring motif -->
-                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.6;">
-                            <circle cx="40" cy="40" r="36" stroke="rgba(201,168,106,0.8)" stroke-width="1.5"
-                                fill="none" />
-                            <circle cx="40" cy="40" r="28" stroke="rgba(201,168,106,0.5)" stroke-width="1"
-                                fill="none" />
-                            <circle cx="40" cy="40" r="6" fill="rgba(201,168,106,0.4)" />
-                        </svg>
-                        <div
-                            style="font-family:'Playfair Display',serif; font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(201,168,106,0.75); margin-top:8px;">
-                            EST. MMXXIV</div>
-                        <div class="brand-mark-wordmark">BORTHWICK</div>
+                    <div class="brand-screenshot-viewport" style="height: 360px;">
+                        <img src="assets/cover/borthwick-jewelry.png" alt="Borthwick Jewelry Screenshot" class="brand-screenshot-img">
                     </div>
-                    <div class="brand-card-overlay"></div>
-                    <div class="brand-card-content">
-                        <p class="brand-card-desc">Elegant jewelry brand website — bespoke collections, refined
-                            aesthetics &amp; luxury storytelling.</p>
+                    <div class="brand-card-info">
+                        <div class="brand-card-tag">
+                            <span class="brand-tag-pill">Web Design</span>
+                            <span class="brand-tag-pill">Jewelry</span>
+                        </div>
                         <h2 class="brand-card-title">Borthwick Jewelry</h2>
+                        <p class="brand-card-desc">Elegant jewelry brand website — bespoke collections, refined aesthetics &amp; luxury storytelling.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
             </a>
 
             <!-- ── CARD 5: Rocky's Diamond ───────────────────── -->
-            <a href="https://vercel.com/mac2406s-projects/rockys" style="text-decoration: none; display: block;">
-                <article class="brand-card brand-bg-rockys">
-                    <div class="brand-card-tag">
-                        <span class="brand-tag-pill">Web Design</span>
-                        <span class="brand-tag-pill">Diamond</span>
+            <!-- ── CARD 5: Rocky's Diamond ───────────────────── -->
+            <a href="https://rockys-swart.vercel.app/" style="text-decoration: none; display: block;">
+                <article class="brand-card">
+                    <div class="brand-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">rockysdiamonds.com</span>
                     </div>
-                    <div class="brand-mark">
-                        <!-- Diamond facet mark -->
-                        <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <polygon points="40,4 76,28 76,62 40,86 4,62 4,28" stroke="rgba(148,185,255,0.8)"
-                                stroke-width="1.5" fill="none" />
-                            <polygon points="40,18 62,32 62,58 40,72 18,58 18,32" stroke="rgba(148,185,255,0.45)"
-                                stroke-width="1" fill="rgba(148,185,255,0.04)" />
-                            <line x1="40" y1="4" x2="40" y2="86" stroke="rgba(148,185,255,0.2)" stroke-width="0.5" />
-                            <line x1="4" y1="28" x2="76" y2="62" stroke="rgba(148,185,255,0.2)" stroke-width="0.5" />
-                            <line x1="76" y1="28" x2="4" y2="62" stroke="rgba(148,185,255,0.2)" stroke-width="0.5" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.4em; text-transform:uppercase; color:rgba(148,185,255,0.6); margin-top:10px;">
-                            PREMIUM DIAMONDS</div>
-                        <div class="brand-mark-wordmark" style="color:rgba(148,185,255,0.06);">ROCKY'S</div>
+                    <div class="brand-screenshot-viewport" style="height: 380px;">
+                        <img src="assets/cover/rockys.png" alt="Rocky's Diamond Screenshot" class="brand-screenshot-img">
                     </div>
-                    <div class="brand-card-overlay"></div>
-                    <div class="brand-card-content">
-                        <p class="brand-card-desc">Diamond retail platform with sophisticated navigation, gem filtering
-                            &amp; trust-driven UI.</p>
+                    <div class="brand-card-info">
+                        <div class="brand-card-tag">
+                            <span class="brand-tag-pill">Web Design</span>
+                            <span class="brand-tag-pill">Diamond</span>
+                        </div>
                         <h2 class="brand-card-title">Rocky's Diamond</h2>
+                        <p class="brand-card-desc">Diamond retail platform with sophisticated navigation, gem filtering &amp; trust-driven UI.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
@@ -439,30 +435,23 @@
 
             <!-- ── CARD 6: Jefferson Website ─────────────────── -->
             <a href="https://jeffersonejwebsite.vercel.app/" style="text-decoration: none; display: block;">
-                <article class="brand-card brand-bg-jefferson">
-                    <div class="brand-card-tag">
-                        <span class="brand-tag-pill">Web Design</span>
-                        <span class="brand-tag-pill">Brand</span>
+                <article class="brand-card">
+                    <div class="brand-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">jeffersonej.com</span>
                     </div>
-                    <div class="brand-mark">
-                        <!-- Classic crest / monogram -->
-                        <div style="text-align:center;">
-                            <div
-                                style="font-family:'Playfair Display',serif; font-size:4.5rem; font-weight:900; color:rgba(120,180,120,0.2); letter-spacing:0.05em; line-height:1;">
-                                J</div>
-                            <div style="width:40px; height:1px; background:rgba(120,200,120,0.4); margin:10px auto;">
-                            </div>
-                            <div
-                                style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.4em; color:rgba(120,200,120,0.6); text-transform:uppercase;">
-                                JEFFERSON</div>
+                    <div class="brand-screenshot-viewport" style="height: 340px;">
+                        <img src="assets/cover/jefferson.webp" alt="Jefferson Website Screenshot" class="brand-screenshot-img">
+                    </div>
+                    <div class="brand-card-info">
+                        <div class="brand-card-tag">
+                            <span class="brand-tag-pill">Web Design</span>
+                            <span class="brand-tag-pill">Brand</span>
                         </div>
-                        <div class="brand-mark-wordmark" style="color:rgba(120,200,120,0.05);">JEFFERSON</div>
-                    </div>
-                    <div class="brand-card-overlay"></div>
-                    <div class="brand-card-content">
-                        <p class="brand-card-desc">Clean, authoritative brand website with structured layouts &amp;
-                            confident visual identity.</p>
                         <h2 class="brand-card-title">Jefferson Website</h2>
+                        <p class="brand-card-desc">Clean, authoritative brand website with structured layouts &amp; confident visual identity.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
@@ -502,7 +491,7 @@
                 </article>
             </a>-->
 
-            <!-- ── CARD 8: Weather App ──────────────────────── -->
+            <!-- ── CARD 8: Weather App ──────────────────────── 
             <a href="https://weather-app-three-iota-60.vercel.app/" style="text-decoration: none; display: block;">
                 <article class="brand-card brand-bg-weather">
                     <div class="brand-card-tag">
@@ -510,10 +499,8 @@
                         <span class="brand-tag-pill">API Integration</span>
                     </div>
                     <div class="brand-mark">
-                        <!-- Cloud + sun SVG -->
                         <svg width="100" height="70" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg"
                             style="opacity:0.6;">
-                            <!-- Sun rays -->
                             <circle cx="68" cy="22" r="12" stroke="rgba(255,220,80,0.7)" stroke-width="1.5"
                                 fill="rgba(255,220,80,0.08)" />
                             <line x1="68" y1="4" x2="68" y2="10" stroke="rgba(255,220,80,0.5)" stroke-width="1.5"
@@ -522,7 +509,6 @@
                                 stroke-linecap="round" />
                             <line x1="86" y1="22" x2="80" y2="22" stroke="rgba(255,220,80,0.5)" stroke-width="1.5"
                                 stroke-linecap="round" />
-                            <!-- Cloud -->
                             <path
                                 d="M12 52 C12 52, 10 45, 18 42 C18 34, 28 28, 38 32 C42 24, 56 22, 62 32 C70 32, 76 38, 74 46 C72 52, 65 55, 55 55 L20 55 C15 55, 12 52, 12 52Z"
                                 stroke="rgba(255,255,255,0.6)" stroke-width="1.2" fill="rgba(255,255,255,0.08)" />
@@ -540,41 +526,27 @@
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
-            </a>
+            </a> -->
 
             <!-- ── CARD 9: Responsive Portfolio ───────────────── -->
-            <a href="https://portfolio-website-theta-eosin-97.vercel.app/"
-                style="text-decoration: none; display: block;">
-                <article class="brand-card brand-bg-portfolio">
-                    <div class="brand-card-tag">
-                        <span class="brand-tag-pill">Frontend Dev</span>
-                        <span class="brand-tag-pill">Responsive</span>
+            <a href="https://portfolio-website-theta-eosin-97.vercel.app/" style="text-decoration: none; display: block;">
+                <article class="brand-card">
+                    <div class="brand-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">mahekgopani.com</span>
                     </div>
-                    <div class="brand-mark">
-                        <!-- Grid/layout motif -->
-                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <rect x="4" y="4" width="32" height="32" rx="2" stroke="rgba(180,120,255,0.7)"
-                                stroke-width="1.2" fill="rgba(180,120,255,0.05)" />
-                            <rect x="44" y="4" width="32" height="14" rx="2" stroke="rgba(80,200,255,0.7)"
-                                stroke-width="1.2" fill="rgba(80,200,255,0.05)" />
-                            <rect x="44" y="24" width="32" height="12" rx="2" stroke="rgba(80,200,255,0.5)"
-                                stroke-width="1" fill="rgba(80,200,255,0.03)" />
-                            <rect x="4" y="44" width="14" height="32" rx="2" stroke="rgba(255,120,180,0.6)"
-                                stroke-width="1.2" fill="rgba(255,120,180,0.04)" />
-                            <rect x="24" y="44" width="52" height="32" rx="2" stroke="rgba(255,200,80,0.6)"
-                                stroke-width="1.2" fill="rgba(255,200,80,0.04)" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(180,120,255,0.65); margin-top:12px;">
-                            HTML / CSS / JS</div>
-                        <div class="brand-mark-wordmark" style="color:rgba(180,120,255,0.06);">PORTFOLIO</div>
+                    <div class="brand-screenshot-viewport" style="height: 430px;">
+                        <img src="assets/cover/portfolio-website.png" alt="Responsive Portfolio Screenshot" class="brand-screenshot-img">
                     </div>
-                    <div class="brand-card-overlay"></div>
-                    <div class="brand-card-content">
-                        <p class="brand-card-desc">Fully responsive portfolio website built from scratch — fluid
-                            layouts, mobile-first design.</p>
+                    <div class="brand-card-info">
+                        <div class="brand-card-tag">
+                            <span class="brand-tag-pill">Frontend Dev</span>
+                            <span class="brand-tag-pill">Responsive</span>
+                        </div>
                         <h2 class="brand-card-title">Responsive Portfolio</h2>
+                        <p class="brand-card-desc">Fully responsive portfolio website built from scratch — fluid layouts, mobile-first design.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
@@ -582,47 +554,23 @@
 
             <!-- ── CARD 10: Tic Tac Toe ─────────────────────── -->
             <a href="https://tic-tac-toe-ten-jet-91.vercel.app/" style="text-decoration: none; display: block;">
-                <article class="brand-card brand-bg-tictactoe">
-                    <div class="brand-card-tag">
-                        <span class="brand-tag-pill">Web Game</span>
-                        <span class="brand-tag-pill">JavaScript</span>
+                <article class="brand-card">
+                    <div class="brand-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">tictactoe.play</span>
                     </div>
-                    <div class="brand-mark">
-                        <!-- Tic-tac-toe grid SVG -->
-                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <!-- Grid lines -->
-                            <line x1="28" y1="6" x2="28" y2="74" stroke="rgba(80,220,120,0.6)" stroke-width="2"
-                                stroke-linecap="round" />
-                            <line x1="52" y1="6" x2="52" y2="74" stroke="rgba(80,220,120,0.6)" stroke-width="2"
-                                stroke-linecap="round" />
-                            <line x1="6" y1="28" x2="74" y2="28" stroke="rgba(80,220,120,0.6)" stroke-width="2"
-                                stroke-linecap="round" />
-                            <line x1="6" y1="52" x2="74" y2="52" stroke="rgba(80,220,120,0.6)" stroke-width="2"
-                                stroke-linecap="round" />
-                            <!-- X in top-left -->
-                            <line x1="10" y1="10" x2="22" y2="22" stroke="rgba(255,100,100,0.7)" stroke-width="2"
-                                stroke-linecap="round" />
-                            <line x1="22" y1="10" x2="10" y2="22" stroke="rgba(255,100,100,0.7)" stroke-width="2"
-                                stroke-linecap="round" />
-                            <!-- O in center -->
-                            <circle cx="40" cy="40" r="7" stroke="rgba(255,220,80,0.7)" stroke-width="2" fill="none" />
-                            <!-- X in bottom-right -->
-                            <line x1="58" y1="58" x2="70" y2="70" stroke="rgba(255,100,100,0.6)" stroke-width="2"
-                                stroke-linecap="round" />
-                            <line x1="70" y1="58" x2="58" y2="70" stroke="rgba(255,100,100,0.6)" stroke-width="2"
-                                stroke-linecap="round" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(80,220,120,0.65); margin-top:12px;">
-                            2-PLAYER GAME</div>
-                        <div class="brand-mark-wordmark" style="color:rgba(80,220,120,0.06);">X &amp; O</div>
+                    <div class="brand-screenshot-viewport" style="height: 280px;">
+                        <img src="assets/cover/tic-tac-toe.png" alt="Tic Tac Toe Screenshot" class="brand-screenshot-img">
                     </div>
-                    <div class="brand-card-overlay"></div>
-                    <div class="brand-card-content">
-                        <p class="brand-card-desc">Classic 2-player game with smooth win detection, score tracking &amp;
-                            animated game states.</p>
+                    <div class="brand-card-info">
+                        <div class="brand-card-tag">
+                            <span class="brand-tag-pill">Web Game</span>
+                            <span class="brand-tag-pill">JavaScript</span>
+                        </div>
                         <h2 class="brand-card-title">Tic Tac Toe</h2>
+                        <p class="brand-card-desc">Classic 2-player game with smooth win detection, score tracking &amp; animated game states.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
@@ -630,49 +578,23 @@
 
             <!-- ── CARD 11: Stopwatch Web App ───────────────── -->
             <a href="https://stopwatch-gray-eight-82.vercel.app/" style="text-decoration: none; display: block;">
-                <article class="brand-card brand-bg-stopwatch">
-                    <div class="brand-card-tag">
-                        <span class="brand-tag-pill">Web App</span>
-                        <span class="brand-tag-pill">JavaScript</span>
+                <article class="brand-card">
+                    <div class="brand-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">stopwatch.play</span>
                     </div>
-                    <div class="brand-mark">
-                        <!-- Watch face SVG -->
-                        <svg width="80" height="90" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <!-- Crown stem -->
-                            <rect x="34" y="2" width="12" height="8" rx="2" stroke="rgba(200,200,200,0.6)"
-                                stroke-width="1" fill="rgba(200,200,200,0.05)" />
-                            <!-- Watch case -->
-                            <circle cx="40" cy="50" r="32" stroke="rgba(200,200,200,0.7)" stroke-width="1.5"
-                                fill="rgba(200,200,200,0.04)" />
-                            <circle cx="40" cy="50" r="26" stroke="rgba(200,200,200,0.35)" stroke-width="1"
-                                fill="none" />
-                            <!-- Hour markers -->
-                            <line x1="40" y1="24" x2="40" y2="30" stroke="rgba(200,200,200,0.6)" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <line x1="40" y1="70" x2="40" y2="76" stroke="rgba(200,200,200,0.6)" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <line x1="14" y1="50" x2="20" y2="50" stroke="rgba(200,200,200,0.6)" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <line x1="60" y1="50" x2="66" y2="50" stroke="rgba(200,200,200,0.6)" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <!-- Hands -->
-                            <line x1="40" y1="50" x2="40" y2="30" stroke="rgba(230,57,70,0.9)" stroke-width="1.5"
-                                stroke-linecap="round" />
-                            <line x1="40" y1="50" x2="55" y2="50" stroke="rgba(230,57,70,0.6)" stroke-width="1.2"
-                                stroke-linecap="round" />
-                            <circle cx="40" cy="50" r="2" fill="rgba(230,57,70,0.8)" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(200,200,200,0.55); margin-top:12px;">
-                            PRECISION TIMING</div>
-                        <div class="brand-mark-wordmark" style="color:rgba(200,200,200,0.05);">00:00:00</div>
+                    <div class="brand-screenshot-viewport" style="height: 300px;">
+                        <img src="assets/cover/stopwatch.png" alt="Stopwatch App Screenshot" class="brand-screenshot-img">
                     </div>
-                    <div class="brand-card-overlay"></div>
-                    <div class="brand-card-content">
-                        <p class="brand-card-desc">Precision stopwatch with lap recording, split times &amp; clean
-                            minimal interface design.</p>
+                    <div class="brand-card-info">
+                        <div class="brand-card-tag">
+                            <span class="brand-tag-pill">Web App</span>
+                            <span class="brand-tag-pill">JavaScript</span>
+                        </div>
                         <h2 class="brand-card-title">Stopwatch App</h2>
+                        <p class="brand-card-desc">Precision stopwatch with lap recording, split times &amp; clean minimal interface design.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
