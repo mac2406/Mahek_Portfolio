@@ -37,17 +37,21 @@ img { max-width: 100%; height: auto; }
     /* Show hamburger */
     .nav-hamburger { display: flex; }
 
-    /* Nav becomes a full-width drop-down panel */
+    /* Nav: logo + hamburger ALWAYS on one row, space between */
     .cover-sticky-nav {
         padding: 14px 20px;
-        flex-wrap: nowrap;    /* logo + hamburger on one line */
+        flex-direction: row !important;   /* override collage-enhancements column rule */
+        flex-wrap: nowrap;
         align-items: center;
+        justify-content: space-between;
+        gap: 0;
     }
 
+    /* Links panel: hidden by default, drops below the nav bar */
     .cover-nav-links {
-        display: none;           /* hidden by default */
+        display: none;
         position: fixed;
-        top: 57px;               /* below the nav bar */
+        top: 57px;               /* height of the closed nav bar */
         left: 0;
         right: 0;
         background: rgba(244,241,234,0.97);
