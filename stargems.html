@@ -507,10 +507,10 @@
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    padding: 24px;
+                    padding: 16px 20px;
                     display: flex;
                     flex-direction: column;
-                    gap: 12px;
+                    gap: 8px;
                     background: linear-gradient(135deg, rgba(30, 26, 22, 0.94) 0%, rgba(16, 13, 10, 0.98) 100%);
                     backdrop-filter: blur(12px);
                     -webkit-backdrop-filter: blur(12px);
@@ -530,7 +530,7 @@
                     display: flex;
                     gap: 6px;
                     flex-wrap: wrap;
-                    margin-bottom: 4px;
+                    margin-bottom: 2px;
                 }
 
                 .sg-card-info .sg-tag-pill {
@@ -538,15 +538,15 @@
                     border: 1px solid rgba(244, 162, 97, 0.35);
                     color: #F4A261;
                     font-family: 'Cutive Mono', monospace;
-                    font-size: 0.65rem;
+                    font-size: 0.6rem;
                     letter-spacing: 0.08em;
                     text-transform: uppercase;
-                    padding: 4px 10px;
+                    padding: 3px 8px;
                 }
 
                 .sg-card-info .sg-card-title {
                     font-family: 'Playfair Display', serif;
-                    font-size: 1.7rem;
+                    font-size: 1.3rem;
                     font-weight: 900;
                     color: #ffffff;
                     line-height: 1.2;
@@ -555,11 +555,7 @@
                 }
 
                 .sg-card-info .sg-card-desc {
-                    font-family: 'Cutive Mono', monospace;
-                    font-size: 0.8rem;
-                    color: rgba(255, 255, 255, 0.8);
-                    line-height: 1.5;
-                    margin: 0;
+                    display: none; /* Hide on desktop hover to prevent covering the screenshot */
                 }
 
                 .sg-card-info .sg-card-cta {
@@ -567,11 +563,11 @@
                     align-items: center;
                     gap: 6px;
                     font-family: 'Cutive Mono', monospace;
-                    font-size: 0.78rem;
+                    font-size: 0.72rem;
                     font-weight: 700;
                     color: #000000;
                     background: #ffffff;
-                    padding: 8px 16px;
+                    padding: 6px 12px;
                     text-decoration: none;
                     letter-spacing: 0.05em;
                     text-transform: uppercase;
@@ -579,7 +575,7 @@
                     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
                     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
                     width: fit-content;
-                    margin-top: 6px;
+                    margin-top: 4px;
                 }
 
                 .sg-card-info .sg-card-cta:hover {
