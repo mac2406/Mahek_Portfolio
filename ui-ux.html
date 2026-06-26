@@ -20,16 +20,17 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <style>
-        /* ── Equal Size Card Grid ────────────────────────────────── */
+        /* ── Pinterest-Style Masonry Columns Grid ─────────────────── */
         .uiux-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 36px;
+            column-count: 3;
+            column-gap: 36px;
             padding: 50px 0 20px 0;
+            display: block; /* Override default grid */
         }
 
         /* ── Card Container ──────────────────────────────────────── */
         .brand-card {
+            break-inside: avoid;
             display: flex;
             flex-direction: column;
             background: #ffffff;
@@ -40,7 +41,6 @@
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
             width: 100%;
-            height: 100%;
         }
 
         .brand-card:hover {
@@ -90,42 +90,20 @@
             text-overflow: ellipsis;
         }
 
-        /* ── Scrollable Viewport ─────────────────────────────────── */
+        /* ── Screenshot Viewport ─────────────────────────────────── */
         .brand-screenshot-viewport {
             position: relative;
-            height: 350px; /* Uniform height for equal-sized cards */
-            overflow-y: auto;
-            overflow-x: hidden;
+            overflow: hidden;
             background: #eae6dd;
             display: block;
             border-bottom: 2px solid rgba(0, 0, 0, 0.07);
-            scroll-behavior: smooth;
-        }
-
-        /* Custom Scrollbar */
-        .brand-screenshot-viewport::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .brand-screenshot-viewport::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.02);
-        }
-        
-        .brand-screenshot-viewport::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.12);
-            border-radius: 3px;
-        }
-        
-        .brand-screenshot-viewport::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 0, 0, 0.25);
+            height: auto !important; /* Forces viewport to fit full screenshot height */
         }
 
         .brand-screenshot-img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;
-            object-position: top;
         }
 
         /* ── Card Info Body ──────────────────────────────────────── */
@@ -136,7 +114,6 @@
             gap: 12px;
             background: #ffffff;
             z-index: 2;
-            flex-grow: 1; /* Stretch content area to match card height */
         }
 
         .brand-card-info .brand-card-tag {
@@ -190,7 +167,7 @@
             text-transform: uppercase;
             transition: background 0.2s, color 0.2s;
             width: fit-content;
-            margin-top: auto; /* Push CTA to bottom of card container */
+            margin-top: 6px;
         }
 
         .brand-card-info .brand-card-cta:hover {

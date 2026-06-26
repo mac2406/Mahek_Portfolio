@@ -278,20 +278,20 @@ img {
 /* ── 5. UI/UX PAGE ──────────────────────────────────────────── */
 @media (max-width: 992px) {
     .uiux-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-        gap: 24px !important;
+        column-count: 2 !important;
+        column-gap: 24px !important;
         padding: 0 20px !important;
     }
 }
 
 @media (max-width: 600px) {
     .uiux-grid {
-        grid-template-columns: 1fr !important;
+        column-count: 1 !important;
         padding: 0 16px !important;
     }
 
     .brand-screenshot-viewport {
-        height: 280px !important;
+        height: auto !important;
     }
 }
 
