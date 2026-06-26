@@ -272,22 +272,17 @@
                 chartImg.src = 'https://ghchart.rshah.org/' + USERNAME + '?d=' + today;
             }
 
-            // 2. Fetch live contribution data and sum ALL individual day counts.
-            //    (data.total.lastYear only counts public repos; summing the array
-            //     gives the true total that matches the heatmap displayed.)
-            fetch('https://github-contributions-api.jogruber.de/v4/' + USERNAME + '?y=last')
+            // 2. Fetch real contribution total (public + private) from our
+            //    own Vercel serverless function which uses a secure GitHub token.
+            fetch('/api/github-contributions')
                 .then(function (res) { return res.json(); })
                 .then(function (data) {
-                    if (!data || !Array.isArray(data.contributions)) return;
-                    var total = data.contributions.reduce(function (sum, day) {
-                        return sum + (day.count || 0);
-                    }, 0);
-                    if (countEl) {
-                        countEl.textContent = total.toLocaleString() + ' contributions in the last year';
+                    if (typeof data.total === 'number' && countEl) {
+                        countEl.textContent = data.total.toLocaleString() + ' contributions in the last year';
                     }
                 })
                 .catch(function () {
-                    // Keep the fallback text if the API is unavailable
+                    // Keep the fallback text if the function is unavailable
                 });
         })();
     </script>
