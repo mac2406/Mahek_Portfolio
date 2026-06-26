@@ -334,330 +334,306 @@
 
             <style>
                 .sg-page-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                    gap: 36px;
-                    align-items: stretch;
+                    column-count: 3;
+                    column-gap: 36px;
+                    padding: 40px 0 20px 0;
+                    display: block; /* Override default grid */
                 }
 
                 .sg-page-card {
-                    position: relative;
-                    overflow: hidden;
-                    min-height: 420px;
+                    position: relative; /* Required for absolute overlay positioning */
+                    break-inside: avoid;
                     display: flex;
                     flex-direction: column;
-                    justify-content: flex-end;
+                    background: #ffffff;
                     border: 2px solid rgba(0, 0, 0, 0.07);
-                    transition: transform 0.35s cubic-bezier(.22, .68, 0, 1.2), box-shadow 0.35s ease;
+                    margin-bottom: 36px;
+                    overflow: hidden;
+                    transition: transform 0.3s cubic-bezier(.22, .68, 0, 1.15), box-shadow 0.3s ease;
                     cursor: pointer;
                     text-decoration: none;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+                    width: 100%;
                 }
 
                 .sg-page-card:hover {
-                    transform: translateY(-8px) rotate(-0.5deg);
-                    box-shadow: 14px 22px 36px rgba(0, 0, 0, 0.18);
+                    transform: translateY(-6px) rotate(-0.3deg);
+                    box-shadow: 12px 18px 30px rgba(0, 0, 0, 0.12);
                 }
 
-                .sg-card-mark {
+                /* ── Browser Mockup Header ───────────────────────────────── */
+                .sg-browser-header {
+                    height: 32px;
+                    background: #f0ede6;
+                    border-bottom: 2px solid rgba(0, 0, 0, 0.07);
+                    display: flex;
+                    align-items: center;
+                    padding: 0 14px;
+                    gap: 6px;
+                    position: relative;
+                    flex-shrink: 0;
+                }
+
+                .browser-dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    display: inline-block;
+                }
+
+                .dot-red { background: #ff5f56; }
+                .dot-yellow { background: #ffbd2e; }
+                .dot-green { background: #27c93f; }
+
+                .browser-url {
+                    font-family: 'Cutive Mono', monospace;
+                    font-size: 0.65rem;
+                    color: rgba(0, 0, 0, 0.42);
+                    background: rgba(255, 255, 255, 0.5);
+                    padding: 2px 14px;
+                    border-radius: 4px;
+                    border: 1px solid rgba(0, 0, 0, 0.05);
+                    margin: 0 auto;
                     position: absolute;
-                    inset: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    white-space: nowrap;
+                    max-width: 55%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                /* ── Screenshot Viewport ─────────────────────────────────── */
+                .sg-screenshot-viewport {
+                    position: relative;
+                    overflow: hidden;
+                    background: #eae6dd;
+                    display: block;
+                    border-bottom: 2px solid rgba(0, 0, 0, 0.07);
+                    height: auto !important;
+                }
+
+                .sg-screenshot-img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+
+                /* ── Card Info Body (Hidden by default, slides up on hover) ── */
+                .sg-card-info {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    padding: 24px;
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 40px 24px 110px;
-                    gap: 14px;
+                    gap: 12px;
+                    background: rgba(26, 23, 20, 0.88); /* Premium dark warm background */
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    z-index: 5;
+                    transform: translateY(100%);
+                    opacity: 0;
+                    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
                 }
 
-                .sg-card-overlay {
-                    position: absolute;
-                    inset: 0;
-                    background: linear-gradient(to top,
-                            rgba(0, 0, 0, 0.88) 0%,
-                            rgba(0, 0, 0, 0.42) 45%,
-                            rgba(0, 0, 0, 0.06) 100%);
+                .sg-page-card:hover .sg-card-info {
+                    transform: translateY(0);
+                    opacity: 1;
                 }
 
-                .sg-card-tag {
-                    position: absolute;
-                    top: 16px;
-                    left: 16px;
-                    z-index: 3;
+                .sg-card-info .sg-card-tag {
                     display: flex;
                     gap: 6px;
                     flex-wrap: wrap;
+                    margin-bottom: 4px;
                 }
 
-                .sg-tag-pill {
-                    background: rgba(255, 255, 255, 0.14);
-                    border: 1px solid rgba(255, 255, 255, 0.28);
-                    backdrop-filter: blur(6px);
-                    -webkit-backdrop-filter: blur(6px);
-                    color: #fff;
+                .sg-card-info .sg-tag-pill {
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.18);
+                    color: #eeeeee;
                     font-family: 'Cutive Mono', monospace;
                     font-size: 0.65rem;
-                    letter-spacing: 0.1em;
+                    letter-spacing: 0.08em;
                     text-transform: uppercase;
                     padding: 4px 10px;
                 }
 
-                .sg-card-content {
-                    position: relative;
-                    z-index: 2;
-                    padding: 24px 24px 28px 24px;
-                }
-
-                .sg-card-title {
+                .sg-card-info .sg-card-title {
                     font-family: 'Playfair Display', serif;
-                    font-size: 1.9rem;
+                    font-size: 1.7rem;
                     font-weight: 900;
-                    color: #fff;
-                    line-height: 1.1;
-                    margin: 0 0 8px 0;
-                    letter-spacing: -0.02em;
+                    color: #ffffff;
+                    line-height: 1.2;
+                    margin: 0;
+                    letter-spacing: -0.01em;
                 }
 
-                .sg-card-desc {
+                .sg-card-info .sg-card-desc {
                     font-family: 'Cutive Mono', monospace;
-                    font-size: 0.78rem;
-                    color: rgba(255, 255, 255, 0.72);
-                    line-height: 1.55;
-                    margin: 0 0 18px 0;
+                    font-size: 0.8rem;
+                    color: rgba(255, 255, 255, 0.8);
+                    line-height: 1.5;
+                    margin: 0;
                 }
 
-                .sg-card-cta {
+                .sg-card-info .sg-card-cta {
                     display: inline-flex;
                     align-items: center;
                     gap: 6px;
                     font-family: 'Cutive Mono', monospace;
                     font-size: 0.78rem;
                     font-weight: 700;
-                    color: #000;
-                    background: #fff;
+                    color: #000000;
+                    background: #ffffff;
                     padding: 8px 16px;
                     text-decoration: none;
-                    letter-spacing: 0.06em;
+                    letter-spacing: 0.05em;
                     text-transform: uppercase;
                     transition: background 0.2s, color 0.2s;
+                    width: fit-content;
+                    margin-top: 6px;
                 }
 
-                .sg-card-cta:hover {
+                .sg-card-info .sg-card-cta:hover {
                     background: #E63946;
-                    color: #fff;
+                    color: #ffffff;
                 }
             </style>
 
             <div class="sg-page-grid">
 
                 <!-- ── CARD 1: Ring Studio ───────────────────────────── -->
-                <a href="https://ringstudio.stargems.com/" target="_blank" class="sg-page-card"
-                    style="background: linear-gradient(135deg, #1a0d2e 0%, #2d1060 40%, #1a0a20 100%);">
-                    <div class="sg-card-tag">
-                        <span class="sg-tag-pill">Jewellery</span>
-                        <span class="sg-tag-pill">Live Site</span>
+                <a href="https://ringstudio.stargems.com/" target="_blank" class="sg-page-card">
+                    <div class="sg-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">ringstudio.stargems.com</span>
                     </div>
-                    <div class="sg-card-mark">
-                        <!-- Diamond ring SVG -->
-                        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.6;">
-                            <circle cx="36" cy="36" r="32" stroke="rgba(200,160,255,0.8)" stroke-width="1.5"
-                                fill="none" />
-                            <circle cx="36" cy="36" r="24" stroke="rgba(200,160,255,0.45)" stroke-width="1"
-                                fill="none" />
-                            <path d="M26 36 L36 20 L46 36 L36 52 Z" stroke="rgba(200,160,255,0.7)" stroke-width="1.2"
-                                fill="rgba(200,160,255,0.08)" />
-                            <circle cx="36" cy="36" r="4" fill="rgba(200,160,255,0.5)" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(200,160,255,0.65);">
-                            BESPOKE JEWELLERY</div>
-                        <div
-                            style="font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; color:rgba(200,160,255,0.09); letter-spacing:0.1em; text-transform:uppercase; position:absolute; bottom:90px;">
-                            STUDIO</div>
+                    <div class="sg-screenshot-viewport">
+                        <img src="assets/cover/stargems-cover/ringstudio.png" alt="Ring Studio Screenshot" class="sg-screenshot-img">
                     </div>
-                    <div class="sg-card-overlay"></div>
-                    <div class="sg-card-content">
-                        <p class="sg-card-desc">Custom ring configurator & bespoke jewellery showcase — immersive
-                            product-first design.</p>
+                    <div class="sg-card-info">
+                        <div class="sg-card-tag">
+                            <span class="sg-tag-pill">Jewellery</span>
+                            <span class="sg-tag-pill">Live Site</span>
+                        </div>
                         <h3 class="sg-card-title">Ring Studio</h3>
+                        <p class="sg-card-desc">Custom ring configurator & bespoke jewellery showcase — immersive product-first design.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
 
                 <!-- ── CARD 2: Website Design & SEO ──────────────────── -->
-                <a href="https://stargems.com/website-design-and-seo.aspx" target="_blank" class="sg-page-card"
-                    style="background: linear-gradient(135deg, #0a1a0a 0%, #0e280e 40%, #162816 100%);">
-                    <div class="sg-card-tag">
-                        <span class="sg-tag-pill">Services</span>
-                        <span class="sg-tag-pill">SEO</span>
+                <a href="https://stargems.com/website-design-and-seo.aspx" target="_blank" class="sg-page-card">
+                    <div class="sg-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">stargems.com/website-design</span>
                     </div>
-                    <div class="sg-card-mark">
-                        <!-- Search / growth SVG -->
-                        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <circle cx="30" cy="30" r="20" stroke="rgba(80,220,120,0.8)" stroke-width="1.5"
-                                fill="none" />
-                            <line x1="45" y1="45" x2="64" y2="64" stroke="rgba(80,220,120,0.7)" stroke-width="2.5"
-                                stroke-linecap="round" />
-                            <polyline points="20,36 28,28 36,34 44,20" stroke="rgba(80,220,120,0.6)" stroke-width="1.5"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(80,220,120,0.6);">
-                            WEB DESIGN · SEO</div>
-                        <div
-                            style="font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; color:rgba(80,220,120,0.07); letter-spacing:0.1em; text-transform:uppercase; position:absolute; bottom:90px;">
-                            GROWTH</div>
+                    <div class="sg-screenshot-viewport">
+                        <img src="assets/cover/stargems-cover/website-design.png" alt="Website Design & SEO Screenshot" class="sg-screenshot-img">
                     </div>
-                    <div class="sg-card-overlay"></div>
-                    <div class="sg-card-content">
-                        <p class="sg-card-desc">Landing page showcasing StarGems' web design & SEO services — clear
-                            hierarchy, trust-led layout.</p>
+                    <div class="sg-card-info">
+                        <div class="sg-card-tag">
+                            <span class="sg-tag-pill">Services</span>
+                            <span class="sg-tag-pill">SEO</span>
+                        </div>
                         <h3 class="sg-card-title">Website Design & SEO</h3>
+                        <p class="sg-card-desc">Landing page showcasing StarGems' web design & SEO services — clear hierarchy, trust-led layout.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
 
                 <!-- ── CARD 3: Recent Work ────────────────────────────── -->
-                <a href="https://stargems.com/recent-work.aspx" target="_blank" class="sg-page-card"
-                    style="background: linear-gradient(135deg, #1a0a00 0%, #2e1600 40%, #3a2000 100%);">
-                    <div class="sg-card-tag">
-                        <span class="sg-tag-pill">Portfolio</span>
-                        <span class="sg-tag-pill">Showcase</span>
+                <a href="https://stargems.com/recent-work.aspx" target="_blank" class="sg-page-card">
+                    <div class="sg-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">stargems.com/recent-work</span>
                     </div>
-                    <div class="sg-card-mark">
-                        <!-- Grid / portfolio motif -->
-                        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <rect x="4" y="4" width="28" height="28" rx="2" stroke="rgba(230,180,80,0.8)"
-                                stroke-width="1.5" fill="rgba(230,180,80,0.06)" />
-                            <rect x="40" y="4" width="28" height="28" rx="2" stroke="rgba(230,180,80,0.55)"
-                                stroke-width="1.2" fill="rgba(230,180,80,0.04)" />
-                            <rect x="4" y="40" width="28" height="28" rx="2" stroke="rgba(230,180,80,0.55)"
-                                stroke-width="1.2" fill="rgba(230,180,80,0.04)" />
-                            <rect x="40" y="40" width="28" height="28" rx="2" stroke="rgba(230,180,80,0.35)"
-                                stroke-width="1" fill="rgba(230,180,80,0.03)" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(230,180,80,0.6);">
-                            CLIENT WORK</div>
-                        <div
-                            style="font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; color:rgba(230,180,80,0.07); letter-spacing:0.1em; text-transform:uppercase; position:absolute; bottom:90px;">
-                            WORK</div>
+                    <div class="sg-screenshot-viewport">
+                        <img src="assets/cover/stargems-cover/recent-work.png" alt="Recent Work Screenshot" class="sg-screenshot-img">
                     </div>
-                    <div class="sg-card-overlay"></div>
-                    <div class="sg-card-content">
-                        <p class="sg-card-desc">Curated gallery of client web projects — editorial card layout with
-                            before/after visual proof.</p>
+                    <div class="sg-card-info">
+                        <div class="sg-card-tag">
+                            <span class="sg-tag-pill">Portfolio</span>
+                            <span class="sg-tag-pill">Showcase</span>
+                        </div>
                         <h3 class="sg-card-title">Recent Work</h3>
+                        <p class="sg-card-desc">Curated gallery of client web projects — editorial card layout with before/after visual proof.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
 
                 <!-- ── CARD 4: Register ───────────────────────────────── -->
-                <a href="https://stargems.com/register.aspx?Pg=New" target="_blank" class="sg-page-card"
-                    style="background: linear-gradient(135deg, #0a0a1a 0%, #101028 40%, #1a1a38 100%);">
-                    <div class="sg-card-tag">
-                        <span class="sg-tag-pill">Onboarding</span>
-                        <span class="sg-tag-pill">Form UX</span>
+                <a href="https://stargems.com/register.aspx?Pg=New" target="_blank" class="sg-page-card">
+                    <div class="sg-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">stargems.com/register</span>
                     </div>
-                    <div class="sg-card-mark">
-                        <!-- User / form SVG -->
-                        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <circle cx="36" cy="24" r="12" stroke="rgba(100,160,255,0.8)" stroke-width="1.5"
-                                fill="none" />
-                            <path d="M12 60 C12 46, 20 40, 36 40 C52 40, 60 46, 60 60" stroke="rgba(100,160,255,0.7)"
-                                stroke-width="1.5" fill="none" stroke-linecap="round" />
-                            <line x1="48" y1="36" x2="60" y2="36" stroke="rgba(100,160,255,0.45)" stroke-width="1"
-                                stroke-dasharray="3 3" />
-                            <line x1="48" y1="42" x2="56" y2="42" stroke="rgba(100,160,255,0.3)" stroke-width="1"
-                                stroke-dasharray="3 3" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(100,160,255,0.6);">
-                            NEW USER</div>
-                        <div
-                            style="font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; color:rgba(100,160,255,0.07); letter-spacing:0.1em; text-transform:uppercase; position:absolute; bottom:90px;">
-                            JOIN</div>
+                    <div class="sg-screenshot-viewport">
+                        <img src="assets/cover/stargems-cover/register.png" alt="Register Screenshot" class="sg-screenshot-img">
                     </div>
-                    <div class="sg-card-overlay"></div>
-                    <div class="sg-card-content">
-                        <p class="sg-card-desc">Clean multi-step registration flow — minimal friction, clear field
-                            hierarchy & trust cues.</p>
+                    <div class="sg-card-info">
+                        <div class="sg-card-tag">
+                            <span class="sg-tag-pill">Onboarding</span>
+                            <span class="sg-tag-pill">Form UX</span>
+                        </div>
                         <h3 class="sg-card-title">Register</h3>
+                        <p class="sg-card-desc">Clean multi-step registration flow — minimal friction, clear field hierarchy & trust cues.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
 
                 <!-- ── CARD 5: Video Tutorials ────────────────────────── -->
-                <a href="https://stargems.com/video-tutorials.aspx" target="_blank" class="sg-page-card"
-                    style="background: linear-gradient(135deg, #1a0808 0%, #2e0e0e 40%, #3a1010 100%);">
-                    <div class="sg-card-tag">
-                        <span class="sg-tag-pill">Learning</span>
-                        <span class="sg-tag-pill">Media</span>
+                <a href="https://stargems.com/video-tutorials.aspx" target="_blank" class="sg-page-card">
+                    <div class="sg-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">stargems.com/video-tutorials</span>
                     </div>
-                    <div class="sg-card-mark">
-                        <!-- Play button / video SVG -->
-                        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <circle cx="36" cy="36" r="30" stroke="rgba(230,57,70,0.7)" stroke-width="1.5"
-                                fill="none" />
-                            <circle cx="36" cy="36" r="22" stroke="rgba(230,57,70,0.35)" stroke-width="1"
-                                fill="rgba(230,57,70,0.04)" />
-                            <polygon points="30,26 30,46 50,36" stroke="rgba(230,57,70,0.8)" stroke-width="1.5"
-                                fill="rgba(230,57,70,0.15)" stroke-linejoin="round" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(230,57,70,0.65);">
-                            HOW-TO LIBRARY</div>
-                        <div
-                            style="font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; color:rgba(230,57,70,0.08); letter-spacing:0.1em; text-transform:uppercase; position:absolute; bottom:90px;">
-                            PLAY</div>
+                    <div class="sg-screenshot-viewport">
+                        <img src="assets/cover/stargems-cover/video-tutorials.png" alt="Video Tutorials Screenshot" class="sg-screenshot-img">
                     </div>
-                    <div class="sg-card-overlay"></div>
-                    <div class="sg-card-content">
-                        <p class="sg-card-desc">Video tutorial library with categorised modules — scannable layout
-                            optimised for self-guided learning.</p>
+                    <div class="sg-card-info">
+                        <div class="sg-card-tag">
+                            <span class="sg-tag-pill">Learning</span>
+                            <span class="sg-tag-pill">Media</span>
+                        </div>
                         <h3 class="sg-card-title">Video Tutorials</h3>
+                        <p class="sg-card-desc">Video tutorial library with categorised modules — scannable layout optimised for self-guided learning.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
 
                 <!-- ── CARD 6: FAQs ───────────────────────────────────── -->
-                <a href="https://stargems.com/faqs.aspx" target="_blank" class="sg-page-card"
-                    style="background: linear-gradient(135deg, #111 0%, #1c1c1c 50%, #242424 100%);">
-                    <div class="sg-card-tag">
-                        <span class="sg-tag-pill">Support</span>
-                        <span class="sg-tag-pill">Content</span>
+                <a href="https://stargems.com/faqs.aspx" target="_blank" class="sg-page-card">
+                    <div class="sg-browser-header">
+                        <span class="browser-dot dot-red"></span>
+                        <span class="browser-dot dot-yellow"></span>
+                        <span class="browser-dot dot-green"></span>
+                        <span class="browser-url">stargems.com/faqs</span>
                     </div>
-                    <div class="sg-card-mark">
-                        <!-- Q&A / speech bubble SVG -->
-                        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="opacity:0.55;">
-                            <rect x="6" y="6" width="44" height="36" rx="6" stroke="rgba(200,200,200,0.7)"
-                                stroke-width="1.5" fill="none" />
-                            <path d="M14 42 L10 56 L26 48" stroke="rgba(200,200,200,0.55)" stroke-width="1.2"
-                                fill="none" stroke-linejoin="round" />
-                            <text x="20" y="30" fill="rgba(200,200,200,0.7)" font-size="20" font-family="serif"
-                                font-weight="bold">?</text>
-                            <rect x="36" y="30" width="30" height="24" rx="4" stroke="rgba(200,200,200,0.35)"
-                                stroke-width="1" fill="rgba(200,200,200,0.04)" />
-                            <line x1="42" y1="39" x2="60" y2="39" stroke="rgba(200,200,200,0.4)" stroke-width="1" />
-                            <line x1="42" y1="45" x2="56" y2="45" stroke="rgba(200,200,200,0.3)" stroke-width="1" />
-                        </svg>
-                        <div
-                            style="font-family:'Cutive Mono',monospace; font-size:0.6rem; letter-spacing:0.35em; text-transform:uppercase; color:rgba(200,200,200,0.55);">
-                            HELP CENTRE</div>
-                        <div
-                            style="font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; color:rgba(200,200,200,0.06); letter-spacing:0.1em; text-transform:uppercase; position:absolute; bottom:90px;">
-                            FAQ</div>
+                    <div class="sg-screenshot-viewport">
+                        <img src="assets/cover/stargems-cover/faqs.png" alt="FAQs Screenshot" class="sg-screenshot-img">
                     </div>
-                    <div class="sg-card-overlay"></div>
-                    <div class="sg-card-content">
-                        <p class="sg-card-desc">Structured FAQ hub with accordion-style answers — reduces support load
-                            through clear content design.</p>
+                    <div class="sg-card-info">
+                        <div class="sg-card-tag">
+                            <span class="sg-tag-pill">Support</span>
+                            <span class="sg-tag-pill">Content</span>
+                        </div>
                         <h3 class="sg-card-title">FAQs</h3>
+                        <p class="sg-card-desc">Structured support portal with intuitive categorization and accordion details — optimized for self-service help.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
