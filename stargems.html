@@ -242,8 +242,9 @@
 
     <!-- Sticky Navigation Bar -->
     <nav class="cover-sticky-nav" aria-label="Main navigation">
-        <a href="index.html" class="cover-nav-logo">MG</a>
-        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        <a href="index.html" class="cover-nav-logo">Mahek Gopani</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu"
+            aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="cover-nav-links" id="cover-nav-links">
             <a href="about.html" class="cover-nav-link">About</a>
             <a href="ui-ux.html" class="cover-nav-link">UI/UX</a>
@@ -337,11 +338,13 @@
                     column-count: 3;
                     column-gap: 36px;
                     padding: 40px 0 20px 0;
-                    display: block; /* Override default grid */
+                    display: block;
+                    /* Override default grid */
                 }
 
                 .sg-page-card {
-                    position: relative; /* Required for absolute overlay positioning */
+                    position: relative;
+                    /* Required for absolute overlay positioning */
                     break-inside: avoid;
                     display: flex;
                     flex-direction: column;
@@ -358,12 +361,12 @@
                 }
 
                 /* Alternating card tilts for a handmade collage feel */
-                .sg-page-grid > a:nth-child(odd) .sg-page-card:hover {
+                .sg-page-grid>a:nth-child(odd) .sg-page-card:hover {
                     transform: translateY(-8px) rotate(-0.5deg);
                     box-shadow: 12px 20px 35px rgba(0, 0, 0, 0.12);
                 }
 
-                .sg-page-grid > a:nth-child(even) .sg-page-card:hover {
+                .sg-page-grid>a:nth-child(even) .sg-page-card:hover {
                     transform: translateY(-8px) rotate(0.5deg);
                     box-shadow: -12px 20px 35px rgba(0, 0, 0, 0.12);
                 }
@@ -387,19 +390,22 @@
                 }
 
                 .sg-card-tape-orange {
-                    background: rgba(244, 162, 97, 0.75); /* accent-secondary */
+                    background: rgba(244, 162, 97, 0.75);
+                    /* accent-secondary */
                     transform: rotate(-3deg);
                     left: 20%;
                 }
 
                 .sg-card-tape-green {
-                    background: rgba(139, 168, 136, 0.75); /* scrapbook green */
+                    background: rgba(139, 168, 136, 0.75);
+                    /* scrapbook green */
                     transform: rotate(2.5deg);
                     left: 60%;
                 }
 
                 .sg-card-tape-red {
-                    background: rgba(230, 57, 70, 0.65); /* accent red */
+                    background: rgba(230, 57, 70, 0.65);
+                    /* accent red */
                     transform: rotate(-1.5deg);
                     left: 45%;
                 }
@@ -430,9 +436,17 @@
                     position: relative;
                 }
 
-                .dot-red { background: #ff5f56; }
-                .dot-yellow { background: #ffbd2e; }
-                .dot-green { background: #27c93f; }
+                .dot-red {
+                    background: #ff5f56;
+                }
+
+                .dot-yellow {
+                    background: #ffbd2e;
+                }
+
+                .dot-green {
+                    background: #27c93f;
+                }
 
                 /* Realistic Window Symbols on Hover */
                 .sg-page-card:hover .browser-dot::after {
@@ -442,9 +456,21 @@
                     position: absolute;
                     line-height: 1;
                 }
-                .sg-page-card:hover .dot-red::after { content: '×'; top: 1px; }
-                .sg-page-card:hover .dot-yellow::after { content: '–'; top: 0px; }
-                .sg-page-card:hover .dot-green::after { content: '+'; top: 1px; }
+
+                .sg-page-card:hover .dot-red::after {
+                    content: '×';
+                    top: 1px;
+                }
+
+                .sg-page-card:hover .dot-yellow::after {
+                    content: '–';
+                    top: 0px;
+                }
+
+                .sg-page-card:hover .dot-green::after {
+                    content: '+';
+                    top: 1px;
+                }
 
                 .browser-url {
                     font-family: 'Cutive Mono', monospace;
@@ -467,7 +493,8 @@
                 /* ── Screenshot Viewport ─────────────────────────────────── */
                 .sg-screenshot-viewport {
                     position: relative;
-                    height: 400px; /* Default height */
+                    height: 400px;
+                    /* Default height */
                     overflow-y: auto;
                     overflow-x: hidden;
                     background: #eae6dd;
@@ -507,10 +534,12 @@
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    padding: 14px 18px; /* Compact padding */
+                    padding: 14px 18px;
+                    /* Compact padding */
                     display: flex;
                     flex-direction: column;
-                    gap: 6px; /* Compact gap */
+                    gap: 6px;
+                    /* Compact gap */
                     background: linear-gradient(135deg, rgba(30, 26, 22, 0.94) 0%, rgba(16, 13, 10, 0.98) 100%);
                     backdrop-filter: blur(12px);
                     -webkit-backdrop-filter: blur(12px);
@@ -538,15 +567,18 @@
                     border: 1px solid rgba(244, 162, 97, 0.35);
                     color: #F4A261;
                     font-family: 'Cutive Mono', monospace;
-                    font-size: 0.6rem; /* Compact font */
+                    font-size: 0.6rem;
+                    /* Compact font */
                     letter-spacing: 0.08em;
                     text-transform: uppercase;
-                    padding: 2px 8px; /* Compact padding */
+                    padding: 2px 8px;
+                    /* Compact padding */
                 }
 
                 .sg-card-info .sg-card-title {
                     font-family: 'Playfair Display', serif;
-                    font-size: 1.25rem; /* Compact title size */
+                    font-size: 1.25rem;
+                    /* Compact title size */
                     font-weight: 900;
                     color: #ffffff;
                     line-height: 1.2;
@@ -556,7 +588,8 @@
 
                 .sg-card-info .sg-card-desc {
                     font-family: 'Cutive Mono', monospace;
-                    font-size: 0.72rem; /* Compact description size */
+                    font-size: 0.72rem;
+                    /* Compact description size */
                     color: rgba(255, 255, 255, 0.8);
                     line-height: 1.4;
                     margin: 0;
@@ -567,11 +600,13 @@
                     align-items: center;
                     gap: 4px;
                     font-family: 'Cutive Mono', monospace;
-                    font-size: 0.7rem; /* Compact cta text */
+                    font-size: 0.7rem;
+                    /* Compact cta text */
                     font-weight: 700;
                     color: #000000;
                     background: #ffffff;
-                    padding: 5px 12px; /* Compact cta padding */
+                    padding: 5px 12px;
+                    /* Compact cta padding */
                     text-decoration: none;
                     letter-spacing: 0.05em;
                     text-transform: uppercase;
@@ -592,7 +627,7 @@
 
             <div class="sg-page-grid">
 
-                 <!-- ── CARD 1: Ring Studio ───────────────────────────── -->
+                <!-- ── CARD 1: Ring Studio ───────────────────────────── -->
                 <a href="https://ringstudio.stargems.com/" target="_blank" class="sg-page-card">
                     <div class="sg-card-tape sg-card-tape-orange"></div>
                     <div class="sg-browser-header">
@@ -602,7 +637,8 @@
                         <span class="browser-url">ringstudio.stargems.com</span>
                     </div>
                     <div class="sg-screenshot-viewport" style="height: 480px;">
-                        <img src="assets/cover/stargems-cover/ringstudio.png" alt="Ring Studio Screenshot" class="sg-screenshot-img">
+                        <img src="assets/cover/stargems-cover/ringstudio.png" alt="Ring Studio Screenshot"
+                            class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
                         <div class="sg-card-tag">
@@ -610,7 +646,8 @@
                             <span class="sg-tag-pill">Live Site</span>
                         </div>
                         <h3 class="sg-card-title">Ring Studio</h3>
-                        <p class="sg-card-desc">Custom ring configurator & bespoke jewellery showcase — immersive product-first design.</p>
+                        <p class="sg-card-desc">Custom ring configurator & bespoke jewellery showcase — immersive
+                            product-first design.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
@@ -625,7 +662,8 @@
                         <span class="browser-url">stargems.com/website-design</span>
                     </div>
                     <div class="sg-screenshot-viewport" style="height: 400px;">
-                        <img src="assets/cover/stargems-cover/website-design.png" alt="Website Design & SEO Screenshot" class="sg-screenshot-img">
+                        <img src="assets/cover/stargems-cover/website-design.png" alt="Website Design & SEO Screenshot"
+                            class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
                         <div class="sg-card-tag">
@@ -633,7 +671,8 @@
                             <span class="sg-tag-pill">SEO</span>
                         </div>
                         <h3 class="sg-card-title">Website Design & SEO</h3>
-                        <p class="sg-card-desc">Landing page showcasing StarGems' web design & SEO services — clear hierarchy, trust-led layout.</p>
+                        <p class="sg-card-desc">Landing page showcasing StarGems' web design & SEO services — clear
+                            hierarchy, trust-led layout.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
@@ -648,7 +687,8 @@
                         <span class="browser-url">stargems.com/recent-work</span>
                     </div>
                     <div class="sg-screenshot-viewport" style="height: 440px;">
-                        <img src="assets/cover/stargems-cover/recent-work.png" alt="Recent Work Screenshot" class="sg-screenshot-img">
+                        <img src="assets/cover/stargems-cover/recent-work.png" alt="Recent Work Screenshot"
+                            class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
                         <div class="sg-card-tag">
@@ -656,7 +696,8 @@
                             <span class="sg-tag-pill">Showcase</span>
                         </div>
                         <h3 class="sg-card-title">Recent Work</h3>
-                        <p class="sg-card-desc">Curated gallery of client web projects — editorial card layout with before/after visual proof.</p>
+                        <p class="sg-card-desc">Curated gallery of client web projects — editorial card layout with
+                            before/after visual proof.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
@@ -671,7 +712,8 @@
                         <span class="browser-url">stargems.com/register</span>
                     </div>
                     <div class="sg-screenshot-viewport" style="height: 380px;">
-                        <img src="assets/cover/stargems-cover/register.png" alt="Register Screenshot" class="sg-screenshot-img">
+                        <img src="assets/cover/stargems-cover/register.png" alt="Register Screenshot"
+                            class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
                         <div class="sg-card-tag">
@@ -679,7 +721,8 @@
                             <span class="sg-tag-pill">Form UX</span>
                         </div>
                         <h3 class="sg-card-title">Register</h3>
-                        <p class="sg-card-desc">Clean multi-step registration flow — minimal friction, clear field hierarchy & trust cues.</p>
+                        <p class="sg-card-desc">Clean multi-step registration flow — minimal friction, clear field
+                            hierarchy & trust cues.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
@@ -694,7 +737,8 @@
                         <span class="browser-url">stargems.com/video-tutorials</span>
                     </div>
                     <div class="sg-screenshot-viewport" style="height: 450px;">
-                        <img src="assets/cover/stargems-cover/video-tutorials.png" alt="Video Tutorials Screenshot" class="sg-screenshot-img">
+                        <img src="assets/cover/stargems-cover/video-tutorials.png" alt="Video Tutorials Screenshot"
+                            class="sg-screenshot-img">
                     </div>
                     <div class="sg-card-info">
                         <div class="sg-card-tag">
@@ -702,7 +746,8 @@
                             <span class="sg-tag-pill">Media</span>
                         </div>
                         <h3 class="sg-card-title">Video Tutorials</h3>
-                        <p class="sg-card-desc">Video tutorial library with categorised modules — scannable layout optimised for self-guided learning.</p>
+                        <p class="sg-card-desc">Video tutorial library with categorised modules — scannable layout
+                            optimised for self-guided learning.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>
@@ -725,7 +770,8 @@
                             <span class="sg-tag-pill">Content</span>
                         </div>
                         <h3 class="sg-card-title">FAQs</h3>
-                        <p class="sg-card-desc">Structured support portal with intuitive categorization and accordion details — optimized for self-service help.</p>
+                        <p class="sg-card-desc">Structured support portal with intuitive categorization and accordion
+                            details — optimized for self-service help.</p>
                         <span class="sg-card-cta">Visit Live ↗</span>
                     </div>
                 </a>

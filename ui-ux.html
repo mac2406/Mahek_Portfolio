@@ -25,12 +25,14 @@
             column-count: 3;
             column-gap: 36px;
             padding: 50px 0 20px 0;
-            display: block; /* Override default grid */
+            display: block;
+            /* Override default grid */
         }
 
         /* ── Card Container ──────────────────────────────────────── */
         .brand-card {
-            position: relative; /* Required for absolute overlay positioning */
+            position: relative;
+            /* Required for absolute overlay positioning */
             break-inside: avoid;
             display: flex;
             flex-direction: column;
@@ -46,12 +48,12 @@
         }
 
         /* Alternating card tilts for a handmade collage feel */
-        .uiux-grid > a:nth-child(odd) .brand-card:hover {
+        .uiux-grid>a:nth-child(odd) .brand-card:hover {
             transform: translateY(-8px) rotate(-0.5deg);
             box-shadow: 12px 20px 35px rgba(0, 0, 0, 0.12);
         }
 
-        .uiux-grid > a:nth-child(even) .brand-card:hover {
+        .uiux-grid>a:nth-child(even) .brand-card:hover {
             transform: translateY(-8px) rotate(0.5deg);
             box-shadow: -12px 20px 35px rgba(0, 0, 0, 0.12);
         }
@@ -76,9 +78,17 @@
             display: inline-block;
         }
 
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
+        .dot-red {
+            background: #ff5f56;
+        }
+
+        .dot-yellow {
+            background: #ffbd2e;
+        }
+
+        .dot-green {
+            background: #27c93f;
+        }
 
         .browser-url {
             font-family: 'Cutive Mono', monospace;
@@ -105,7 +115,8 @@
             background: #eae6dd;
             display: block;
             border-bottom: 2px solid rgba(0, 0, 0, 0.07);
-            height: auto !important; /* Forces viewport to fit full screenshot height */
+            height: auto !important;
+            /* Forces viewport to fit full screenshot height */
         }
 
         .brand-screenshot-img {
@@ -120,10 +131,12 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 14px 18px; /* Compact padding */
+            padding: 14px 18px;
+            /* Compact padding */
             display: flex;
             flex-direction: column;
-            gap: 6px; /* Compact gap */
+            gap: 6px;
+            /* Compact gap */
             background: linear-gradient(135deg, rgba(30, 26, 22, 0.94) 0%, rgba(16, 13, 10, 0.98) 100%);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -151,15 +164,18 @@
             border: 1px solid rgba(244, 162, 97, 0.35);
             color: #F4A261;
             font-family: 'Cutive Mono', monospace;
-            font-size: 0.6rem; /* Compact font */
+            font-size: 0.6rem;
+            /* Compact font */
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            padding: 2px 8px; /* Compact padding */
+            padding: 2px 8px;
+            /* Compact padding */
         }
 
         .brand-card-info .brand-card-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.25rem; /* Compact title size */
+            font-size: 1.25rem;
+            /* Compact title size */
             font-weight: 900;
             color: #ffffff;
             line-height: 1.2;
@@ -169,7 +185,8 @@
 
         .brand-card-info .brand-card-desc {
             font-family: 'Cutive Mono', monospace;
-            font-size: 0.72rem; /* Compact description size */
+            font-size: 0.72rem;
+            /* Compact description size */
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.4;
             margin: 0;
@@ -180,11 +197,13 @@
             align-items: center;
             gap: 4px;
             font-family: 'Cutive Mono', monospace;
-            font-size: 0.7rem; /* Compact cta text */
+            font-size: 0.7rem;
+            /* Compact cta text */
             font-weight: 700;
             color: #000000;
             background: #ffffff;
-            padding: 5px 12px; /* Compact cta padding */
+            padding: 5px 12px;
+            /* Compact cta padding */
             text-decoration: none;
             letter-spacing: 0.05em;
             text-transform: uppercase;
@@ -290,7 +309,7 @@
 
     <!-- Sticky Navigation Bar -->
     <nav class="cover-sticky-nav" aria-label="Main navigation">
-        <a href="index.html" class="cover-nav-logo">MG</a>
+        <a href="index.html" class="cover-nav-logo">Mahek Gopani</a>
         <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu"
             aria-expanded="false"><span></span><span></span><span></span></button>
         <div class="cover-nav-links" id="cover-nav-links">
@@ -326,7 +345,8 @@
                         <span class="browser-url">vault.stargems.com</span>
                     </div>
                     <div class="brand-screenshot-viewport" style="height: 355px;">
-                        <img src="assets/cover/stargems.png" alt="StarGems Dashboard Screenshot" class="brand-screenshot-img">
+                        <img src="assets/cover/stargems.png" alt="StarGems Dashboard Screenshot"
+                            class="brand-screenshot-img">
                     </div>
                     <div class="brand-card-info">
                         <div class="brand-card-tag">
@@ -334,7 +354,8 @@
                             <span class="brand-tag-pill">Dashboard</span>
                         </div>
                         <h2 class="brand-card-title">StarGems Inc.</h2>
-                        <p class="brand-card-desc">Diamond &amp; jewellery management suite — pricing, inventory &amp; market analytics.</p>
+                        <p class="brand-card-desc">Diamond &amp; jewellery management suite — pricing, inventory &amp;
+                            market analytics.</p>
                         <span class="brand-card-cta">View Case Study →</span>
                     </div>
                 </article>
@@ -350,7 +371,8 @@
                         <span class="browser-url">shallotsaustin.com</span>
                     </div>
                     <div class="brand-screenshot-viewport" style="height: 320px;">
-                        <img src="assets/cover/shallots.png" alt="Shallots Restaurant Screenshot" class="brand-screenshot-img">
+                        <img src="assets/cover/shallots.png" alt="Shallots Restaurant Screenshot"
+                            class="brand-screenshot-img">
                     </div>
                     <div class="brand-card-info">
                         <div class="brand-card-tag">
@@ -358,14 +380,16 @@
                             <span class="brand-tag-pill">Live Site</span>
                         </div>
                         <h2 class="brand-card-title">Shallots Restaurant</h2>
-                        <p class="brand-card-desc">Premium dining website for Austin's modern Indian cuisine restaurant — immersive &amp; warm.</p>
+                        <p class="brand-card-desc">Premium dining website for Austin's modern Indian cuisine restaurant
+                            — immersive &amp; warm.</p>
                         <span class="brand-card-cta">Visit Website ↗</span>
                     </div>
                 </article>
             </a>
 
             <!-- ── CARD 3: Gym Landing Page ───────────────────── -->
-            <a href="https://gym-landing-page-seven-psi.vercel.app/" target="_blank" style="text-decoration: none; display: block;">
+            <a href="https://gym-landing-page-seven-psi.vercel.app/" target="_blank"
+                style="text-decoration: none; display: block;">
                 <article class="brand-card">
                     <div class="brand-browser-header">
                         <span class="browser-dot dot-red"></span>
@@ -382,7 +406,8 @@
                             <span class="brand-tag-pill">Live Site</span>
                         </div>
                         <h2 class="brand-card-title">Gym Landing Page</h2>
-                        <p class="brand-card-desc">High-energy conversion landing page with bold type systems &amp; responsive membership tiers.</p>
+                        <p class="brand-card-desc">High-energy conversion landing page with bold type systems &amp;
+                            responsive membership tiers.</p>
                         <span class="brand-card-cta">Explore Live ↗</span>
                     </div>
                 </article>
@@ -398,7 +423,8 @@
                         <span class="browser-url">borthwickjewelry.com</span>
                     </div>
                     <div class="brand-screenshot-viewport" style="height: 360px;">
-                        <img src="assets/cover/borthwick-jewelry.png" alt="Borthwick Jewelry Screenshot" class="brand-screenshot-img">
+                        <img src="assets/cover/borthwick-jewelry.png" alt="Borthwick Jewelry Screenshot"
+                            class="brand-screenshot-img">
                     </div>
                     <div class="brand-card-info">
                         <div class="brand-card-tag">
@@ -406,7 +432,8 @@
                             <span class="brand-tag-pill">Jewelry</span>
                         </div>
                         <h2 class="brand-card-title">Borthwick Jewelry</h2>
-                        <p class="brand-card-desc">Elegant jewelry brand website — bespoke collections, refined aesthetics &amp; luxury storytelling.</p>
+                        <p class="brand-card-desc">Elegant jewelry brand website — bespoke collections, refined
+                            aesthetics &amp; luxury storytelling.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
@@ -423,7 +450,8 @@
                         <span class="browser-url">rockysdiamonds.com</span>
                     </div>
                     <div class="brand-screenshot-viewport" style="height: 380px;">
-                        <img src="assets/cover/rockys.png" alt="Rocky's Diamond Screenshot" class="brand-screenshot-img">
+                        <img src="assets/cover/rockys.png" alt="Rocky's Diamond Screenshot"
+                            class="brand-screenshot-img">
                     </div>
                     <div class="brand-card-info">
                         <div class="brand-card-tag">
@@ -431,7 +459,8 @@
                             <span class="brand-tag-pill">Diamond</span>
                         </div>
                         <h2 class="brand-card-title">Rocky's Diamond</h2>
-                        <p class="brand-card-desc">Diamond retail platform with sophisticated navigation, gem filtering &amp; trust-driven UI.</p>
+                        <p class="brand-card-desc">Diamond retail platform with sophisticated navigation, gem filtering
+                            &amp; trust-driven UI.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
@@ -447,7 +476,8 @@
                         <span class="browser-url">jeffersonej.com</span>
                     </div>
                     <div class="brand-screenshot-viewport" style="height: 340px;">
-                        <img src="assets/cover/jefferson.webp" alt="Jefferson Website Screenshot" class="brand-screenshot-img">
+                        <img src="assets/cover/jefferson.webp" alt="Jefferson Website Screenshot"
+                            class="brand-screenshot-img">
                     </div>
                     <div class="brand-card-info">
                         <div class="brand-card-tag">
@@ -455,7 +485,8 @@
                             <span class="brand-tag-pill">Brand</span>
                         </div>
                         <h2 class="brand-card-title">Jefferson Website</h2>
-                        <p class="brand-card-desc">Clean, authoritative brand website with structured layouts &amp; confident visual identity.</p>
+                        <p class="brand-card-desc">Clean, authoritative brand website with structured layouts &amp;
+                            confident visual identity.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
@@ -533,7 +564,8 @@
             </a> -->
 
             <!-- ── CARD 9: Responsive Portfolio ───────────────── -->
-            <a href="https://portfolio-website-theta-eosin-97.vercel.app/" style="text-decoration: none; display: block;">
+            <a href="https://portfolio-website-theta-eosin-97.vercel.app/"
+                style="text-decoration: none; display: block;">
                 <article class="brand-card">
                     <div class="brand-browser-header">
                         <span class="browser-dot dot-red"></span>
@@ -542,7 +574,8 @@
                         <span class="browser-url">mahekgopani.com</span>
                     </div>
                     <div class="brand-screenshot-viewport" style="height: 430px;">
-                        <img src="assets/cover/portfolio-website.png" alt="Responsive Portfolio Screenshot" class="brand-screenshot-img">
+                        <img src="assets/cover/portfolio-website.png" alt="Responsive Portfolio Screenshot"
+                            class="brand-screenshot-img">
                     </div>
                     <div class="brand-card-info">
                         <div class="brand-card-tag">
@@ -550,7 +583,8 @@
                             <span class="brand-tag-pill">Responsive</span>
                         </div>
                         <h2 class="brand-card-title">Responsive Portfolio</h2>
-                        <p class="brand-card-desc">Fully responsive portfolio website built from scratch — fluid layouts, mobile-first design.</p>
+                        <p class="brand-card-desc">Fully responsive portfolio website built from scratch — fluid
+                            layouts, mobile-first design.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
@@ -566,7 +600,8 @@
                         <span class="browser-url">tictactoe.play</span>
                     </div>
                     <div class="brand-screenshot-viewport" style="height: 280px;">
-                        <img src="assets/cover/tic-tac-toe.png" alt="Tic Tac Toe Screenshot" class="brand-screenshot-img">
+                        <img src="assets/cover/tic-tac-toe.png" alt="Tic Tac Toe Screenshot"
+                            class="brand-screenshot-img">
                     </div>
                     <div class="brand-card-info">
                         <div class="brand-card-tag">
@@ -574,7 +609,8 @@
                             <span class="brand-tag-pill">JavaScript</span>
                         </div>
                         <h2 class="brand-card-title">Tic Tac Toe</h2>
-                        <p class="brand-card-desc">Classic 2-player game with smooth win detection, score tracking &amp; animated game states.</p>
+                        <p class="brand-card-desc">Classic 2-player game with smooth win detection, score tracking &amp;
+                            animated game states.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
@@ -590,7 +626,8 @@
                         <span class="browser-url">stopwatch.play</span>
                     </div>
                     <div class="brand-screenshot-viewport" style="height: 300px;">
-                        <img src="assets/cover/stopwatch.png" alt="Stopwatch App Screenshot" class="brand-screenshot-img">
+                        <img src="assets/cover/stopwatch.png" alt="Stopwatch App Screenshot"
+                            class="brand-screenshot-img">
                     </div>
                     <div class="brand-card-info">
                         <div class="brand-card-tag">
@@ -598,7 +635,8 @@
                             <span class="brand-tag-pill">JavaScript</span>
                         </div>
                         <h2 class="brand-card-title">Stopwatch App</h2>
-                        <p class="brand-card-desc">Precision stopwatch with lap recording, split times &amp; clean minimal interface design.</p>
+                        <p class="brand-card-desc">Precision stopwatch with lap recording, split times &amp; clean
+                            minimal interface design.</p>
                         <span class="brand-card-cta">View Project →</span>
                     </div>
                 </article>
