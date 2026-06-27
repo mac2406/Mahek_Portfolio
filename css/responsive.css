@@ -261,20 +261,6 @@ img {
     }
 }
 
-@media (max-width: 768px) {
-
-    /* GitHub contributions panel inside about */
-    #gh-chart-img {
-        min-width: unset;
-        width: 100%;
-    }
-
-    /* GitHub panel wrapper */
-    .about-collage-container>div[style*="background: #161b22"] {
-        padding: 12px;
-    }
-}
-
 /* ── 5. UI/UX PAGE ──────────────────────────────────────────── */
 @media (max-width: 992px) {
     .uiux-grid {
