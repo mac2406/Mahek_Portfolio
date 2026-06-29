@@ -171,10 +171,13 @@ img {
         right: 4vw;
     }
 
-    /* Screaming mouth sticker */
-    .screaming-mouth-sticker {
-        width: 110px;
-        height: 110px;
+    /* Cover sticker (Screaming mouth / Funky laptop / Spidey) */
+    .screaming-mouth-sticker,
+    .funky-laptop-sticker,
+    .spidey-sticker {
+        width: 130px;
+        height: auto;
+        max-height: 130px;
         right: 4vw;
         bottom: 80px;
     }
