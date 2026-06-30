@@ -473,7 +473,7 @@
     padding: 10px 24px;
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 2.2rem;
+    font-size: 3rem;
     transform: rotate(-3deg);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: -10px;
@@ -486,8 +486,8 @@
     background: #fff;
     padding: 24px 60px;
     font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 5.5rem;
+    font-weight: 400;
+    font-size: 4.5rem;
     line-height: 1;
     color: #000;
     transform: rotate(1deg);
@@ -503,8 +503,8 @@
     background: #fffdf0;
     padding: 8px 30px;
     font-family: var(--font-heading);
-    font-weight: 400;
-    font-size: 2.2rem;
+    font-weight: 800;
+    font-size: 3rem;
     color: #222;
     transform: rotate(-2deg);
     box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.15);
